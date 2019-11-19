@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ControlFlowApp</string>
     <string name="et_nilai_hint">Nilai</string>
+    <string name="show_title">Show</string>
 </resources>
