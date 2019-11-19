@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         etNilai.setText("100")
         btnShow.setOnClickListener {
-            Toast.makeText(this, "Click", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, etNilai.text, Toast.LENGTH_LONG).show()
         }
     }
 }
