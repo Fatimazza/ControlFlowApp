@@ -13,10 +13,12 @@ class MainActivity : AppCompatActivity() {
         etNilai.setText("0")
         btnShow.setOnClickListener {
             val angka = etNilai.text.toString().toInt()
-            val hitungPangkat = angka * angka
-
-            tvHasil.text = hitungPangkat.toString()
-            tvHasil.text = "Hasilnya: $hitungPangkat"
+            hitungPangkat(angka)
         }
+    }
+
+    fun hitungPangkat(angka: Int) {
+        val hitungPangkat = angka * angka
+        tvHasil.text = "Hasilnya: $hitungPangkat"
     }
 }
