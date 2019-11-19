@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -11,9 +12,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        etNilai.setText("100")
+        etNilai.setText("0")
         btnShow.setOnClickListener {
-            Toast.makeText(this, etNilai.text, Toast.LENGTH_LONG).show()
+            //TODO: dikasih operasi perpangkatan
+
+            val angka = etNilai.text.toString().toInt()
+            val hitungPangkat = angka * angka
+
+            Toast.makeText(this, hitungPangkat.toString(), Toast.LENGTH_LONG).show()
         }
     }
 }
