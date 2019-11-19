@@ -12,8 +12,10 @@ class MainActivity : AppCompatActivity() {
 
         etNilai.setText("0")
         btnShow.setOnClickListener {
-            val angka = etNilai.text.toString().toInt()
-            hitungPangkat(angka)
+            if (etNilai.text.isNotEmpty()) {
+                val angka = etNilai.text.toString().toInt()
+                hitungPangkat(angka)
+            }
         }
     }
 
