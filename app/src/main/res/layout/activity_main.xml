@@ -23,4 +23,6 @@
         android:text="@string/show_title"
         android:background="@color/colorPrimary" />
 
+    <!-- TODO: 1 Add Text -->
+
 </LinearLayout>
