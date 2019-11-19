@@ -14,11 +14,8 @@ class MainActivity : AppCompatActivity() {
 
         etNilai.setText("0")
         btnShow.setOnClickListener {
-            //TODO: dikasih operasi perpangkatan
-
             val angka = etNilai.text.toString().toInt()
             val hitungPangkat = angka * angka
-
             Toast.makeText(this, hitungPangkat.toString(), Toast.LENGTH_LONG).show()
         }
     }
