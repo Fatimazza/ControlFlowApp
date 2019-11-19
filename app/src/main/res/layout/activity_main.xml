@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="8dp"
     tools:context=".MainActivity">
 
     <EditText
@@ -23,6 +24,13 @@
         android:text="@string/show_title"
         android:background="@color/colorPrimary" />
 
-    <!-- TODO: 1 Add Text -->
+    <TextView
+        android:id="@+id/tvHasil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="35sp"
+        android:text="Hasilnya: " />
 
 </LinearLayout>
