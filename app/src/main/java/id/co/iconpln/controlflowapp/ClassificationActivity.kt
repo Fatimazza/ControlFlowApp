@@ -17,6 +17,13 @@ class ClassificationActivity : AppCompatActivity() {
     }
 
     fun doClassification(nilai: Int) {
-        tvClassificationHasil.text = "Hasilnya: Anda Lulus"
+        var hasil = ""
+        when(nilai) {
+            in 0..70 -> { hasil = "Hasilnya: Anda Belum Lulus" }
+            in 71..80 -> { hasil = "Hasilnya: Anda Lulus Aja" }
+            in 81..100 -> { hasil = "Hasilnya: Anda Lulus Banget" }
+            !in 0..100 -> { hasil = "Hasilnya: Nilai Error" }
+        }
+        tvClassificationHasil.text = hasil
     }
 }
