@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
@@ -28,7 +27,8 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(calculationIntent)
             }
             R.id.btnClassification -> {
-                Toast.makeText(this, "Classification", Toast.LENGTH_SHORT).show()
+                val classificationIntent = Intent(this, ClassificationActivity::class.java)
+                startActivity(classificationIntent)
             }
         }
     }
