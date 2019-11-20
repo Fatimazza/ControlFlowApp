@@ -24,6 +24,13 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        when (view.id) {
+            R.id.btnCalculation -> {
+
+            }
+            R.id.btnClassification -> {
+
+            }
+        }
     }
 }
