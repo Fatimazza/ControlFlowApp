@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_classification.*
 
 class ClassificationActivity : AppCompatActivity() {
@@ -12,6 +13,16 @@ class ClassificationActivity : AppCompatActivity() {
 
         etClassificationNilai.setText("0")
         btnClassificationShow.setOnClickListener {
+            checkField()
+        }
+    }
+
+    fun checkField() {
+        if (etClassificationNilai.text.isNullOrEmpty()) {
+            Toast.makeText(this, "Nilai tidak boleh kosong", Toast.LENGTH_SHORT).show()
+        } else if (etClassificationNilai.text.toString().toInt() > 1000) {
+            Toast.makeText(this, "Nilai tidak boleh lebih dari 1000", Toast.LENGTH_SHORT).show()
+        } else {
             doClassification(etClassificationNilai.text.toString().toInt())
         }
     }
