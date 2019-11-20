@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">ControlFlowApp</string>
     <string name="et_nilai_hint">Nilai</string>
-    <string name="show_title">Show</string>
+    <string name="classification_title">Klasifikasi Nilai</string>
+    <string name="square_calculation_title">Hitung Pangkat</string>
 </resources>
