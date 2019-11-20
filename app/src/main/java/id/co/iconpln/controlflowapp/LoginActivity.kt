@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkBlankLoginField() {
+        tvLoginStatus.text = resources.getString(R.string.status_login_title)
         when {
             etLoginUsername.text.isBlank() -> etLoginUsername.error = "Tidak boleh kosong"
             etLoginPassword.text.isBlank() -> etLoginPassword.error = "Tidak boleh kosong"
