@@ -3,4 +3,8 @@
     <string name="et_nilai_hint">Nilai</string>
     <string name="classification_title">Klasifikasi Nilai</string>
     <string name="square_calculation_title">Hitung Pangkat</string>
+    <string name="email_field">Email</string>
+    <string name="password_field">Password</string>
+    <string name="login_title">Login</string>
+    <string name="status_login_title">Status Login: -</string>
 </resources>

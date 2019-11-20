@@ -13,27 +13,27 @@
         android:id="@+id/etLoginUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email" />
+        android:hint="@string/email_field" />
 
     <EditText
         android:id="@+id/etLoginPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="@string/password_field"
         android:layout_below="@id/etLoginUsername" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/login_title"
         android:layout_below="@id/etLoginPassword" />
 
     <TextView
         android:id="@+id/tvLoginStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Status Login: - "
+        android:text="@string/status_login_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:layout_below="@id/btnLogin" />
 
