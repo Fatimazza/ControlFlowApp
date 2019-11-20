@@ -12,7 +12,11 @@ class ClassificationActivity : AppCompatActivity() {
 
         etClassificationNilai.setText("0")
         btnClassificationShow.setOnClickListener {
-            
+            doClassification(etClassificationNilai.text.toString().toInt())
         }
+    }
+
+    fun doClassification(nilai: Int) {
+        tvClassificationHasil.text = "Hasilnya: Anda Lulus"
     }
 }
