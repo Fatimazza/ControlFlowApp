@@ -51,7 +51,7 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun execute(x: Int, operation: Operation) :Int {
+    private fun execute(x: Long, operation: Operation) :Long {
         return when (operation) {
             is Operation.Add -> operation.value + x
             is Operation.Divide -> operation.value / x
