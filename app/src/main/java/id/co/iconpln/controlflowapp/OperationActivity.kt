@@ -22,7 +22,7 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
         btnOpSubstract.setOnClickListener(this)
         btnOpMultiply.setOnClickListener(this)
         btnOpDivide.setOnClickListener(this)
-        btnOpOperation.setOnClickListener(this)
+        btnOpReset.setOnClickListener(this)
     }
 
     private fun getInputNumbers() {
@@ -62,8 +62,11 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
                 val divideResult = execute(inputX, divide)
                 tvOperationResult.text = divideResult.toString()
             }
-            R.id.btnOpOperation -> {
-
+            R.id.btnOpReset -> {
+                tvOperator.text = ""
+                etBilanganX.setText("0")
+                etBilanganY.setText("0")
+                tvOperationResult.text = "0"
             }
         }
     }
