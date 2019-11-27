@@ -7,11 +7,15 @@ import kotlinx.android.synthetic.main.activity_operation.*
 
 class OperationActivity : AppCompatActivity(), View.OnClickListener {
 
+    private var inputX: Long = 0
+    private var inputY: Long = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_operation)
 
         setButtonClickListener()
+        getInputNumbers()
     }
 
     private fun setButtonClickListener() {
@@ -20,6 +24,11 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
         btnOpMultiply.setOnClickListener(this)
         btnOpDivide.setOnClickListener(this)
         btnOpOperation.setOnClickListener(this)
+    }
+
+    private fun getInputNumbers() {
+        inputX = etBilanganX.text.toString().toLong()
+        inputY = etBilanganY.text.toString().toLong()
     }
 
     override fun onClick(view: View) {
