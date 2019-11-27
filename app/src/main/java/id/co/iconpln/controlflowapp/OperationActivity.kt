@@ -27,8 +27,10 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun getInputNumbers() {
-        inputX = etBilanganX.text.toString().toLong()
-        inputY = etBilanganY.text.toString().toLong()
+        if (etBilanganX.text?.isNotEmpty() == true || etBilanganY.text?.isNotEmpty() == true) {
+            inputX = etBilanganX.text.toString().toLong()
+            inputY = etBilanganY.text.toString().toLong()
+        }
     }
 
     override fun onClick(view: View) {
