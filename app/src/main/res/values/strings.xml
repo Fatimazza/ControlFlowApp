@@ -10,4 +10,8 @@
     <string name="operation_inputx">Bilangan X:</string>
     <string name="operation_inputy">Bilangan Y:</string>
     <string name="operation_calculate">Calculate</string>
+    <string name="operation_add">+</string>
+    <string name="operation_substract">-</string>
+    <string name="operation_multiply">x</string>
+    <string name="operation_divide">:</string>
 </resources>

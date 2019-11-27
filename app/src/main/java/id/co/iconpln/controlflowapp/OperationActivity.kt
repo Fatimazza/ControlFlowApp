@@ -35,24 +35,28 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when (view.id) {
             R.id.btnOpAdd -> {
+                tvOperator.text = resources.getString(R.string.operation_add)
                 getInputNumbers()
                 val add = Operation.Add(inputY)
                 val addResult = execute(inputX, add)
                 tvOperationResult.text = addResult.toString()
             }
             R.id.btnOpSubstract -> {
+                tvOperator.text = resources.getString(R.string.operation_substract)
                 getInputNumbers()
                 val substract = Operation.Substract(inputY)
                 val substractResult = execute(inputX, substract)
                 tvOperationResult.text = substractResult.toString()
             }
             R.id.btnOpMultiply -> {
+                tvOperator.text = resources.getString(R.string.operation_multiply)
                 getInputNumbers()
                 val multiply = Operation.Multiply(inputY)
                 val multiplyResult = execute(inputX, multiply)
                 tvOperationResult.text = multiplyResult.toString()
             }
             R.id.btnOpDivide -> {
+                tvOperator.text = resources.getString(R.string.operation_divide)
                 getInputNumbers()
                 val divide = Operation.Divide(inputY)
                 val divideResult = execute(inputX, divide)
