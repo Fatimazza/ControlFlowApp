@@ -37,29 +37,29 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnOpAdd -> {
                 tvOperator.text = resources.getString(R.string.operation_add)
                 getInputNumbers()
-                val add = Operation.Add(inputY)
-                val addResult = execute(inputX, add)
+                val add = Operation.Add(inputX)
+                val addResult = execute(inputY, add)
                 tvOperationResult.text = addResult.toString()
             }
             R.id.btnOpSubstract -> {
                 tvOperator.text = resources.getString(R.string.operation_substract)
                 getInputNumbers()
-                val substract = Operation.Substract(inputY)
-                val substractResult = execute(inputX, substract)
+                val substract = Operation.Substract(inputX)
+                val substractResult = execute(inputY, substract)
                 tvOperationResult.text = substractResult.toString()
             }
             R.id.btnOpMultiply -> {
                 tvOperator.text = resources.getString(R.string.operation_multiply)
                 getInputNumbers()
-                val multiply = Operation.Multiply(inputY)
-                val multiplyResult = execute(inputX, multiply)
+                val multiply = Operation.Multiply(inputX)
+                val multiplyResult = execute(inputY, multiply)
                 tvOperationResult.text = multiplyResult.toString()
             }
             R.id.btnOpDivide -> {
                 tvOperator.text = resources.getString(R.string.operation_divide)
                 getInputNumbers()
-                val divide = Operation.Divide(inputY)
-                val divideResult = execute(inputX, divide)
+                val divide = Operation.Divide(inputX)
+                val divideResult = execute(inputY, divide)
                 tvOperationResult.text = divideResult.toString()
             }
             R.id.btnOpReset -> {
