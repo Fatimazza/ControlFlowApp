@@ -2,12 +2,44 @@ package id.co.iconpln.controlflowapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import kotlinx.android.synthetic.main.activity_operation.*
 
-class OperationActivity : AppCompatActivity() {
+class OperationActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_operation)
+
+        setButtonClickListener()
+    }
+
+    private fun setButtonClickListener() {
+        btnOpAdd.setOnClickListener(this)
+        btnOpSubstract.setOnClickListener(this)
+        btnOpMultiply.setOnClickListener(this)
+        btnOpDivide.setOnClickListener(this)
+        btnOpOperation.setOnClickListener(this)
+    }
+
+    override fun onClick(view: View) {
+        when (view.id) {
+            R.id.btnOpAdd -> {
+
+            }
+            R.id.btnOpSubstract -> {
+
+            }
+            R.id.btnOpMultiply -> {
+
+            }
+            R.id.btnOpDivide -> {
+
+            }
+            R.id.btnOpOperation -> {
+
+            }
+        }
     }
 
     private fun execute(x: Int, operation: Operation) :Int {

@@ -74,6 +74,7 @@
         android:layout_marginBottom="8dp" >
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnOpAdd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -81,6 +82,7 @@
             android:text="+" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnOpSubstract"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -88,6 +90,7 @@
             android:text="-" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnOpMultiply"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -95,6 +98,7 @@
             android:text="x" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnOpDivide"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -104,7 +108,7 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnOperation"
+        android:id="@+id/btnOpOperation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/operation_calculate" />
