@@ -20,6 +20,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnClassification.setOnClickListener(this)
         btnLogin.setOnClickListener(this)
         btnOperation.setOnClickListener(this)
+        btnStyle.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
