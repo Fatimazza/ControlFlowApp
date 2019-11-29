@@ -40,6 +40,10 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 val operationIntent = Intent(this, OperationActivity::class.java)
                 startActivity(operationIntent)
             }
+            R.id.btnStyle -> {
+                val styleIntent = Intent(this, StyleActivity::class.java)
+                startActivity(styleIntent)
+            }
         }
     }
 }

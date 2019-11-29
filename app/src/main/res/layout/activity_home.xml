@@ -31,4 +31,10 @@
         android:layout_height="wrap_content"
         android:text="Operation" />
 
+    <Button
+        android:id="@+id/btnStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Style" />
+
 </LinearLayout>
