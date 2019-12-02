@@ -22,6 +22,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnOperation.setOnClickListener(this)
         btnStyle.setOnClickListener(this)
         btnActivity.setOnClickListener(this)
+        btnStackActivity.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -47,6 +48,10 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(styleIntent)
             }
             R.id.btnActivity -> {
+                val demoIntent = Intent(this, DemoActivity::class.java)
+                startActivity(demoIntent)
+            }
+            R.id.btnStackActivity -> {
                 val demoIntent = Intent(this, DemoActivity::class.java)
                 startActivity(demoIntent)
             }
