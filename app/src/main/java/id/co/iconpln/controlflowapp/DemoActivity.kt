@@ -31,6 +31,11 @@ class DemoActivity : AppCompatActivity() {
         Log.d("Izza", " - - on Stop")
     }
 
+    override fun onRestart() {
+        super.onRestart()
+        Log.d("Izza", " - - on Restart")
+    }
+
     override fun onDestroy() {
         Log.d("Izza", " - - on Destroy")
         super.onDestroy()
