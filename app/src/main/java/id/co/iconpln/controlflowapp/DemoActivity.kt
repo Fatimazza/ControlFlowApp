@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 
 class DemoActivity : AppCompatActivity() {
 
@@ -12,21 +13,26 @@ class DemoActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        Log.d("Izza", " - - on Start")
     }
 
     override fun onResume() {
         super.onResume()
+        Log.d("Izza", " - - on Resume")
     }
 
     override fun onPause() {
         super.onPause()
+        Log.d("Izza", " - - on Pause")
     }
 
     override fun onStop() {
         super.onStop()
+        Log.d("Izza", " - - on Stop")
     }
 
     override fun onDestroy() {
+        Log.d("Izza", " - - on Destroy")
         super.onDestroy()
     }
 }
