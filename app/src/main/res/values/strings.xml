@@ -38,4 +38,10 @@
     <string name="buy">Beli</string>
     <string name="dummy_value">$735</string>
     <string name="dummy_photos">6 photos</string>
+
+    <string name="width">Lebar</string>
+    <string name="height">Tinggi</string>
+    <string name="length">Panjang</string>
+    <string name="result">Hasil</string>
+    <string name="calculate">Hitung</string>
 </resources>
