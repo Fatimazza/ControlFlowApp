@@ -22,7 +22,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnOperation.setOnClickListener(this)
         btnStyle.setOnClickListener(this)
         btnActivity.setOnClickListener(this)
-        btnStackActivity.setOnClickListener(this)
+        btnVolumeActivity.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -51,9 +51,9 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 val demoIntent = Intent(this, DemoActivity::class.java)
                 startActivity(demoIntent)
             }
-            R.id.btnStackActivity -> {
-                val demoIntent = Intent(this, DemoActivity::class.java)
-                startActivity(demoIntent)
+            R.id.btnVolumeActivity -> {
+                val volumeIntent = Intent(this, VolumeActivity::class.java)
+                startActivity(volumeIntent)
             }
         }
     }

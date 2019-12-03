@@ -44,9 +44,9 @@
         android:text="Activity" />
 
     <Button
-        android:id="@+id/btnStackActivity"
+        android:id="@+id/btnVolumeActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Stack Activity" />
+        android:text="Volume" />
 
 </LinearLayout>
