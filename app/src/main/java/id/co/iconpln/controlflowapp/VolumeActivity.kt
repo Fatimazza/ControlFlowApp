@@ -25,8 +25,6 @@ class VolumeActivity : AppCompatActivity() {
     private val etHeight: EditText
         get() = edt_height
 
-    private var volumeResult: Int = 0
-
     private lateinit var volumeViewModel: VolumeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +41,7 @@ class VolumeActivity : AppCompatActivity() {
     }
 
     private fun displayResult() {
-        tvResult.text = volumeResult.toString()
+        tvResult.text = volumeViewModel.volumeResult.toString()
     }
 
     private fun setClickListener() {
@@ -57,14 +55,10 @@ class VolumeActivity : AppCompatActivity() {
                 width.isEmpty() -> etWidth.error = "Empty Field"
                 height.isEmpty() -> etHeight.error = "Empty Field"
                 else -> {
-                    calculate(length, width, height)
+                    volumeViewModel.calculate(length, width, height)
                     displayResult()
                 }
             }
         }
-    }
-
-    fun calculate(length: String, width: String, height: String) {
-        volumeResult = Integer.parseInt(length) * Integer.parseInt(width) * Integer.parseInt(height)
     }
 }
