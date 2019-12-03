@@ -24,8 +24,14 @@ class VolumeActivity : AppCompatActivity() {
     private val etHeight: EditText
         get() = edt_height
 
+    private var volumeResult: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_volume)
+    }
+
+    fun calculate(length: String, width: String, height: String) {
+        volumeResult = Integer.parseInt(length) * Integer.parseInt(width) * Integer.parseInt(height)
     }
 }
