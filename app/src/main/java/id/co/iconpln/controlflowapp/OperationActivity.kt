@@ -11,8 +11,6 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
     private var inputX: Long = 0
     private var inputY: Long = 0
 
-    private var operationResult: Long = 0
-
     lateinit var operationViewModel: OperationViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +27,7 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun displayResult() {
-        tvOperationResult.text = operationResult.toString()
+        tvOperationResult.text = operationViewModel.operationResult.toString()
     }
 
     private fun setButtonClickListener() {
@@ -84,15 +82,6 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
                 operationResult = 0
                 displayResult()
             }
-        }
-    }
-
-    private fun execute(x: Long, operation: Operation) :Long {
-        return when (operation) {
-            is Operation.Add -> operation.value + x
-            is Operation.Divide -> operation.value / x
-            is Operation.Multiply -> operation.value * x
-            is Operation.Substract -> operation.value - x
         }
     }
 }
