@@ -27,6 +27,7 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun displayResult() {
+        tvOperator.text = operationViewModel.operation
         tvOperationResult.text = operationViewModel.operationResult.toString()
     }
 
@@ -48,35 +49,35 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when (view.id) {
             R.id.btnOpAdd -> {
-                tvOperator.text = resources.getString(R.string.operation_add)
+                operationViewModel.operation = resources.getString(R.string.operation_add)
                 getInputNumbers()
                 val add = Operation.Add(inputX)
                 operationViewModel.execute(inputY, add)
                 displayResult()
             }
             R.id.btnOpSubstract -> {
-                tvOperator.text = resources.getString(R.string.operation_substract)
+                operationViewModel.operation = resources.getString(R.string.operation_substract)
                 getInputNumbers()
                 val substract = Operation.Substract(inputX)
                 operationViewModel.execute(inputY, substract)
                 displayResult()
             }
             R.id.btnOpMultiply -> {
-                tvOperator.text = resources.getString(R.string.operation_multiply)
+                operationViewModel.operation = resources.getString(R.string.operation_multiply)
                 getInputNumbers()
                 val multiply = Operation.Multiply(inputX)
                 operationViewModel.execute(inputY, multiply)
                 displayResult()
             }
             R.id.btnOpDivide -> {
-                tvOperator.text = resources.getString(R.string.operation_divide)
+                operationViewModel.operation = resources.getString(R.string.operation_divide)
                 getInputNumbers()
                 val divide = Operation.Divide(inputX)
                 operationViewModel.execute(inputY, divide)
                 displayResult()
             }
             R.id.btnOpReset -> {
-                tvOperator.text = ""
+                operationViewModel.operation = ""
                 etBilanganX.setText("0")
                 etBilanganY.setText("0")
                 operationViewModel.operationResult = 0

@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 
 class OperationViewModel: ViewModel() {
 
+    var operation: String = ""
+
     var operationResult: Long = 0
 
     fun execute(x: Long, operation: Operation) {
