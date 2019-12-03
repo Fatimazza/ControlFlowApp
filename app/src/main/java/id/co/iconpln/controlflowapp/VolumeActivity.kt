@@ -31,10 +31,30 @@ class VolumeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_volume)
         
         displayResult()
+        setClickListener()
     }
 
     private fun displayResult() {
         tvResult.text = volumeResult.toString()
+    }
+
+    private fun setClickListener() {
+        btnCalculate.setOnClickListener {
+            val length = etLength.text.toString()
+            val width = etWidth.text.toString()
+            val height = etHeight.text.toString()
+
+            if (length.isEmpty()) {
+                etLength.error = "Empty Field"
+            } else if (width.isEmpty()) {
+                etWidth.error = "Empty Field"
+            } else if (height.isEmpty()) {
+                etHeight.error = "Empty Field"
+            } else {
+                calculate(length, width, height)
+                displayResult()
+            }
+        }
     }
 
     fun calculate(length: String, width: String, height: String) {
