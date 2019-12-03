@@ -29,6 +29,12 @@ class VolumeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_volume)
+        
+        displayResult()
+    }
+
+    private fun displayResult() {
+        tvResult.text = volumeResult.toString()
     }
 
     fun calculate(length: String, width: String, height: String) {
