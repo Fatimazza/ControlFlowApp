@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_volume.*
 
 class VolumeActivity : AppCompatActivity() {
@@ -26,12 +27,19 @@ class VolumeActivity : AppCompatActivity() {
 
     private var volumeResult: Int = 0
 
+    private lateinit var volumeViewModel: VolumeViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_volume)
-        
+
+        initViewModel()
         displayResult()
         setClickListener()
+    }
+
+    private fun initViewModel() {
+        volumeViewModel = ViewModelProviders.of(this).get(VolumeViewModel::class.java)
     }
 
     private fun displayResult() {
