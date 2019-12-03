@@ -3,6 +3,7 @@ package id.co.iconpln.controlflowapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_operation.*
 
 class OperationActivity : AppCompatActivity(), View.OnClickListener {
@@ -12,12 +13,19 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
 
     private var operationResult: Long = 0
 
+    lateinit var operationViewModel: OperationViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_operation)
 
+        initViewModel()
         displayResult()
         setButtonClickListener()
+    }
+
+    private fun initViewModel() {
+        operationViewModel = ViewModelProviders.of(this).get(OperationViewModel::class.java)
     }
 
     private fun displayResult() {
