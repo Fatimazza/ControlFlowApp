@@ -51,35 +51,35 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
                 tvOperator.text = resources.getString(R.string.operation_add)
                 getInputNumbers()
                 val add = Operation.Add(inputX)
-                operationResult = execute(inputY, add)
+                operationViewModel.execute(inputY, add)
                 displayResult()
             }
             R.id.btnOpSubstract -> {
                 tvOperator.text = resources.getString(R.string.operation_substract)
                 getInputNumbers()
                 val substract = Operation.Substract(inputX)
-                operationResult = execute(inputY, substract)
+                operationViewModel.execute(inputY, substract)
                 displayResult()
             }
             R.id.btnOpMultiply -> {
                 tvOperator.text = resources.getString(R.string.operation_multiply)
                 getInputNumbers()
                 val multiply = Operation.Multiply(inputX)
-                operationResult = execute(inputY, multiply)
+                operationViewModel.execute(inputY, multiply)
                 displayResult()
             }
             R.id.btnOpDivide -> {
                 tvOperator.text = resources.getString(R.string.operation_divide)
                 getInputNumbers()
                 val divide = Operation.Divide(inputX)
-                operationResult = execute(inputY, divide)
+                operationViewModel.execute(inputY, divide)
                 displayResult()
             }
             R.id.btnOpReset -> {
                 tvOperator.text = ""
                 etBilanganX.setText("0")
                 etBilanganY.setText("0")
-                operationResult = 0
+                operationViewModel.operationResult = 0
                 displayResult()
             }
         }

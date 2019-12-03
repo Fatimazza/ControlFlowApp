@@ -6,13 +6,12 @@ class OperationViewModel: ViewModel() {
 
     var operationResult: Long = 0
 
-    fun execute(x: Long, operation: Operation) :Long {
-        return when (operation) {
-            is Operation.Add -> operation.value + x
-            is Operation.Divide -> operation.value / x
-            is Operation.Multiply -> operation.value * x
-            is Operation.Substract -> operation.value - x
+    fun execute(x: Long, operation: Operation) {
+        when (operation) {
+            is Operation.Add -> operationResult = operation.value + x
+            is Operation.Divide -> operationResult = operation.value / x
+            is Operation.Multiply -> operationResult = operation.value * x
+            is Operation.Substract -> operationResult = operation.value - x
         }
     }
-    
 }
