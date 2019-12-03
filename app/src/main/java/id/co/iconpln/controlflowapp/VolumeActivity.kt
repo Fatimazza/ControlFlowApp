@@ -44,15 +44,14 @@ class VolumeActivity : AppCompatActivity() {
             val width = etWidth.text.toString()
             val height = etHeight.text.toString()
 
-            if (length.isEmpty()) {
-                etLength.error = "Empty Field"
-            } else if (width.isEmpty()) {
-                etWidth.error = "Empty Field"
-            } else if (height.isEmpty()) {
-                etHeight.error = "Empty Field"
-            } else {
-                calculate(length, width, height)
-                displayResult()
+            when {
+                length.isEmpty() -> etLength.error = "Empty Field"
+                width.isEmpty() -> etWidth.error = "Empty Field"
+                height.isEmpty() -> etHeight.error = "Empty Field"
+                else -> {
+                    calculate(length, width, height)
+                    displayResult()
+                }
             }
         }
     }
