@@ -16,6 +16,7 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
 
         btnMoveActivity.setOnClickListener(this)
         btnMoveActivityData.setOnClickListener(this)
+        btnMoveActivityDataBundle.setOnClickListener(this)
         btnMoveActivityObject.setOnClickListener(this)
         btnDialNumber.setOnClickListener(this)
         btnMoveForResult.setOnClickListener(this)
@@ -33,6 +34,9 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 moveIntentWithData.putExtra(IntentMoveDataActivity.EXTRA_NAME, "Fatimazza")
                 moveIntentWithData.putExtra(IntentMoveDataActivity.EXTRA_AGE, 17)
                 startActivity(moveIntentWithData)
+            }
+            R.id.btnMoveActivityDataBundle -> {
+
             }
             R.id.btnMoveActivityObject -> {
                 val person = Person("Izza", 27, "mail@gmail.com", "Yogya")
