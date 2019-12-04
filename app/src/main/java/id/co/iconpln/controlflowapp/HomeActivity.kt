@@ -57,8 +57,8 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(volumeIntent)
             }
             R.id.btnIntent -> {
-                val volumeIntent = Intent(this, VolumeActivity::class.java)
-                startActivity(volumeIntent)
+                val intent = Intent(this, IntentActivity::class.java)
+                startActivity(intent)
             }
         }
     }
