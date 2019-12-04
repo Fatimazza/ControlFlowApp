@@ -1,5 +1,6 @@
 package id.co.iconpln.controlflowapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -22,7 +23,8 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when(view.id) {
             R.id.btnMoveActivity -> {
-
+                val moveIntent = Intent(this, StyleActivity::class.java)
+                startActivity(moveIntent)
             }
             R.id.btnMoveActivityData -> {
 
