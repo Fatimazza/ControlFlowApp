@@ -11,7 +11,7 @@ class IntentMoveObjectActivity : AppCompatActivity() {
         const val EXTRA_PERSON = "extra_person"
     }
 
-    private var person = Person()
+    private lateinit var person: Person
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,7 @@ class IntentMoveObjectActivity : AppCompatActivity() {
     }
 
     private fun getIntentExtras() {
-        // person = intent.getParcelableExtra<Person>(EXTRA_PERSON)
+        person = intent.getParcelableExtra<Person>(EXTRA_PERSON)
     }
 
     private fun showData() {
