@@ -1,6 +1,7 @@
 package id.co.iconpln.controlflowapp
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -40,7 +41,9 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(moveIntentWithObject)
             }
             R.id.btnDialNumber -> {
-
+                val phoneNumber = "081234567890"
+                val dialPhoneIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber"))
+                startActivity(dialPhoneIntent)
             }
             R.id.btnMoveForResult -> {
 
