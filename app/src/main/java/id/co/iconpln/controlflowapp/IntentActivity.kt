@@ -36,7 +36,12 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(moveIntentWithData)
             }
             R.id.btnMoveActivityDataBundle -> {
-
+                val moveIntentWithBundle = Intent(this, IntentMoveBundle::class.java)
+                val bundle = Bundle()
+                bundle.putString(IntentMoveBundle.EXTRA_BUNDLE_NAME, "Izza Kece")
+                bundle.putInt(IntentMoveBundle.EXTRA_BUNDLE_AGE, 27)
+                moveIntentWithBundle.putExtras(bundle)
+                startActivity(moveIntentWithBundle)
             }
             R.id.btnMoveActivityObject -> {
                 val person = Person("Izza", 27, "mail@gmail.com", "Yogya")
