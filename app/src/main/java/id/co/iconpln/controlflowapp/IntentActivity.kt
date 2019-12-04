@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import id.co.iconpln.controlflowapp.model.Person
 import kotlinx.android.synthetic.main.activity_intent.*
 
 class IntentActivity : AppCompatActivity(), View.OnClickListener {
@@ -33,7 +34,10 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(moveIntentWithData)
             }
             R.id.btnMoveActivityObject -> {
-
+                val person = Person("Izza", 27, "mail@gmail.com", "Yogya")
+                val moveIntentWithObject = Intent(this, IntentMoveObjectActivity::class.java)
+                moveIntentWithObject.putExtra(IntentMoveObjectActivity.EXTRA_PERSON, person)
+                startActivity(moveIntentWithObject)
             }
             R.id.btnDialNumber -> {
 
