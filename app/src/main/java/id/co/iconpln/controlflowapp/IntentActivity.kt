@@ -27,7 +27,10 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(moveIntent)
             }
             R.id.btnMoveActivityData -> {
-
+                val moveIntentWithData = Intent(this, IntentMoveDataActivity::class.java)
+                moveIntentWithData.putExtra(IntentMoveDataActivity.EXTRA_NAME, "Fatimazza")
+                moveIntentWithData.putExtra(IntentMoveDataActivity.EXTRA_AGE, 17)
+                startActivity(moveIntentWithData)
             }
             R.id.btnMoveActivityObject -> {
 
