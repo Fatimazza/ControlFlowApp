@@ -77,7 +77,7 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 val sendSmsIntent = Intent(Intent.ACTION_SENDTO, sendSms)
                 sendSmsIntent.putExtra("sms_body", message)
 
-                if (intent.resolveActivity(packageManager) != null) {
+                if (sendSmsIntent.resolveActivity(packageManager) != null) {
                     startActivity(sendSmsIntent)
                 }
             }
@@ -87,7 +87,7 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 val showMap = Uri.parse("geo: $latitude, $longitude")
 
                 val showMapIntent = Intent(Intent.ACTION_VIEW, showMap)
-                if (intent.resolveActivity(packageManager) != null) {
+                if (showMapIntent.resolveActivity(packageManager) != null) {
                     startActivity(showMapIntent)
                 }
             }
