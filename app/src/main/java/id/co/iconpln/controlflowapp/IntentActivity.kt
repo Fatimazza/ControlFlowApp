@@ -22,6 +22,7 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
         btnMoveActivityObject.setOnClickListener(this)
         btnDialNumber.setOnClickListener(this)
         btnOpenWeb.setOnClickListener(this)
+        btnSendSms.setOnClickListener(this)
         btnMoveForResult.setOnClickListener(this)
 
     }
@@ -65,6 +66,9 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 if (intent.resolveActivity(packageManager) != null) {
                     startActivity(openWebIntent)
                 }
+            }
+            R.id.btnSendSms -> {
+                
             }
             R.id.btnMoveForResult -> {
                 val moveIntentForResult = Intent(this, IntentMoveResultActivity::class.java)
