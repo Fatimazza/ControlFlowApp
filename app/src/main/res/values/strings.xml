@@ -49,7 +49,7 @@
     <string name="move_with_data">Pindah Activity dengan Data</string>
     <string name="move_with_data_bundle">Pindah Activity dengan Data Bundle</string>
     <string name="move_with_object">Pindah Activity dengan Object</string>
-    <string name="dial_number">Buat Panggilan</string>
+    <string name="dial_number">Implicit Dial Phone</string>
     <string name="move_with_result">Pindah Activity untuk Result</string>
     <string name="result_from_activity">Hasil dari Activity</string>
     <string name="choose_number">Pilih angka yang kamu suka</string>
