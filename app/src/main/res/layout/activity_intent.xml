@@ -59,6 +59,12 @@
         android:text="@string/implicit_show_map" />
 
     <Button
+        android:id="@+id/btnShareText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/implicit_share_text" />
+
+    <Button
         android:id="@+id/btnMoveForResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

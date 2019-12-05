@@ -24,6 +24,7 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
         btnOpenWeb.setOnClickListener(this)
         btnSendSms.setOnClickListener(this)
         btnShowMap.setOnClickListener(this)
+        btnShareText.setOnClickListener(this)
         btnMoveForResult.setOnClickListener(this)
 
     }
@@ -89,6 +90,9 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 if (intent.resolveActivity(packageManager) != null) {
                     startActivity(showMapIntent)
                 }
+            }
+            R.id.btnShareText -> {
+
             }
             R.id.btnMoveForResult -> {
                 val moveIntentForResult = Intent(this, IntentMoveResultActivity::class.java)
