@@ -58,7 +58,9 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(dialPhoneIntent)
             }
             R.id.btnOpenWeb -> {
-                
+                val webpage = Uri.parse("https://www.binar.co.id/")
+                val openWebIntent = Intent(Intent.ACTION_VIEW, webpage)
+                startActivity(openWebIntent)
             }
             R.id.btnMoveForResult -> {
                 val moveIntentForResult = Intent(this, IntentMoveResultActivity::class.java)
