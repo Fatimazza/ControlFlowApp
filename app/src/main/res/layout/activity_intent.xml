@@ -53,6 +53,12 @@
         android:text="@string/implicit_send_sms" />
 
     <Button
+        android:id="@+id/btnShowMap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/implicit_show_map" />
+
+    <Button
         android:id="@+id/btnMoveForResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -52,6 +52,7 @@
     <string name="implicit_dial_number">Implicit Dial Phone</string>
     <string name="implicit_open_web">Implicit Open Web</string>
     <string name="implicit_send_sms">Implicit Send Sms</string>
+    <string name="implicit_show_map">Implicit Show Map</string>
     <string name="move_with_result">Pindah Activity untuk Result</string>
     <string name="result_from_activity">Hasil dari Activity</string>
     <string name="choose_number">Pilih angka yang kamu suka</string>
