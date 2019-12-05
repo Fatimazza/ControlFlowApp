@@ -55,12 +55,16 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnDialNumber -> {
                 val phoneNumber = "081234567890"
                 val dialPhoneIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber"))
-                startActivity(dialPhoneIntent)
+                if (intent.resolveActivity(packageManager) != null) {
+                    startActivity(dialPhoneIntent)
+                }
             }
             R.id.btnOpenWeb -> {
                 val webpage = Uri.parse("https://www.binar.co.id/")
                 val openWebIntent = Intent(Intent.ACTION_VIEW, webpage)
-                startActivity(openWebIntent)
+                if (intent.resolveActivity(packageManager) != null) {
+                    startActivity(openWebIntent)
+                }
             }
             R.id.btnMoveForResult -> {
                 val moveIntentForResult = Intent(this, IntentMoveResultActivity::class.java)
