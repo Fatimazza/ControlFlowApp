@@ -21,6 +21,7 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
         btnMoveActivityDataBundle.setOnClickListener(this)
         btnMoveActivityObject.setOnClickListener(this)
         btnDialNumber.setOnClickListener(this)
+        btnOpenWeb.setOnClickListener(this)
         btnMoveForResult.setOnClickListener(this)
 
     }
@@ -55,6 +56,9 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 val phoneNumber = "081234567890"
                 val dialPhoneIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber"))
                 startActivity(dialPhoneIntent)
+            }
+            R.id.btnOpenWeb -> {
+                
             }
             R.id.btnMoveForResult -> {
                 val moveIntentForResult = Intent(this, IntentMoveResultActivity::class.java)

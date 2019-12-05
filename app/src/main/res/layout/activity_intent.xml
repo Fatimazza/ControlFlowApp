@@ -38,13 +38,13 @@
         android:id="@+id/btnDialNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/dial_number" />
+        android:text="@string/implicit_dial_number" />
 
     <Button
-        android:id="@+id/btnDialNumber"
+        android:id="@+id/btnOpenWeb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/dial_number" />
+        android:text="@string/implicit_open_web" />
 
     <Button
         android:id="@+id/btnMoveForResult"
