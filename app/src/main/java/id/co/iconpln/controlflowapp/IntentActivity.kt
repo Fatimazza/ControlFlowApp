@@ -68,7 +68,16 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             R.id.btnSendSms -> {
-                
+                val phonenumber = "08123456789"
+                val sendSms = Uri.parse("smsto: $phonenumber")
+                val message = "Halo, Ini Izza kece"
+
+                val sendSmsIntent = Intent(Intent.ACTION_SENDTO, sendSms)
+                sendSmsIntent.putExtra("sms_body", message)
+
+                if (intent.resolveActivity(packageManager) != null) {
+                    startActivity(sendSmsIntent)
+                }
             }
             R.id.btnMoveForResult -> {
                 val moveIntentForResult = Intent(this, IntentMoveResultActivity::class.java)

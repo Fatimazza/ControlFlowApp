@@ -50,7 +50,7 @@
         android:id="@+id/btnSendSms"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/implicit_open_web" />
+        android:text="@string/implicit_send_sms" />
 
     <Button
         android:id="@+id/btnMoveForResult"
