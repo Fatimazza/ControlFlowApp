@@ -81,7 +81,14 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             R.id.btnShowMap -> {
+                val latitude = "47.6"
+                val longitude = "-122.3"
+                val showMap = Uri.parse("geo: $latitude, $longitude")
 
+                val showMapIntent = Intent(Intent.ACTION_VIEW, showMap)
+                if (intent.resolveActivity(packageManager) != null) {
+                    startActivity(showMapIntent)
+                }
             }
             R.id.btnMoveForResult -> {
                 val moveIntentForResult = Intent(this, IntentMoveResultActivity::class.java)
