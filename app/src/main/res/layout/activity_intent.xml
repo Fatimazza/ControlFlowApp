@@ -14,28 +14,24 @@
         android:id="@+id/btnMoveActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:text="@string/move_activity" />
 
     <Button
         android:id="@+id/btnMoveActivityData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:text="@string/move_with_data" />
 
     <Button
         android:id="@+id/btnMoveActivityDataBundle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:text="@string/move_with_data_bundle" />
 
     <Button
         android:id="@+id/btnMoveActivityObject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:text="@string/move_with_object" />
 
     <Button
