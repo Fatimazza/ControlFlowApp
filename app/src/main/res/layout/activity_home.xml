@@ -1,58 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".HomeActivity">
+    android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnCalculation"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hitung Pangkat" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".HomeActivity">
 
-    <Button
-        android:id="@+id/btnClassification"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Klasifikasi Nilai" />
+        <Button
+            android:id="@+id/btnCalculation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hitung Pangkat" />
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login" />
+        <Button
+            android:id="@+id/btnClassification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Klasifikasi Nilai" />
 
-    <Button
-        android:id="@+id/btnOperation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Operation" />
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login" />
 
-    <Button
-        android:id="@+id/btnStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Style" />
+        <Button
+            android:id="@+id/btnOperation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Operation" />
 
-    <Button
-        android:id="@+id/btnActivity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Activity" />
+        <Button
+            android:id="@+id/btnStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Style" />
 
-    <Button
-        android:id="@+id/btnVolumeActivity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Volume" />
+        <Button
+            android:id="@+id/btnActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Activity" />
 
-    <Button
-        android:id="@+id/btnIntent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Intent" />
+        <Button
+            android:id="@+id/btnVolumeActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Volume" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnIntent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Intent" />
+
+    </LinearLayout>
+    
+</ScrollView>
+
