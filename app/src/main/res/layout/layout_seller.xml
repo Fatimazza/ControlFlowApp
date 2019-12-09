@@ -22,9 +22,11 @@
         android:id="@+id/ivConsSeller"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        app:srcCompat="@drawable/ic_launcher_foreground"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="61dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvConsSeller"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <TextView
         android:id="@+id/tvConsProfile"
