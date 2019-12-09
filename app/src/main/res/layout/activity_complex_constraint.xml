@@ -39,4 +39,12 @@
         app:layout_constraintTop_toTopOf="@+id/ivConsPhone"
         app:layout_constraintVertical_bias="1.0" />
 
+    <TextView
+        android:id="@+id/tvConsPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/dummy_value"
+        android:textColor="@android:color/black"
+        android:textSize="32sp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
