@@ -30,12 +30,16 @@
 
     <TextView
         android:id="@+id/tvConsProfile"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="@string/my_name"
         android:textColor="@android:color/black"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="140dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/ivConsSeller"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/ivConsSeller"
+        app:layout_constraintTop_toTopOf="@+id/ivConsSeller" />
 
     <Button
         android:id="@+id/btnConsBuy"
