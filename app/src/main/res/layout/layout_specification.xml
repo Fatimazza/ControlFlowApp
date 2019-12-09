@@ -29,10 +29,13 @@
         android:id="@+id/tvConsDisplayDesc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/content_specs_display"
-        app:layout_constraintTop_toBottomOf="@+id/tvConsSpec"
-        tools:layout_editor_absoluteX="106dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tvConsSpec" />
 
     <TextView
         android:id="@+id/tvConsSize"
@@ -48,10 +51,13 @@
         android:id="@+id/tvConsSizeDesc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/content_specs_size"
-        app:layout_constraintTop_toBottomOf="@+id/tvConsDisplayDesc"
-        tools:layout_editor_absoluteX="106dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tvConsDisplayDesc" />
 
     <TextView
         android:id="@+id/tvConsBattery"
@@ -67,10 +73,13 @@
         android:id="@+id/tvConsBatteryDesc"
         android:layout_width="0dp"
         android:layout_height="266dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/content_specs_battery"
-        app:layout_constraintTop_toBottomOf="@+id/tvConsSizeDesc"
-        tools:layout_editor_absoluteX="106dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tvConsSizeDesc" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
