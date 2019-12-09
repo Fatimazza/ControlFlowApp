@@ -35,7 +35,14 @@
     <EditText
         android:id="@+id/etConsPassword"
         android:layout_width="200dp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/etConsUsername"
+        app:layout_constraintStart_toStartOf="@+id/etConsUsername"
+        app:layout_constraintTop_toBottomOf="@+id/etConsUsername"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnConsLogin"
