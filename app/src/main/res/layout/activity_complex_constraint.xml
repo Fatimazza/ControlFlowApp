@@ -53,4 +53,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivConsPhone" />
 
+    <TextView
+        android:id="@+id/tvConsStock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/stock"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteY="349dp" />
+
+    <TextView
+        android:id="@+id/tvConsDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingMultiplier="1"
+        android:text="@string/content_text"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteY="429dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
