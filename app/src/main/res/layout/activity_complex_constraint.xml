@@ -43,31 +43,40 @@
         android:id="@+id/tvConsPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/dummy_value"
         android:textColor="@android:color/black"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvConsStock"
         app:layout_constraintTop_toBottomOf="@+id/ivConsPhone" />
 
     <TextView
         android:id="@+id/tvConsStock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/stock"
         android:textSize="12sp"
-        tools:layout_editor_absoluteY="349dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvConsDesc"
+        app:layout_constraintTop_toBottomOf="@+id/tvConsPrice" />
 
     <TextView
         android:id="@+id/tvConsDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:lineSpacingMultiplier="1"
         android:text="@string/content_text"
         android:textColor="@android:color/black"
-        tools:layout_editor_absoluteY="429dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvConsStock" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
