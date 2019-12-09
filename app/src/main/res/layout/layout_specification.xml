@@ -39,17 +39,19 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/size"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="115dp" />
+        app:layout_constraintTop_toBottomOf="@+id/tvConsDisplayDesc" />
 
     <TextView
         android:id="@+id/tvConsSizeDesc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/content_specs_size"
-        tools:layout_editor_absoluteX="106dp"
-        tools:layout_editor_absoluteY="115dp" />
+        app:layout_constraintTop_toBottomOf="@+id/tvConsDisplayDesc"
+        tools:layout_editor_absoluteX="106dp" />
 
     <TextView
         android:id="@+id/tvConsBattery"
