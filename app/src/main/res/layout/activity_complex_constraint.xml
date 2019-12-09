@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ComplexConstraintActivity">
 
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/pixel_google" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
