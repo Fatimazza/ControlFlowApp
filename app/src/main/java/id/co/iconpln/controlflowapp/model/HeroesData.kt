@@ -5,6 +5,14 @@ object HeroesData {
     val listDataHero : ArrayList<Hero>
     get() {
         val list = ArrayList<Hero>()
+
+        for (data in dataHeroes) {
+            val hero = Hero()
+            hero.name = data[0]
+            hero.origin = data[1]
+            hero.photo = data[2]
+            list.add(hero)
+        }
         return list
     }
 
