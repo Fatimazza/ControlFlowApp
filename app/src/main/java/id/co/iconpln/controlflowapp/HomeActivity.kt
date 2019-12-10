@@ -26,6 +26,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnIntent.setOnClickListener(this)
         btnConstraint.setOnClickListener(this)
         btnComplexConstraint.setOnClickListener(this)
+        btnRecyclerView.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -69,6 +70,9 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnComplexConstraint -> {
                 val complexConstraintIntent = Intent(this, ComplexConstraintActivity::class.java)
                 startActivity(complexConstraintIntent)
+            }
+            R.id.btnRecyclerView -> {
+                
             }
         }
     }
