@@ -73,6 +73,12 @@
             android:layout_height="wrap_content"
             android:text="Complex Constraint" />
 
+        <Button
+            android:id="@+id/btnRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RecyclerView" />
+
     </LinearLayout>
 
 </ScrollView>
