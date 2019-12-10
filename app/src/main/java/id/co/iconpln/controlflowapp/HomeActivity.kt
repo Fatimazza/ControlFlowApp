@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import id.co.iconpln.controlflowapp.hero.HeroActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
@@ -72,7 +73,8 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(complexConstraintIntent)
             }
             R.id.btnRecyclerView -> {
-                
+                val listHeroIntent = Intent(this, HeroActivity::class.java)
+                startActivity(listHeroIntent)
             }
         }
     }
