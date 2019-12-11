@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.hero
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.model.Hero
@@ -29,5 +30,11 @@ class ListHeroActivity : AppCompatActivity() {
         rvListHero.layoutManager = LinearLayoutManager(this)
         val listHeroAdapter = ListHeroAdapter(listHero)
         rvListHero.adapter = listHeroAdapter
+
+        listHeroAdapter.setOnItemClickCallback(object : ListHeroAdapter.OnItemClickCallback {
+            override fun onItemClick(hero: Hero) {
+                Toast.makeText(this@ListHeroActivity, "You choose ${hero.name}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
