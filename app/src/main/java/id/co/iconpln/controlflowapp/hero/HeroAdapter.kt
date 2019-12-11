@@ -22,12 +22,12 @@ class HeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<HeroAdap
     }
 
     override fun onBindViewHolder(holder: HeroViewHolder, position: Int) {
-        holder.bind(listHero[position], position)
+        holder.bind(listHero[position])
     }
 
     inner class HeroViewHolder(private val view:View): RecyclerView.ViewHolder(view) {
 
-        fun bind(hero: Hero, position: Int) {
+        fun bind(hero: Hero) {
             view.tvHeroName.text = hero.name
             view.tvHeroDesc.text = hero.origin
 
