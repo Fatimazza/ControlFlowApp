@@ -11,6 +11,8 @@ import kotlinx.android.synthetic.main.item_grid_hero.view.*
 
 class GridHeroAdapter(val listHero: ArrayList<Hero>): RecyclerView.Adapter<GridHeroAdapter.GridHeroViewHolder>() {
 
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridHeroViewHolder {
         val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_grid_hero, parent, false)
@@ -32,5 +34,13 @@ class GridHeroAdapter(val listHero: ArrayList<Hero>): RecyclerView.Adapter<GridH
                 .load(hero.photo)
                 .into(view.ivHeroGridPhoto)
         }
+    }
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
+    interface OnItemClickCallback {
+        fun onItemClick(hero: Hero)
     }
 }

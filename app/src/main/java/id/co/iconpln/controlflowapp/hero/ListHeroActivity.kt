@@ -20,7 +20,7 @@ class ListHeroActivity : AppCompatActivity() {
         setContentView(R.layout.activity_hero)
 
         setupListHero()
-        showRecyclerList()
+        showRecyclerGrid()
     }
 
     private fun setupListHero() {
