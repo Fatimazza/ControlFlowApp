@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.model.Hero
@@ -43,5 +44,11 @@ class ListHeroActivity : AppCompatActivity() {
     private fun setupListDivider() {
         val dividerItemDecoration =  DividerItemDecoration(rvListHero.context, DividerItemDecoration.VERTICAL)
         rvListHero.addItemDecoration(dividerItemDecoration)
+    }
+
+    private fun showRecyclerGrid() {
+        rvListHero.layoutManager = GridLayoutManager(this,2)
+        val gridHeroAdapter = GridHeroAdapter(listHero)
+        rvListHero.adapter = gridHeroAdapter
     }
 }
