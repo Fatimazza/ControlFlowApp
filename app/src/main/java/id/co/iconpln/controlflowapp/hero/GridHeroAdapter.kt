@@ -25,6 +25,9 @@ class GridHeroAdapter(val listHero: ArrayList<Hero>): RecyclerView.Adapter<GridH
 
     override fun onBindViewHolder(holder: GridHeroViewHolder, position: Int) {
         holder.bind(listHero[position])
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClick(listHero[holder.adapterPosition])
+        }
     }
 
     inner class GridHeroViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
