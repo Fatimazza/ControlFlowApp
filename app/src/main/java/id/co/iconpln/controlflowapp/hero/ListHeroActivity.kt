@@ -8,7 +8,7 @@ import id.co.iconpln.controlflowapp.model.Hero
 import id.co.iconpln.controlflowapp.model.HeroesData
 import kotlinx.android.synthetic.main.activity_hero.*
 
-class HeroActivity : AppCompatActivity() {
+class ListHeroActivity : AppCompatActivity() {
 
     private var listHero: ArrayList<Hero> = arrayListOf()
 
@@ -27,7 +27,7 @@ class HeroActivity : AppCompatActivity() {
 
     private fun showRecyclerList() {
         rvListHero.layoutManager = LinearLayoutManager(this)
-        val listHeroAdapter = HeroAdapter(listHero)
+        val listHeroAdapter = ListHeroAdapter(listHero)
         rvListHero.adapter = listHeroAdapter
     }
 }

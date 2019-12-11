@@ -9,7 +9,7 @@ import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.model.Hero
 import kotlinx.android.synthetic.main.item_list_hero.view.*
 
-class HeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<HeroAdapter.HeroViewHolder>() {
+class ListHeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<ListHeroAdapter.HeroViewHolder>() {
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeroViewHolder {
         val view: View = LayoutInflater.from(parent.context)
