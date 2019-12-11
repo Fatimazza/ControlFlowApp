@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.model.Hero
+import kotlinx.android.synthetic.main.item_grid_hero.view.*
 
 class GridHeroAdapter(val listHero: ArrayList<Hero>): RecyclerView.Adapter<GridHeroAdapter.GridHeroViewHolder>() {
 
@@ -26,7 +28,9 @@ class GridHeroAdapter(val listHero: ArrayList<Hero>): RecyclerView.Adapter<GridH
     inner class GridHeroViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
 
         fun bind(hero: Hero) {
-
+            Glide.with(view.context)
+                .load(hero.photo)
+                .into(view.ivHeroGridPhoto)
         }
     }
 }
