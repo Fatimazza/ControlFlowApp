@@ -1,24 +1,32 @@
 package id.co.iconpln.controlflowapp.hero
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.model.Hero
 
-class GridHeroAdapter: RecyclerView.Adapter<GridHeroAdapter.GridHeroViewHolder>() {
-    
+class GridHeroAdapter(val listHero: ArrayList<Hero>): RecyclerView.Adapter<GridHeroAdapter.GridHeroViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridHeroViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val view: View = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_grid_hero, parent, false)
+        return GridHeroViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return listHero.size
     }
 
     override fun onBindViewHolder(holder: GridHeroViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        holder.bind(listHero[position])
     }
 
     inner class GridHeroViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
 
+        fun bind(hero: Hero) {
+
+        }
     }
 }
