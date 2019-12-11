@@ -3,6 +3,7 @@ package id.co.iconpln.controlflowapp.hero
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
@@ -62,5 +63,21 @@ class ListHeroActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_hero, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        setListMode(item.itemId)
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun setListMode(mode: Int) {
+        when (mode) {
+            R.id.action_hero_list -> {
+
+            }
+            R.id.action_hero_grid -> {
+
+            }
+        }
     }
 }
