@@ -10,6 +10,8 @@ import id.co.iconpln.controlflowapp.model.Hero
 import kotlinx.android.synthetic.main.item_list_hero.view.*
 
 class ListHeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<ListHeroAdapter.HeroViewHolder>() {
+
+    private lateinit var onItemClickCallback: OnItemClickCallback
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeroViewHolder {
         val view: View = LayoutInflater.from(parent.context)
@@ -23,6 +25,9 @@ class ListHeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<List
 
     override fun onBindViewHolder(holder: HeroViewHolder, position: Int) {
         holder.bind(listHero[position])
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClick(listHero[holder.adapterPosition])
+        }
     }
 
     inner class HeroViewHolder(private val view:View): RecyclerView.ViewHolder(view) {
@@ -35,6 +40,10 @@ class ListHeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<List
                 .load(hero.photo)
                 .into(view.ivHeroPhoto)
         }
+    }
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
     }
 
     interface OnItemClickCallback {
