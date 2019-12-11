@@ -37,4 +37,8 @@ class ListHeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<List
         }
     }
 
+    interface OnItemClickCallback {
+        fun onItemClick(hero: Hero)
+    }
+
 }
