@@ -29,7 +29,7 @@ class HeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<HeroAdap
 
         fun bind(hero: Hero) {
             view.tvHeroName.text = hero.name
-            view.tvHeroDesc.text = hero.origin
+            view.tvHeroDesc.text = hero.desc
 
             Glide.with(view.context)
                 .load(hero.photo)
