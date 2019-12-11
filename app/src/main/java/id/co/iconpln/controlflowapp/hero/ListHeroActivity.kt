@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.hero
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
@@ -56,5 +57,10 @@ class ListHeroActivity : AppCompatActivity() {
                 Toast.makeText(this@ListHeroActivity, "You choose ${hero.name}", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_hero, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }
