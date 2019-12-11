@@ -22,7 +22,7 @@ class ListHeroActivity : AppCompatActivity() {
         setContentView(R.layout.activity_hero)
 
         setupListHero()
-        showRecyclerGrid()
+        showRecyclerList()
     }
 
     private fun setupListHero() {
@@ -73,10 +73,10 @@ class ListHeroActivity : AppCompatActivity() {
     private fun setListMode(mode: Int) {
         when (mode) {
             R.id.action_hero_list -> {
-
+                showRecyclerList()
             }
             R.id.action_hero_grid -> {
-
+                showRecyclerGrid()
             }
         }
     }
