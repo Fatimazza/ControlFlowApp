@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.model.Hero
 import kotlinx.android.synthetic.main.item_list_hero.view.*
@@ -29,6 +30,10 @@ class HeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<HeroAdap
         fun bind(hero: Hero, position: Int) {
             view.tvHeroName.text = hero.name
             view.tvHeroDesc.text = hero.origin
+
+            Glide.with(view.context)
+                .load(hero.photo)
+                .into(view.ivHeroPhoto)
         }
     }
 
