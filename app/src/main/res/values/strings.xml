@@ -69,5 +69,7 @@
 
     <string name="main_hero_name_text">Hero Name</string>
     <string name="main_hero_desc_text">A hero is a real person or a main fictional character of a literary work who, in the face of danger, combats adversity through feats of ingenuity, courage, or strength; the original hero type of classical epics did such things for the sake of glory and honor.</string>
+    <string name="menu_list_hero">List Hero</string>
+    <string name="menu_grid_hero">Grid Hero</string>
 
 </resources>
