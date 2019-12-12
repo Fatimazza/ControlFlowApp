@@ -13,7 +13,8 @@ import kotlinx.android.synthetic.main.fragment_last.*
 /**
  * A simple [Fragment] subclass.
  */
-class LastFragment : Fragment() {
+class LastFragment : Fragment(), View.OnClickListener {
+
 
     companion object {
         const val EXTRA_NAME_FRAGMENT = "extra_name_fragment"
@@ -28,12 +29,30 @@ class LastFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_last, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        btnOtherActivity.setOnClickListener(this)
+        btnShowDialog.setOnClickListener(this)
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         val name = arguments?.getString(EXTRA_NAME_FRAGMENT)
         tvLastName.text = name
         tvLastMessage.text = message
+    }
+
+    override fun onClick(view: View) {
+        when(view.id) {
+            R.id.btnOtherActivity -> {
+
+            }
+            R.id.btnShowDialog -> {
+                
+            }
+        }
     }
 
 }
