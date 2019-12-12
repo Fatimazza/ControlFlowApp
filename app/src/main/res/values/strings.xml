@@ -77,5 +77,8 @@
     <string name="hello_other_fragment">Hello, this is Other fragment</string>
     <string name="to_last_fragment">To Last Fragment</string>
     <string name="hello_last_fragment">Hello, this is Last fragment</string>
+    <string name="to_other_activity">To Other Activity</string>
+    <string name="show_dialog">Show Dialog</string>
+
 
 </resources>

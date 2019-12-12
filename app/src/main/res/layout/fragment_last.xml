@@ -32,5 +32,19 @@
         android:layout_marginBottom="16dp"
         android:text="My Message" />
 
+    <Button
+        android:id="@+id/btnOtherActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/to_other_activity"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnShowDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/show_dialog"
+        android:textAllCaps="false" />
+
 
 </LinearLayout>
