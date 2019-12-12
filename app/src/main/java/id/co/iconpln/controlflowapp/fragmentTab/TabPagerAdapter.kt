@@ -1,4 +1,4 @@
-package id.co.iconpln.controlflowapp.tab
+package id.co.iconpln.controlflowapp.fragmentTab
 
 import android.content.Context
 import androidx.annotation.Nullable

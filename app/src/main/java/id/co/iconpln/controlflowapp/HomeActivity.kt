@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import id.co.iconpln.controlflowapp.fragments.DemoFragmentActivity
 import id.co.iconpln.controlflowapp.hero.ListHeroActivity
-import id.co.iconpln.controlflowapp.tab.TabActivity
+import id.co.iconpln.controlflowapp.fragmentTab.TabActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {

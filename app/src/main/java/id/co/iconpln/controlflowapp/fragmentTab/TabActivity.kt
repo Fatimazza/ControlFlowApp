@@ -1,4 +1,4 @@
-package id.co.iconpln.controlflowapp.tab
+package id.co.iconpln.controlflowapp.fragmentTab
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

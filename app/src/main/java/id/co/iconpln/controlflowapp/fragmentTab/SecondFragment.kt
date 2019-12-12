@@ -1,4 +1,4 @@
-package id.co.iconpln.controlflowapp.tab
+package id.co.iconpln.controlflowapp.fragmentTab
 
 
 import android.os.Bundle
@@ -12,14 +12,14 @@ import id.co.iconpln.controlflowapp.R
 /**
  * A simple [Fragment] subclass.
  */
-class FirstFragment : Fragment() {
+class SecondFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false)
+        return inflater.inflate(R.layout.fragment_second, container, false)
     }
 
 }
