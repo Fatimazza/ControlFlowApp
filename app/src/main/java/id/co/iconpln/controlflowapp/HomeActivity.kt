@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import id.co.iconpln.controlflowapp.fragmentBottomNav.BottomNavActivity
 import id.co.iconpln.controlflowapp.fragments.DemoFragmentActivity
 import id.co.iconpln.controlflowapp.hero.ListHeroActivity
 import id.co.iconpln.controlflowapp.fragmentTab.TabActivity
@@ -32,6 +33,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnRecyclerView.setOnClickListener(this)
         btnFragment.setOnClickListener(this)
         btnTab.setOnClickListener(this)
+        btnBottomNav.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -87,6 +89,10 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnTab -> {
                 val tabIntent = Intent(this, TabActivity::class.java)
                 startActivity(tabIntent)
+            }
+            R.id.btnBottomNav -> {
+                val bottomNavIntent = Intent(this, BottomNavActivity::class.java)
+                startActivity(bottomNavIntent)
             }
         }
     }
