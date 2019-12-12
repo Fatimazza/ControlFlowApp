@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".fragments.DemoFragmentActivity" />
         <activity android:name=".hero.ListHeroActivity" />
         <activity android:name=".ComplexConstraintActivity" />
         <activity android:name=".ConstraintActivity" />
