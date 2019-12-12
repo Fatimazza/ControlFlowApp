@@ -27,7 +27,7 @@ class TabPagerAdapter(private val context: Context, fm: FragmentManager)
 
     @Nullable
     override fun getPageTitle(position: Int): CharSequence? {
-        return super.getPageTitle(position)
+        return context.resources.getString(TAB_TITLES[position])
     }
 
     override fun getCount(): Int {
