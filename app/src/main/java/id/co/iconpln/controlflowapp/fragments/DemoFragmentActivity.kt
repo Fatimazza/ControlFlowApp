@@ -9,5 +9,16 @@ class DemoFragmentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_demo_fragment)
+
+        initFragment()
+    }
+
+    private fun initFragment() {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+
+        val fragment = HomeFragment()
+        fragmentTransaction.add(R.id.flContainer, fragment)
+        fragmentTransaction.commit()
     }
 }
