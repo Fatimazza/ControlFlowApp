@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 
 import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -32,7 +31,13 @@ class HomeFragment : Fragment(), View.OnClickListener {
     override fun onClick(view: View) {
         when(view.id) {
             R.id.btnOtherFragment -> {
-                Toast.makeText(requireContext(), "Other Fragment", Toast.LENGTH_SHORT).show()
+                val fragmentManager = fragmentManager
+                val fragmentTransaction = fragmentManager?.beginTransaction()
+
+                val fragment = OtherFragment()
+                fragmentTransaction?.replace(R.id.flContainer, fragment)
+                fragmentTransaction?.addToBackStack(null)
+                fragmentTransaction?.commit()
             }
         }
     }
