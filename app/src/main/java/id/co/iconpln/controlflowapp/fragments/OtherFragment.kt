@@ -12,7 +12,7 @@ import id.co.iconpln.controlflowapp.R
 /**
  * A simple [Fragment] subclass.
  */
-class OtherFragment : Fragment() {
+class OtherFragment : Fragment(), View.OnClickListener {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,5 +22,7 @@ class OtherFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_other, container, false)
     }
 
-
+    override fun onClick(view: View) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }
