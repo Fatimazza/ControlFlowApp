@@ -75,5 +75,6 @@
     <string name="hello_home_fragment">Hello, this is Home fragment</string>
     <string name="to_other_fragment">To Other Fragment</string>
     <string name="hello_other_fragment">Hello, this is Other fragment</string>
+    <string name="to_last_fragment">To Last Fragment</string>
 
 </resources>
