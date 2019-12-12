@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_dark"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
     tools:context=".fragments.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:textColor="@android:color/white" />
+        android:layout_height="wrap_content"
+        android:text="@string/hello_home_fragment"
+        android:textColor="@android:color/white"
+        android:textSize="25sp" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btn_other_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/to_other_fragment"
+        android:textAllCaps="false" />
+
+</LinearLayout>
