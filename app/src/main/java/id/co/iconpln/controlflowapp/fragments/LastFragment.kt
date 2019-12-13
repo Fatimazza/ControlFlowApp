@@ -61,4 +61,7 @@ class LastFragment : Fragment(), View.OnClickListener {
         }
     }
 
+    var optionDialogListener: OptionDialogFragment.OnOptionsDialogListener =
+        object: OptionDialogFragment.OnOptionsDialogListener{}
+
 }
