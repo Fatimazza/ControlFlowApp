@@ -86,4 +86,11 @@
     <string name="tab_text_1">First</string>
     <string name="tab_text_2">Second</string>
 
+    <string name="close">Close</string>
+    <string name="choose_color">Pilih Warna Favorit Anda:</string>
+    <string name="blue">Blue</string>
+    <string name="purple">Purple</string>
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+
 </resources>
