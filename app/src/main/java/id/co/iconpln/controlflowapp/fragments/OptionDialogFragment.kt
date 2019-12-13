@@ -1,6 +1,7 @@
 package id.co.iconpln.controlflowapp.fragments
 
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -21,6 +22,8 @@ class OptionDialogFragment : DialogFragment(), View.OnClickListener {
         val TAG: String = OptionDialogFragment::class.java.simpleName
     }
 
+    private var optionsDialogListener: OnOptionsDialogListener? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,6 +36,21 @@ class OptionDialogFragment : DialogFragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         btnDialogChoose.setOnClickListener(this)
         btnDialogClose.setOnClickListener(this)
+    }
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+
+        val parentFragment = parentFragment
+        if (parentFragment is LastFragment) {
+            val lastFragment = parentFragment
+            this.optionsDialogListener = lastFragment.optionDialogListener
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        this.optionsDialogListener = null
     }
 
     override fun onClick(view: View) {
@@ -56,6 +74,10 @@ class OptionDialogFragment : DialogFragment(), View.OnClickListener {
                         }
                     }
                     Log.d(TAG, "color $favColor")
+                    if (optionsDialogListener != null) {
+                        optionsDialogListener?.onOptionChosen(favColor)
+                    }
+                    dialog.dismiss()
                 }
             }
             R.id.btnDialogClose -> {
