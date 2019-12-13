@@ -6,13 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 
 import id.co.iconpln.controlflowapp.R
 
 /**
  * A simple [Fragment] subclass.
  */
-class OptionDialogFragment : Fragment() {
+class OptionDialogFragment : DialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
