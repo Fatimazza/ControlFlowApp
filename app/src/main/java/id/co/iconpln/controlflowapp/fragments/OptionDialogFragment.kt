@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.fragments
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -33,7 +34,24 @@ class OptionDialogFragment : DialogFragment(), View.OnClickListener {
     override fun onClick(view: View) {
         when(view.id) {
             R.id.btnDialogChoose -> {
-
+                val checkedRadioButtonId = rgDialogOptions.checkedRadioButtonId
+                if (checkedRadioButtonId != -1) {
+                    var favColor = ""
+                    when (checkedRadioButtonId) {
+                        R.id.rbDialogBlue -> {
+                            favColor = rbDialogBlue.text.toString().trim()
+                        }
+                        R.id.rbDialogRed -> {
+                            favColor = rbDialogRed.text.toString().trim()
+                        }
+                        R.id.rbDialogPurple -> {
+                            favColor = rbDialogPurple.text.toString().trim()
+                        }
+                        R.id.rbDialogGreen -> {
+                            favColor = rbDialogGreen.text.toString().trim()
+                        }
+                    }
+                }
             }
             R.id.btnDialogClose -> {
                 dialog.cancel()
