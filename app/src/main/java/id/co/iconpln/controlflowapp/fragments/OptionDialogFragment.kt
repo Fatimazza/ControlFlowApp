@@ -17,6 +17,10 @@ import kotlinx.android.synthetic.main.fragment_option_dialog.*
  */
 class OptionDialogFragment : DialogFragment(), View.OnClickListener {
 
+    companion object {
+        val TAG: String = OptionDialogFragment::class.java.simpleName
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,6 +55,7 @@ class OptionDialogFragment : DialogFragment(), View.OnClickListener {
                             favColor = rbDialogGreen.text.toString().trim()
                         }
                     }
+                    Log.d(TAG, "color $favColor")
                 }
             }
             R.id.btnDialogClose -> {
