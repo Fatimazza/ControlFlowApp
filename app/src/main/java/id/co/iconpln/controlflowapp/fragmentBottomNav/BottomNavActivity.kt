@@ -1,7 +1,8 @@
 package id.co.iconpln.controlflowapp.fragmentBottomNav
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.activity_bottom_nav.*
@@ -19,7 +20,18 @@ class BottomNavActivity : AppCompatActivity() {
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }
 
-    private val onNavigationItemSelectedListener = object : BottomNavigationView.OnNavigationItemSelectedListener {
-
-    }
+    private val onNavigationItemSelectedListener =
+        object : BottomNavigationView.OnNavigationItemSelectedListener {
+            override fun onNavigationItemSelected(item: MenuItem): Boolean {
+                when (item.itemId) {
+                    R.id.navigation_first -> {
+                        return true
+                    }
+                    R.id.navigation_second -> {
+                        return true
+                    }
+                }
+                return false
+            }
+        }
 }
