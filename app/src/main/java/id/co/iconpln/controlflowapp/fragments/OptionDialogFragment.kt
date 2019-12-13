@@ -64,4 +64,8 @@ class OptionDialogFragment : DialogFragment(), View.OnClickListener {
         }
     }
 
+    interface OnOptionsDialogListener {
+        fun onOptionChosen(text: String)
+    }
+
 }
