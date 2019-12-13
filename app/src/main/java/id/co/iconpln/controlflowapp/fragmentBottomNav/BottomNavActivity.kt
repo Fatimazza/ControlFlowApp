@@ -3,6 +3,7 @@ package id.co.iconpln.controlflowapp.fragmentBottomNav
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.activity_bottom_nav.*
@@ -34,4 +35,10 @@ class BottomNavActivity : AppCompatActivity() {
                 return false
             }
         }
+
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.flNavContainer, fragment, fragment::class.java.simpleName)
+            .commit()
+    }
 }
