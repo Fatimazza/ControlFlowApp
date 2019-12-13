@@ -53,7 +53,10 @@ class LastFragment : Fragment(), View.OnClickListener {
                 startActivity(styleActivity)
             }
             R.id.btnShowDialog -> {
+                val fragmentManager = fragmentManager
+                val optionDialogFragment = OptionDialogFragment()
 
+                optionDialogFragment.show(fragmentManager, OptionDialogFragment::class.java.simpleName)
             }
         }
     }
