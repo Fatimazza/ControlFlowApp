@@ -17,6 +17,7 @@ class BottomNavActivity : AppCompatActivity() {
         setContentView(R.layout.activity_bottom_nav)
 
         setupBottomNav()
+        navView.selectedItemId = R.id.navigation_first
     }
 
     private fun setupBottomNav() {
