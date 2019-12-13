@@ -13,7 +13,7 @@ import id.co.iconpln.controlflowapp.R
 /**
  * A simple [Fragment] subclass.
  */
-class OptionDialogFragment : DialogFragment() {
+class OptionDialogFragment : DialogFragment(), View.OnClickListener {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,5 +23,15 @@ class OptionDialogFragment : DialogFragment() {
         return inflater.inflate(R.layout.fragment_option_dialog, container, false)
     }
 
+    override fun onClick(view: View) {
+        when(view.id) {
+            R.id.btnDialogChoose -> {
+
+            }
+            R.id.btnDialogClose -> {
+
+            }
+        }
+    }
 
 }
