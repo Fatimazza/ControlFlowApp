@@ -44,6 +44,13 @@ class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 Toast.makeText(this, "Gallery", Toast.LENGTH_SHORT).show()
             }
         }
+
+        for (i in 0 until navViewDrawer.menu.size()) {
+            navViewDrawer.menu.getItem(i).isChecked = false
+        }
+        item.isChecked = true
+
+        title = item.title
         dlDrawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
