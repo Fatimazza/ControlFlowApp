@@ -1,5 +1,6 @@
 package id.co.iconpln.controlflowapp.fragmentNavDrawer
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
@@ -9,6 +10,7 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.StyleActivity
 import id.co.iconpln.controlflowapp.fragmentTab.FirstFragment
 import id.co.iconpln.controlflowapp.fragmentTab.SecondFragment
 import kotlinx.android.synthetic.main.activity_nav_drawer.*
@@ -46,8 +48,9 @@ class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
             }
             R.id.nav_gallery -> {
-                loadFragment(SecondFragment())
                 Toast.makeText(this, "Gallery", Toast.LENGTH_SHORT).show()
+                val openActivityIntent = Intent(this, StyleActivity::class.java)
+                startActivity(openActivityIntent)
             }
         }
 
