@@ -57,6 +57,12 @@ class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 val openActivityIntent = Intent(this, StyleActivity::class.java)
                 startActivity(openActivityIntent)
             }
+            R.id.nav_update -> {
+                loadFragment(SecondFragment())
+            }
+            R.id.nav_logout -> {
+                finish()
+            }
         }
 
         uncheckItemMenu()
