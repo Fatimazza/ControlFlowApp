@@ -25,6 +25,11 @@ class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         setupActionBar()
         navViewDrawer.setNavigationItemSelectedListener(this)
+        selectFirstNavigationMenu()
+    }
+
+    private fun selectFirstNavigationMenu() {
+        navViewDrawer.menu.performIdentifierAction(R.id.nav_home, 0);
     }
 
     private fun setupActionBar() {
