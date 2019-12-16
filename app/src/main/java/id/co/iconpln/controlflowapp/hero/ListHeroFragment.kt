@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import id.co.iconpln.controlflowapp.R
@@ -20,6 +21,8 @@ class ListHeroFragment : Fragment() {
 
     private var listHero: ArrayList<Hero> = arrayListOf()
 
+    private lateinit var listHeroAdapter: ListHeroAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,6 +35,7 @@ class ListHeroFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupListHero()
         showRecyclerViewList()
+        setListHeroItemClickListener()
     }
 
     private fun setupListHero() {
@@ -41,7 +45,15 @@ class ListHeroFragment : Fragment() {
 
     private fun showRecyclerViewList() {
         rvFragmentListHero.layoutManager = LinearLayoutManager(requireContext())
-        val listHeroAdapter = ListHeroAdapter(listHero)
+        listHeroAdapter = ListHeroAdapter(listHero)
         rvFragmentListHero.adapter = listHeroAdapter
+    }
+
+    private fun setListHeroItemClickListener() {
+        listHeroAdapter.setOnItemClickCallback(object : ListHeroAdapter.OnItemClickCallback{
+            override fun onItemClick(hero: Hero) {
+                Toast.makeText(requireContext(), "You choose ${hero.name}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
