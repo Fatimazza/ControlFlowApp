@@ -63,12 +63,12 @@ class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     }
 
     private fun uncheckItemMenu() {
-        for (i in 0 until navViewDrawer.menu.size()) {
-            navViewDrawer.menu.getItem(i).isChecked = false
+        for (countMenu in 0 until navViewDrawer.menu.size()) {
+            navViewDrawer.menu.getItem(countMenu).isChecked = false
 
-            if (navViewDrawer.menu.getItem(i).hasSubMenu()) {
-                for (j in 0 until navViewDrawer.menu.getItem(i).subMenu.size()) {
-                    navViewDrawer.menu.getItem(i).subMenu.getItem(j).isChecked = false
+            if (navViewDrawer.menu.getItem(countMenu).hasSubMenu()) {
+                for (countSubmenu in 0 until navViewDrawer.menu.getItem(countMenu).subMenu.size()) {
+                    navViewDrawer.menu.getItem(countMenu).subMenu.getItem(countSubmenu).isChecked = false
                 }
             }
         }
