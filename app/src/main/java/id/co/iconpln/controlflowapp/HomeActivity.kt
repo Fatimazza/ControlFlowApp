@@ -4,8 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import id.co.iconpln.controlflowapp.fragmentBottomNav.BottomNavActivity
+import id.co.iconpln.controlflowapp.fragmentNavDrawer.NavDrawerActivity
 import id.co.iconpln.controlflowapp.fragments.DemoFragmentActivity
 import id.co.iconpln.controlflowapp.hero.ListHeroActivity
+import id.co.iconpln.controlflowapp.fragmentTab.TabActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
@@ -30,6 +33,9 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnComplexConstraint.setOnClickListener(this)
         btnRecyclerView.setOnClickListener(this)
         btnFragment.setOnClickListener(this)
+        btnTab.setOnClickListener(this)
+        btnBottomNav.setOnClickListener(this)
+        btnNavDrawer.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -81,6 +87,18 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnFragment -> {
                 val demoFragment = Intent(this, DemoFragmentActivity::class.java)
                 startActivity(demoFragment)
+            }
+            R.id.btnTab -> {
+                val tabIntent = Intent(this, TabActivity::class.java)
+                startActivity(tabIntent)
+            }
+            R.id.btnBottomNav -> {
+                val bottomNavIntent = Intent(this, BottomNavActivity::class.java)
+                startActivity(bottomNavIntent)
+            }
+            R.id.btnNavDrawer -> {
+                val navDrawerIntent = Intent(this, NavDrawerActivity::class.java)
+                startActivity(navDrawerIntent)
             }
         }
     }

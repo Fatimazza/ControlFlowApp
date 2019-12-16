@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.StyleActivity
@@ -53,9 +54,19 @@ class LastFragment : Fragment(), View.OnClickListener {
                 startActivity(styleActivity)
             }
             R.id.btnShowDialog -> {
+                val fragmentManager = childFragmentManager
+                val optionDialogFragment = OptionDialogFragment()
 
+                optionDialogFragment.show(fragmentManager, OptionDialogFragment::class.java.simpleName)
             }
         }
     }
+
+    var optionDialogListener: OptionDialogFragment.OnOptionsDialogListener =
+        object: OptionDialogFragment.OnOptionsDialogListener{
+            override fun onOptionChosen(text: String) {
+                Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
+            }
+        }
 
 }

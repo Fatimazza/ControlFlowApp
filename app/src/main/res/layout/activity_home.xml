@@ -85,6 +85,24 @@
             android:layout_height="wrap_content"
             android:text="Demo Fragments"/>
 
+        <Button
+            android:id="@+id/btnTab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tab Layout"/>
+
+        <Button
+            android:id="@+id/btnBottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bottom Navigation"/>
+
+        <Button
+            android:id="@+id/btnNavDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Navigation Drawer"/>
+
     </LinearLayout>
 
 </ScrollView>
