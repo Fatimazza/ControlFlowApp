@@ -54,14 +54,24 @@ class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             }
         }
 
-        for (i in 0 until navViewDrawer.menu.size()) {
-            navViewDrawer.menu.getItem(i).isChecked = false
-        }
+        uncheckItemMenu()
         item.isChecked = true
 
         title = item.title
         dlDrawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun uncheckItemMenu() {
+        for (i in 0 until navViewDrawer.menu.size()) {
+            navViewDrawer.menu.getItem(i).isChecked = false
+
+            if (navViewDrawer.menu.getItem(i).hasSubMenu()) {
+                for (j in 0 until navViewDrawer.menu.getItem(i).subMenu.size()) {
+                    navViewDrawer.menu.getItem(i).subMenu.getItem(j).isChecked = false
+                }
+            }
+        }
     }
 
     private fun loadFragment(fragment: Fragment) {
