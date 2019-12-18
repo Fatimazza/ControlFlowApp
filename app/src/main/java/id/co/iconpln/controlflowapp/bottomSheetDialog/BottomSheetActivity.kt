@@ -3,11 +3,15 @@ package id.co.iconpln.controlflowapp.bottomSheetDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.activity_bottom_sheet.*
+import kotlinx.android.synthetic.main.layout_bottom_sheet.*
 import kotlinx.android.synthetic.main.layout_content_main.*
 
 class BottomSheetActivity : AppCompatActivity(), View.OnClickListener {
+
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<View>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,6 +19,12 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener {
 
         setupActionBar()
         setButtonClickListener()
+        setupBottomSheetBehavior()
+    }
+
+    private fun setupBottomSheetBehavior() {
+        bottomSheetBehavior = BottomSheetBehavior.from(llBottomSheet)
+        bottomSheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {})
     }
 
     private fun setupActionBar() {
@@ -36,7 +46,7 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener {
 
             }
             R.id.btnBottomSheetDialogFragment -> {
-                
+
             }
         }
     }
