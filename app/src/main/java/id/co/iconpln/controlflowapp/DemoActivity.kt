@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.View
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_demo.*
 
@@ -101,7 +102,11 @@ class DemoActivity : AppCompatActivity(), View.OnClickListener {
                     .show()
             }
             R.id.btnSnackbarCustom -> {
-
+                Snackbar
+                    .make(findViewById(R.id.clDemo), "This is a Custom Snackbar", Snackbar.LENGTH_SHORT)
+                    .setActionTextColor(ContextCompat.getColor(this, R.color.button_snackbar))
+                    .setAction("Undo", undoListener)
+                    .show()
             }
         }
     }
