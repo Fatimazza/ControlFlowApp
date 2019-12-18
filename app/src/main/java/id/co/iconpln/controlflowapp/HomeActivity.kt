@@ -37,7 +37,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnTab.setOnClickListener(this)
         btnBottomNav.setOnClickListener(this)
         btnNavDrawer.setOnClickListener(this)
-        btnBottomSheetDialog.setOnClickListener(this)
+        btnBottomSheetDemo.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -102,7 +102,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 val navDrawerIntent = Intent(this, NavDrawerActivity::class.java)
                 startActivity(navDrawerIntent)
             }
-            R.id.btnBottomSheetDialog -> {
+            R.id.btnBottomSheetDemo -> {
                 val bottomSheetIntent = Intent(this, BottomSheetActivity::class.java)
                 startActivity(bottomSheetIntent)
             }
