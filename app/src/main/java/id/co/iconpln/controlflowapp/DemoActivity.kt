@@ -94,8 +94,17 @@ class DemoActivity : AppCompatActivity(), View.OnClickListener {
                 Snackbar.make(findViewById(R.id.clDemo), "This is Snackbar", Snackbar.LENGTH_SHORT).show()
             }
             R.id.btnSnackbarButton -> {
-
+                Snackbar
+                    .make(findViewById(R.id.clDemo), "Message is deleted", Snackbar.LENGTH_SHORT)
+                    .setAction("Undo", undoListener)
+                    .show()
             }
+        }
+    }
+
+    private val undoListener = object : View.OnClickListener {
+        override fun onClick(view: View?) {
+            Snackbar.make(findViewById(R.id.clDemo), "Message is restored", Snackbar.LENGTH_SHORT).show()
         }
     }
 }
