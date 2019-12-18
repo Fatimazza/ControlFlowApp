@@ -26,6 +26,7 @@ class DemoActivity : AppCompatActivity(), View.OnClickListener {
         btnSubmit.setOnClickListener(this)
         btnSnackbar.setOnClickListener(this)
         btnSnackbarButton.setOnClickListener(this)
+        btnSnackbarCustom.setOnClickListener(this)
     }
 
     override fun onStart() {
@@ -98,6 +99,9 @@ class DemoActivity : AppCompatActivity(), View.OnClickListener {
                     .make(findViewById(R.id.clDemo), "Message is deleted", Snackbar.LENGTH_SHORT)
                     .setAction("Undo", undoListener)
                     .show()
+            }
+            R.id.btnSnackbarCustom -> {
+
             }
         }
     }
