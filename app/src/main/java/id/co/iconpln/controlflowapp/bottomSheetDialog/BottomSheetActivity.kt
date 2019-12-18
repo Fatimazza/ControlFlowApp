@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_bottom_sheet.*
 import kotlinx.android.synthetic.main.layout_bottom_sheet.*
 import kotlinx.android.synthetic.main.layout_content_main.*
 
+
 class BottomSheetActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<View>
@@ -30,7 +31,18 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             override fun onStateChanged(view: View, newState: Int) {
-
+                when (newState) {
+                    BottomSheetBehavior.STATE_COLLAPSED -> {
+                        btnBottomSheet.text = "Expand Bottom Sheet"
+                    }
+                    BottomSheetBehavior.STATE_DRAGGING -> {}
+                    BottomSheetBehavior.STATE_EXPANDED -> {
+                        btnBottomSheet.text = "Close Bottom Sheet"
+                    }
+                    BottomSheetBehavior.STATE_HALF_EXPANDED -> {}
+                    BottomSheetBehavior.STATE_HIDDEN -> {}
+                    BottomSheetBehavior.STATE_SETTLING -> {}
+                }
             }
         })
     }
