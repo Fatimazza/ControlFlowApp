@@ -60,6 +60,13 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when(view.id) {
             R.id.btnBottomSheet -> {
+                if (bottomSheetBehavior.state != BottomSheetBehavior.STATE_EXPANDED) {
+                    bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED;
+                    btnBottomSheet.text = "Close Bottom Sheet";
+                } else {
+                    bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED;
+                    btnBottomSheet.text = "Expand Bottom Sheet";
+                }
 
             }
             R.id.btnBottomSheetDialog -> {
