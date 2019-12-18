@@ -24,7 +24,15 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun setupBottomSheetBehavior() {
         bottomSheetBehavior = BottomSheetBehavior.from(llBottomSheet)
-        bottomSheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {})
+        bottomSheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+            override fun onSlide(view: View, slideOffset: Float) {
+
+            }
+
+            override fun onStateChanged(view: View, newState: Int) {
+
+            }
+        })
     }
 
     private fun setupActionBar() {
