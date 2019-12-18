@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.View
 import android.widget.SearchView
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_demo.*
 
 class DemoActivity : AppCompatActivity(), View.OnClickListener {
@@ -90,7 +91,7 @@ class DemoActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(styleIntent)
             }
             R.id.btnSnackbar -> {
-
+                Snackbar.make(findViewById(R.id.clDemo), "This is Snackbar", Snackbar.LENGTH_SHORT).show()
             }
             R.id.btnSnackbarButton -> {
 
