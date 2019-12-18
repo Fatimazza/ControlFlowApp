@@ -7,20 +7,24 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.View
 import android.widget.SearchView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_demo.*
 
-class DemoActivity : AppCompatActivity() {
+class DemoActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_demo)
 
-        btnSubmit.setOnClickListener {
-            val styleIntent = Intent(this, StyleActivity::class.java)
-            startActivity(styleIntent)
-        }
+        setButtonClickListener()
+    }
+
+    private fun setButtonClickListener() {
+        btnSubmit.setOnClickListener(this)
+        btnSnackbar.setOnClickListener(this)
+        btnSnackbarButton.setOnClickListener(this)
     }
 
     override fun onStart() {
@@ -77,5 +81,20 @@ class DemoActivity : AppCompatActivity() {
                 return false
             }
         })
+    }
+
+    override fun onClick(view: View) {
+        when(view.id) {
+            R.id.btnSubmit -> {
+                val styleIntent = Intent(this, StyleActivity::class.java)
+                startActivity(styleIntent)
+            }
+            R.id.btnSnackbar -> {
+
+            }
+            R.id.btnSnackbarButton -> {
+
+            }
+        }
     }
 }
