@@ -6,9 +6,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
 import android.view.Menu
 import android.view.View
 import android.widget.SearchView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
@@ -102,11 +104,23 @@ class DemoActivity : AppCompatActivity(), View.OnClickListener {
                     .show()
             }
             R.id.btnSnackbarCustom -> {
-                Snackbar
+                val customSnackbar = Snackbar
                     .make(findViewById(R.id.clDemo), "This is a Custom Snackbar", Snackbar.LENGTH_SHORT)
                     .setActionTextColor(ContextCompat.getColor(this, R.color.button_snackbar))
                     .setAction("Undo", undoListener)
-                    .show()
+
+                val snackbarView = customSnackbar.view
+                val textView: TextView = snackbarView.findViewById(R.id.snackbar_text)
+                textView.setTextColor(ContextCompat.getColor(this, R.color.colorAccent))
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
+
+                snackbarView.setBackgroundColor(
+                    ContextCompat.getColor(
+                        baseContext,
+                        R.color.colorPrimaryDark
+                    )
+                )
+                customSnackbar.show()
             }
         }
     }
