@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import kotlinx.android.synthetic.main.activity_demo.*
 
 class DemoActivity : AppCompatActivity() {
@@ -46,5 +47,11 @@ class DemoActivity : AppCompatActivity() {
     override fun onDestroy() {
         Log.d("Izza", " - - on Destroy")
         super.onDestroy()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_demo, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }
