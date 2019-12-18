@@ -11,4 +11,9 @@
         android:title="@string/tab_text_2"
         android:icon="@drawable/ic_person" />
 
+    <item
+        android:id="@+id/navigation_third"
+        android:title="Third"
+        android:icon="@drawable/ic_photo" />
+
 </menu>

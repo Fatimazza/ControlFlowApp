@@ -12,7 +12,7 @@ import com.google.android.material.navigation.NavigationView
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.StyleActivity
 import id.co.iconpln.controlflowapp.fragmentTab.FirstFragment
-import id.co.iconpln.controlflowapp.fragmentTab.SecondFragment
+import id.co.iconpln.controlflowapp.hero.ListHeroFragment
 import kotlinx.android.synthetic.main.activity_nav_drawer.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
 
@@ -49,7 +49,7 @@ class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
             }
             R.id.nav_profile -> {
-                loadFragment(SecondFragment())
+                loadFragment(ListHeroFragment())
                 Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
             }
             R.id.nav_gallery -> {
