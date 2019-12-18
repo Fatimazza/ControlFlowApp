@@ -94,5 +94,6 @@
     <string name="green">Green</string>
 
     <string name="search">Search</string>
+    <string name="menu_search_hint">Input keyword … </string>
 
 </resources>
