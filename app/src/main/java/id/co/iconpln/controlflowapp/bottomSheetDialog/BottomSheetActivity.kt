@@ -8,6 +8,7 @@ import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.activity_bottom_sheet.*
 import kotlinx.android.synthetic.main.layout_bottom_sheet.*
 import kotlinx.android.synthetic.main.layout_content_main.*
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 
 class BottomSheetActivity : AppCompatActivity(), View.OnClickListener {
@@ -70,7 +71,11 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener {
 
             }
             R.id.btnBottomSheetDialog -> {
+                val dialogView = layoutInflater.inflate(R.layout.fragment_bottom_sheet, null)
 
+                val bottomSheetDialog = BottomSheetDialog(this)
+                bottomSheetDialog.setContentView(dialogView)
+                bottomSheetDialog.show()
             }
             R.id.btnBottomSheetDialogFragment -> {
 
