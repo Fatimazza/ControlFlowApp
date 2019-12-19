@@ -57,4 +57,8 @@ class BottomSheetFragment : BottomSheetDialogFragment(), View.OnClickListener {
         }
     }
 
+    interface ItemClickListener {
+        fun onItemClick(text: String)
+    }
+
 }
