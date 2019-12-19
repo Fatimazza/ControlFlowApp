@@ -1,6 +1,8 @@
 package id.co.iconpln.controlflowapp.bottomSheetDialog
 
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +17,8 @@ import kotlinx.android.synthetic.main.fragment_bottom_sheet.*
  * A simple [Fragment] subclass.
  */
 class BottomSheetFragment : BottomSheetDialogFragment(), View.OnClickListener {
+
+    private var itemClickListener: ItemClickListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,22 +43,45 @@ class BottomSheetFragment : BottomSheetDialogFragment(), View.OnClickListener {
 
     override fun onClick(view: View) {
         when (view.id) {
-            llBottomEdit.id -> {
-
+            llBottomPreview.id -> {
+                if (itemClickListener != null) {
+                    itemClickListener?.onItemClick(tvBottomPreview.text.toString())
+                }
             }
             llBottomShare.id -> {
-
+                if (itemClickListener != null) {
+                    itemClickListener?.onItemClick(tvBottomShare.text.toString())
+                }
             }
             llBottomEdit.id -> {
-
+                if (itemClickListener != null) {
+                    itemClickListener?.onItemClick(tvBottomEdit.text.toString())
+                }
             }
             llBottomSearch.id -> {
-
+                if (itemClickListener != null) {
+                    itemClickListener?.onItemClick(tvBottomSearch.text.toString())
+                }
             }
             llBottomExit.id -> {
-                
+                if (itemClickListener != null) {
+                    itemClickListener?.onItemClick(tvBottomExit.text.toString())
+                }
             }
         }
+    }
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+
+        if (context is ItemClickListener) {
+            this.itemClickListener = context
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        this.itemClickListener = null
     }
 
     interface ItemClickListener {
