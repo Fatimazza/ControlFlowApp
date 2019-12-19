@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.layout_content_main.*
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 
-class BottomSheetActivity : AppCompatActivity(), View.OnClickListener {
+class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomSheetFragment.ItemClickListener {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<View>
 
@@ -82,5 +82,9 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener {
                 bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
             }
         }
+    }
+
+    override fun onItemClick(text: String) {
+        tvBottomActivity.text = text
     }
 }
