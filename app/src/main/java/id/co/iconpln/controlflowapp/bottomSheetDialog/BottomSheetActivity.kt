@@ -91,7 +91,7 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomShe
 
     private fun setDialogClickListener(dialogView: View) {
         dialogView.llBottomPreview.setOnClickListener {
-            onItemClick("Dialog ${dialogView.tvBottomPreview.text}")
+            tvBottomActivity.text = "Dialog ${dialogView.tvBottomPreview.text}"
         }
         dialogView.llBottomShare.setOnClickListener {
             onItemClick("Dialog ${dialogView.tvBottomShare.text}")
