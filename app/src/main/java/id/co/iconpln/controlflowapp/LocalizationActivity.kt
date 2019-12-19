@@ -1,8 +1,11 @@
 package id.co.iconpln.controlflowapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.view.Menu
+import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_localization.*
 
 class LocalizationActivity : AppCompatActivity() {
@@ -30,5 +33,13 @@ class LocalizationActivity : AppCompatActivity() {
         val inflater = menuInflater
         inflater.inflate(R.menu.menu_localization, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_language) {
+            val intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+            startActivity(intent)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
