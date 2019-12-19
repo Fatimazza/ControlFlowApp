@@ -94,8 +94,8 @@ class ListHeroActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setListMode(mode: Int) {
-        when (mode) {
+    private fun setListMode(selectedMode: Int) {
+        when (selectedMode) {
             R.id.action_hero_list -> {
                 title = "Mode List"
                 showRecyclerList()
