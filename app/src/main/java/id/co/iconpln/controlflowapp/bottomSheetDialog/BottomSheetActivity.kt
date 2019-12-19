@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_bottom_sheet.*
 import kotlinx.android.synthetic.main.layout_bottom_sheet.*
 import kotlinx.android.synthetic.main.layout_content_main.*
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.android.synthetic.main.fragment_bottom_sheet.view.*
 
 
 class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomSheetFragment.ItemClickListener {
@@ -72,6 +73,13 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomShe
             }
             R.id.btnBottomSheetDialog -> {
                 val dialogView = layoutInflater.inflate(R.layout.fragment_bottom_sheet, null)
+
+                dialogView.llBottomPreview.setOnClickListener {
+                    onItemClick("Dialog ${dialogView.tvBottomPreview.text}")
+                }
+                dialogView.llBottomEdit.setOnClickListener {
+                    onItemClick("Dialog ${dialogView.tvBottomEdit.text}")
+                }
 
                 val bottomSheetDialog = BottomSheetDialog(this)
                 bottomSheetDialog.setContentView(dialogView)
