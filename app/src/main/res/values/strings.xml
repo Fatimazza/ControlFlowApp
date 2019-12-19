@@ -135,7 +135,7 @@
         <item>https://upload.wikimedia.org/wikipedia/commons/8/87/Ahmad_Dahlan.jpg</item>
     </string-array>
 
-    <string name="hello_world">Halo dunia %1$s, kamu memiliki %2$d cubitan dari %3$s</string>
+    <string name="hello_world">Halo %1$s, kamu memiliki %2$d cubitan dari %3$s</string>
     <string name="good_morning">Selamat Pagi</string>
     <plurals name="numberOfSongsAvailable">
         <item quantity="one">%d lagu ditemukan.</item>
