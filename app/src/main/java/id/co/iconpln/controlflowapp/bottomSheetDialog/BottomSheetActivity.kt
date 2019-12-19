@@ -57,6 +57,7 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomShe
         btnBottomSheet.setOnClickListener(this)
         btnBottomSheetDialog.setOnClickListener(this)
         btnBottomSheetDialogFragment.setOnClickListener(this)
+        btnBottomSheetPayment.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -81,6 +82,9 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomShe
             R.id.btnBottomSheetDialogFragment -> {
                 val bottomSheetFragment = BottomSheetFragment()
                 bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
+            }
+            R.id.btnBottomSheetPayment -> {
+                tvBottomActivity.text = "Order is Paid"
             }
         }
     }
