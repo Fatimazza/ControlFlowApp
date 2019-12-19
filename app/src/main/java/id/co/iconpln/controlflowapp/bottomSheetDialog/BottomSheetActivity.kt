@@ -73,22 +73,27 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomShe
             }
             R.id.btnBottomSheetDialog -> {
                 val dialogView = layoutInflater.inflate(R.layout.fragment_bottom_sheet, null)
-
-                dialogView.llBottomPreview.setOnClickListener {
-                    onItemClick("Dialog ${dialogView.tvBottomPreview.text}")
-                }
-                dialogView.llBottomEdit.setOnClickListener {
-                    onItemClick("Dialog ${dialogView.tvBottomEdit.text}")
-                }
-
                 val bottomSheetDialog = BottomSheetDialog(this)
                 bottomSheetDialog.setContentView(dialogView)
                 bottomSheetDialog.show()
+                setDialogClickListener(dialogView)
             }
             R.id.btnBottomSheetDialogFragment -> {
                 val bottomSheetFragment = BottomSheetFragment()
                 bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
             }
+        }
+    }
+
+    private fun setDialogClickListener(dialogView: View) {
+        dialogView.llBottomPreview.setOnClickListener {
+            onItemClick("Dialog ${dialogView.tvBottomPreview.text}")
+        }
+        dialogView.llBottomShare.setOnClickListener {
+            onItemClick("Dialog ${dialogView.tvBottomShare.text}")
+        }
+        dialogView.llBottomEdit.setOnClickListener {
+            onItemClick("Dialog ${dialogView.tvBottomEdit.text}")
         }
     }
 
