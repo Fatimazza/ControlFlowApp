@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.model.Hero
-import id.co.iconpln.controlflowapp.model.HeroesData
 import kotlinx.android.synthetic.main.activity_hero.*
 
 class ListHeroActivity : AppCompatActivity() {
@@ -27,8 +26,25 @@ class ListHeroActivity : AppCompatActivity() {
 
     private fun setupListHero() {
         rvListHero.setHasFixedSize(true)
-        listHero.addAll(HeroesData.listDataHero)
+        listHero.addAll(getDataHero())
         setupListDivider()
+    }
+
+    private fun getDataHero(): ArrayList<Hero> {
+        val heroName = resources.getStringArray(R.array.hero_name)
+        val heroDesc = resources.getStringArray(R.array.hero_description)
+        val heroPhoto = resources.getStringArray(R.array.hero_photo)
+
+        val listHero = ArrayList<Hero>()
+        for (position in heroName.indices) {
+            val hero = Hero(
+                heroName[position],
+                heroDesc[position],
+                heroPhoto[position]
+            )
+            listHero.add(hero)
+        }
+        return listHero
     }
 
     private fun showRecyclerList() {
