@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,11 +17,13 @@ class ListHeroActivity : AppCompatActivity() {
     private var listHero: ArrayList<Hero> = arrayListOf()
 
     private var title: String = "Mode List"
+    private var mode: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hero)
 
+        mode = R.id.action_hero_list
         setActionBarTitle(title)
         setupListHero()
         showRecyclerList()
@@ -105,6 +106,7 @@ class ListHeroActivity : AppCompatActivity() {
                 showRecyclerGrid()
             }
         }
+        mode = selectedMode
         setActionBarTitle(title)
     }
 }
