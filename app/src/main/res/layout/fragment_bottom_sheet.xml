@@ -10,6 +10,7 @@
     instead of nested layouts -->
 
     <LinearLayout
+        android:id="@+id/llBottomPreview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -38,6 +39,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/llBottomShare"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -66,6 +68,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/llBottomEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -94,6 +97,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/llBottomSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -122,6 +126,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/llBottomExit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
