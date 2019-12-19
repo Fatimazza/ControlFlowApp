@@ -40,7 +40,24 @@ class ListHeroFragment : Fragment() {
 
     private fun setupListHero() {
         rvFragmentListHero.setHasFixedSize(true)
-        listHero.addAll(HeroesData.listDataHero)
+        listHero.addAll(getDataHero())
+    }
+
+    private fun getDataHero(): ArrayList<Hero> {
+        val heroName = resources.getStringArray(R.array.hero_name)
+        val heroDesc = resources.getStringArray(R.array.hero_description)
+        val heroPhoto = resources.getStringArray(R.array.hero_photo)
+
+        val listHero = ArrayList<Hero>()
+        for (position in heroName.indices) {
+            val hero = Hero(
+                heroName[position],
+                heroDesc[position],
+                heroPhoto[position]
+            )
+            listHero.add(hero)
+        }
+        return listHero
     }
 
     private fun showRecyclerViewList() {
