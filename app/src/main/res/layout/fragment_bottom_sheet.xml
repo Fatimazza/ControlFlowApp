@@ -29,6 +29,7 @@
             android:tint="#737373" />
 
         <TextView
+            android:id="@+id/tvBottomPreview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -58,6 +59,7 @@
             android:tint="#737373" />
 
         <TextView
+            android:id="@+id/tvBottomShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -87,6 +89,7 @@
             android:tint="#737373" />
 
         <TextView
+            android:id="@+id/tvBottomEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -116,6 +119,7 @@
             android:tint="#737373" />
 
         <TextView
+            android:id="@+id/tvBottomSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -145,6 +149,7 @@
             android:tint="#737373" />
 
         <TextView
+            android:id="@+id/tvBottomExit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
