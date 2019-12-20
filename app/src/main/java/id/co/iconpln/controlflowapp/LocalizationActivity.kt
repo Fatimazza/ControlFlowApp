@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
+import kotlinx.android.synthetic.main.activity_localization.*
 
 class LocalizationActivity : AppCompatActivity() {
 
