@@ -7,6 +7,8 @@ import kotlinx.android.synthetic.main.activity_scroll.*
 
 class ScrollActivity : FragmentActivity() {
 
+    private lateinit var pagerAdapter: ScrollPagerAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scroll)
@@ -15,7 +17,15 @@ class ScrollActivity : FragmentActivity() {
     }
 
     private fun setupSlideViewPager() {
-        val pagerAdapter = ScrollPagerAdapter(supportFragmentManager)
+        pagerAdapter = ScrollPagerAdapter(supportFragmentManager)
         vpScroll.adapter = pagerAdapter
+    }
+
+    override fun onBackPressed() {
+        if (vpScroll.currentItem == 0) {
+            super.onBackPressed()
+        } else {
+            vpScroll.currentItem = vpScroll.currentItem - 1
+        }
     }
 }
