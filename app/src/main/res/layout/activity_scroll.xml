@@ -17,6 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="?android:attr/colorPrimary" />
+        app:tabBackground="@drawable/slide_indicator_selector"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp" />
 
 </RelativeLayout>
