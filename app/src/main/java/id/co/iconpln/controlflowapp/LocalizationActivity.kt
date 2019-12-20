@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_localization.*
 
 class LocalizationActivity : AppCompatActivity() {
 
@@ -20,12 +19,12 @@ class LocalizationActivity : AppCompatActivity() {
     private fun displayLocalizedTexts() {
         val pokeCount = 3
         val hello =
-            resources.getString(R.string.hello_world, "Iconplus Squads", pokeCount, "Izza")
+            resources.getString(R.string.locale_count_hello, "Iconplus Squads", pokeCount, "Izza")
         tvLocaleHallo.text = hello
 
         val songCount = 5
         val pluralText =
-            resources.getQuantityString(R.plurals.numberOfSongsAvailable, songCount, songCount)
+            resources.getQuantityString(R.plurals.locale_count_plural_songs, songCount, songCount)
         tvLocalePlural.text = pluralText
     }
 
