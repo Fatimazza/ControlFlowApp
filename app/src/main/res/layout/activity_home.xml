@@ -109,6 +109,18 @@
             android:layout_height="wrap_content"
             android:text="Bottom Sheet Dialog"/>
 
+        <Button
+            android:id="@+id/btnViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Pager Demo"/>
+
+        <Button
+            android:id="@+id/btnLocalization"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Localization"/>
+
     </LinearLayout>
 
 </ScrollView>

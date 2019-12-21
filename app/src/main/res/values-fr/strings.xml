@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="locale_count_hello">Bonjour %1$s, Vous avez %2$d pokes de %3$s</string>
+    <string name="locale_good_morning">Bonjour</string>
+    <plurals name="locale_count_plural_songs">
+        <item quantity="one">%d chanson trouvé.</item>
+        <item quantity="other">%d chansons trouvé.</item>
+    </plurals>
+    <string name="locale_language_settings">Modifier les paramètres de langue</string>
+</resources>

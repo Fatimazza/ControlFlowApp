@@ -10,6 +10,7 @@ import id.co.iconpln.controlflowapp.fragmentNavDrawer.NavDrawerActivity
 import id.co.iconpln.controlflowapp.fragments.DemoFragmentActivity
 import id.co.iconpln.controlflowapp.hero.ListHeroActivity
 import id.co.iconpln.controlflowapp.fragmentTab.TabActivity
+import id.co.iconpln.controlflowapp.fragmentViewPager.ScrollActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
@@ -38,6 +39,8 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnBottomNav.setOnClickListener(this)
         btnNavDrawer.setOnClickListener(this)
         btnBottomSheetDemo.setOnClickListener(this)
+        btnViewPager.setOnClickListener(this)
+        btnLocalization.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -105,6 +108,14 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnBottomSheetDemo -> {
                 val bottomSheetIntent = Intent(this, BottomSheetActivity::class.java)
                 startActivity(bottomSheetIntent)
+            }
+            R.id.btnViewPager -> {
+                val viewPagerIntent = Intent(this, ScrollActivity::class.java)
+                startActivity(viewPagerIntent)
+            }
+            R.id.btnLocalization -> {
+                val localizationIntent = Intent(this, LocalizationActivity::class.java)
+                startActivity(localizationIntent)
             }
         }
     }
