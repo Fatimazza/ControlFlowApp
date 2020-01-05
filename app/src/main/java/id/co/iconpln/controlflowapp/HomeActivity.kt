@@ -11,6 +11,7 @@ import id.co.iconpln.controlflowapp.fragments.DemoFragmentActivity
 import id.co.iconpln.controlflowapp.hero.ListHeroActivity
 import id.co.iconpln.controlflowapp.fragmentTab.TabActivity
 import id.co.iconpln.controlflowapp.fragmentViewPager.ScrollActivity
+import id.co.iconpln.controlflowapp.sharedPreference.SharedPreferenceActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
@@ -119,7 +120,8 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(localizationIntent)
             }
             R.id.btnSharedPreference -> {
-                
+                val sharedPrefIntent = Intent(this, SharedPreferenceActivity::class.java)
+                startActivity(sharedPrefIntent)
             }
         }
     }
