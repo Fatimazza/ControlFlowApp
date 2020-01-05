@@ -41,6 +41,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnBottomSheetDemo.setOnClickListener(this)
         btnViewPager.setOnClickListener(this)
         btnLocalization.setOnClickListener(this)
+        btnSharedPreference.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -116,6 +117,9 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnLocalization -> {
                 val localizationIntent = Intent(this, LocalizationActivity::class.java)
                 startActivity(localizationIntent)
+            }
+            R.id.btnSharedPreference -> {
+                
             }
         }
     }
