@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.sharedPreference
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.isDigitsOnly
 import id.co.iconpln.controlflowapp.R
@@ -16,6 +17,8 @@ class SharedPreferenceFormActivity : AppCompatActivity(), View.OnClickListener {
         const val TYPE_ADD = 1
         const val TYPE_EDIT = 2
     }
+
+    private lateinit var user: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,4 +65,18 @@ class SharedPreferenceFormActivity : AppCompatActivity(), View.OnClickListener {
     private fun isValidEmail(email: CharSequence): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
+
+    private fun saveUser(
+        name: String, email: String, age: String, handphone: String, hasReadingHobby: Boolean
+    ) {
+        val userPreference = UserPreference(this)
+        user.name = name
+        user.email = email
+        user.age = Integer.parseInt(age)
+        user.handphone = handphone
+        user.hasReadingHobby = hasReadingHobby
+        userPreference.setUser(user)
+        Toast.makeText(this, "Data saved", Toast.LENGTH_SHORT).show()
+    }
+
 }
