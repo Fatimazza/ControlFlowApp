@@ -1,5 +1,6 @@
 package id.co.iconpln.controlflowapp.sharedPreference
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -59,6 +60,11 @@ class SharedPreferenceFormActivity : AppCompatActivity(), View.OnClickListener {
                 etPrefFormHp.error = resources.getString(R.string.sp_field_digit_only)
                 return
             }
+
+            saveUser(name, email, age, handphone, hasReadingHobby)
+            val resultIntent = Intent().putExtra(EXTRA_RESULT, user)
+            setResult(RESULT_CODE, resultIntent)
+            finish()
         }
     }
 
