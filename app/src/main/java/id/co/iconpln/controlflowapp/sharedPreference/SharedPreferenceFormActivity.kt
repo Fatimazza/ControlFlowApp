@@ -1,9 +1,9 @@
 package id.co.iconpln.controlflowapp.sharedPreference
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.isDigitsOnly
 import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.activity_shared_preference_form.*
 
@@ -31,6 +31,35 @@ class SharedPreferenceFormActivity : AppCompatActivity(), View.OnClickListener {
             val age = etPrefFormAge.text.toString().trim()
             val handphone = etPrefFormHp.text.toString().trim()
             val hasReadingHobby = rgPrefFormHobby.checkedRadioButtonId == R.id.rbPrefFormReading
+
+            if (name.isEmpty()) {
+                etPrefFormName.error = resources.getString(R.string.sp_field_required)
+                return
+            }
+            if (email.isEmpty()) {
+                etPrefFormEmail.error = resources.getString(R.string.sp_field_required)
+                return
+            }
+            if (!isValidEmail(email)) {
+                etPrefFormEmail.error = resources.getString(R.string.sp_field_email_not_valid)
+                return
+            }
+            if (age.isEmpty()) {
+                etPrefFormAge.error = resources.getString(R.string.sp_field_required)
+                return
+            }
+            if (handphone.isEmpty()) {
+                etPrefFormHp.error = resources.getString(R.string.sp_field_required)
+                return
+            }
+            if (!handphone.isDigitsOnly()) {
+                etPrefFormHp.error = resources.getString(R.string.sp_field_digit_only)
+                return
+            }
         }
+    }
+
+    private fun isValidEmail(email: CharSequence): Boolean {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 }
