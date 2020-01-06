@@ -9,6 +9,14 @@ import kotlinx.android.synthetic.main.activity_shared_preference_form.*
 
 class SharedPreferenceFormActivity : AppCompatActivity(), View.OnClickListener {
 
+    companion object {
+        const val EXTRA_TYPE_FORM = "extra_type_form"
+        const val EXTRA_RESULT = "extra_result"
+        const val RESULT_CODE = 101
+        const val TYPE_ADD = 1
+        const val TYPE_EDIT = 2
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shared_preference_form)
