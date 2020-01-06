@@ -21,14 +21,21 @@ class SharedPreferenceFormActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private lateinit var user: User
+    private var formType: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shared_preference_form)
 
+        getIntentExtra()
         btnPrefFormSave.setOnClickListener(this)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    private fun getIntentExtra() {
+        user = intent.getParcelableExtra("USER") as User
+        formType = intent.getIntExtra(EXTRA_TYPE_FORM, 0)
     }
 
     override fun onClick(view: View) {
