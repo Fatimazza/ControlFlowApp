@@ -15,6 +15,10 @@ class SharedPreferenceActivity : AppCompatActivity(), View.OnClickListener {
     
     private lateinit var user: User
 
+    companion object {
+        private const val REQUEST_CODE = 100
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shared_preference)
@@ -61,7 +65,22 @@ class SharedPreferenceActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         if (view.id == R.id.btnPrefSave) {
             val sharedPrefFormintent = Intent(this, SharedPreferenceFormActivity::class.java)
-            startActivity(sharedPrefFormintent)
+            when {
+                isPreferenceEmpty -> {
+                    sharedPrefFormintent.putExtra(
+                        SharedPreferenceFormActivity.EXTRA_TYPE_FORM,
+                        SharedPreferenceFormActivity.TYPE_ADD
+                    )
+                }
+                else -> {
+                    sharedPrefFormintent.putExtra(
+                        SharedPreferenceFormActivity.EXTRA_TYPE_FORM,
+                        SharedPreferenceFormActivity.TYPE_EDIT
+                    )
+                }
+            }
+            sharedPrefFormintent.putExtra("USER", user)
+            startActivityForResult(intent, REQUEST_CODE)
         }
     }
 }
