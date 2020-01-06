@@ -26,7 +26,11 @@ class SharedPreferenceFormActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         if (view.id == R.id.btnPrefFormSave) {
-            Toast.makeText(this, "Click", Toast.LENGTH_SHORT).show()
+            val name = etPrefFormName.text.toString().trim()
+            val email = etPrefFormEmail.text.toString().trim()
+            val age = etPrefFormAge.text.toString().trim()
+            val handphone = etPrefFormHp.text.toString().trim()
+            val hasReadingHobby = rgPrefFormHobby.checkedRadioButtonId == R.id.rbPrefFormReading
         }
     }
 }
