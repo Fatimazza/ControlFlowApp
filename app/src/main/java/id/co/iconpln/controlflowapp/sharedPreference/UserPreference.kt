@@ -15,4 +15,24 @@ internal class UserPreference(context: Context) {
 
     private val preferences = context.getSharedPreferences(PREFS_USER, Context.MODE_PRIVATE)
 
+    fun setUser(value: User) {
+        val editor = preferences.edit()
+        editor.putString(NAME, value.name)
+        editor.putString(EMAIL, value.email)
+        editor.putInt(AGE, value.age)
+        editor.putString(HANDPHONE, value.handphone)
+        editor.putBoolean(HAS_READING_HOBBY, value.hasReadingHobby)
+        editor.apply()
+    }
+
+    fun getUser(): User {
+        val model = User()
+        model.name = preferences.getString(NAME, "")
+        model.email = preferences.getString(EMAIL, "")
+        model.age = preferences.getInt(AGE, 0)
+        model.handphone = preferences.getString(HANDPHONE, "")
+        model.hasReadingHobby = preferences.getBoolean(HAS_READING_HOBBY, false)
+        return model
+    }
+
 }
