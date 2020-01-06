@@ -80,7 +80,7 @@ class SharedPreferenceActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             sharedPrefFormintent.putExtra("USER", user)
-            startActivityForResult(intent, REQUEST_CODE)
+            startActivityForResult(sharedPrefFormintent, REQUEST_CODE)
         }
     }
 
