@@ -10,6 +10,8 @@ import kotlinx.android.synthetic.main.activity_shared_preference.*
 class SharedPreferenceActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var userPreference: UserPreference
+
+    private var isPreferenceEmpty = false
     
     private lateinit var user: User
 
@@ -27,6 +29,7 @@ class SharedPreferenceActivity : AppCompatActivity(), View.OnClickListener {
     private fun showExistingPreference() {
         user = userPreference.getUser()
         populateView(user)
+        checkForm(user)
     }
 
     private fun populateView(user: User) {
@@ -42,6 +45,18 @@ class SharedPreferenceActivity : AppCompatActivity(), View.OnClickListener {
             "Tidak Membaca" else "Membaca"
     }
 
+    private fun checkForm(user: User) {
+        when {
+            user.name.toString().isNotEmpty() -> {
+                btnPrefSave.text = resources.getText(R.string.sp_change)
+                isPreferenceEmpty = false
+            }
+            else -> {
+                btnPrefSave.text = resources.getString(R.string.sp_save)
+                isPreferenceEmpty = true
+            }
+        }
+    }
 
     override fun onClick(view: View) {
         if (view.id == R.id.btnPrefSave) {
