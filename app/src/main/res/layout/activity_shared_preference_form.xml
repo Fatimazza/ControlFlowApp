@@ -18,7 +18,7 @@
             android:layout_marginBottom="16dp">
 
             <EditText
-                android:id="@+id/etPrefName"
+                android:id="@+id/etPrefFormName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/sp_name"
@@ -33,7 +33,7 @@
             android:layout_marginBottom="16dp">
 
             <EditText
-                android:id="@+id/etPrefEmail"
+                android:id="@+id/etPrefFormEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/sp_email"
@@ -48,7 +48,7 @@
             android:layout_marginBottom="16dp">
 
             <EditText
-                android:id="@+id/etPrefHp"
+                android:id="@+id/etPrefFormHp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/sp_handphone"
@@ -63,7 +63,7 @@
             android:layout_marginBottom="16dp">
 
             <EditText
-                android:id="@+id/etPrefAge"
+                android:id="@+id/etPrefFormAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/sp_age"
@@ -79,21 +79,21 @@
             android:text="@string/sp_hobby" />
 
         <RadioGroup
-            android:id="@+id/rgPrefHobby"
+            android:id="@+id/rgPrefFormHobby"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/rbPrefReading"
+                android:id="@+id/rbPrefFormReading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/sp_hobby_reading" />
 
             <RadioButton
-                android:id="@+id/rbPrefNotReading"
+                android:id="@+id/rbPrefFormNotReading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -102,7 +102,7 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/btnPrefSave"
+            android:id="@+id/btnPrefFormSave"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
