@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.sharedPreference
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +27,8 @@ class SharedPreferenceFormActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_shared_preference_form)
 
         btnPrefFormSave.setOnClickListener(this)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onClick(view: View) {
@@ -85,4 +88,8 @@ class SharedPreferenceFormActivity : AppCompatActivity(), View.OnClickListener {
         Toast.makeText(this, "Data saved", Toast.LENGTH_SHORT).show()
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) finish()
+        return super.onOptionsItemSelected(item)
+    }
 }
