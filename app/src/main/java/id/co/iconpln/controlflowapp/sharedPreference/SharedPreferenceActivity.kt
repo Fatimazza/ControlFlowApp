@@ -26,6 +26,20 @@ class SharedPreferenceActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun showExistingPreference() {
         user = userPreference.getUser()
+        populateView(user)
+    }
+
+    private fun populateView(user: User) {
+        tvPrefName.text = if (user.name.toString().isEmpty())
+            "Tidak Ada" else user.name
+        tvPrefAge.text = if (user.age.toString().isEmpty())
+            "Tidak Ada" else user.age.toString()
+        tvPrefEmail.text = if (user.email.toString().isEmpty())
+            "Tidak Ada" else user.email
+        tvPrefHandphone.text = if (user.handphone.toString().isEmpty())
+            "Tidak Ada" else user.handphone
+        tvPrefHobby.text = if (!user.hasReadingHobby)
+            "Tidak Membaca" else "Membaca"
     }
 
 
