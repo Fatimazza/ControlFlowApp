@@ -13,11 +13,11 @@ class SharedPreferenceActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shared_preference)
 
-        btnSpSave.setOnClickListener(this)
+        btnPrefSave.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
-        if (view.id == R.id.btnSpSave) {
+        if (view.id == R.id.btnPrefSave) {
             val sharedPrefFormintent = Intent(this, SharedPreferenceFormActivity::class.java)
             startActivity(sharedPrefFormintent)
         }
