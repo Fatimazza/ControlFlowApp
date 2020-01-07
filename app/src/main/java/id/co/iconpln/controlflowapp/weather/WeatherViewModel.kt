@@ -1,5 +1,6 @@
 package id.co.iconpln.controlflowapp.weather
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -7,6 +8,8 @@ import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import cz.msebera.android.httpclient.Header
 import id.co.iconpln.controlflowapp.BuildConfig
+import org.json.JSONObject
+import java.text.DecimalFormat
 
 class WeatherViewModel: ViewModel() {
 
@@ -29,7 +32,36 @@ class WeatherViewModel: ViewModel() {
                 headers: Array<out Header>,
                 responseBody: ByteArray
             ) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                try {
+                    //get data list JSON Array
+                    val result = String(responseBody)
+                    val responseObject = JSONObject(result)
+                    val list = responseObject.getJSONArray("list")
+
+                    //convert JSON Object to readable data
+                    //data in JSON Object is read by its KEY, exp. id, name
+                    for (i in 0 until list.length()) {
+                        val weather = list.getJSONObject(i)
+                        val weatherItem = Weather()
+                        weatherItem.id = weather.getInt("id")
+                        weatherItem.name = weather.getString("name")
+                        weatherItem.currentWeather =
+                            weather.getJSONArray("weather").getJSONObject(0).getString("main")
+                        weatherItem.description =
+                            weather.getJSONArray("weather").getJSONObject(0)
+                                .getString("description")
+
+                        val tempInKelvin = weather.getJSONObject("main").getDouble("temp")
+                        val tempInCelcius = tempInKelvin - 273
+                        weatherItem.temperature = DecimalFormat("##.##").format(tempInCelcius)
+                        listItems.add(weatherItem)
+                    }
+                    //post realtime latest value from Background Thread
+                    listWeathers.postValue(listItems)
+
+                } catch (e: Exception) {
+                    Log.d("Exception", e.message.toString())
+                }
             }
 
             override fun onFailure(
@@ -38,7 +70,7 @@ class WeatherViewModel: ViewModel() {
                 responseBody: ByteArray,
                 error: Throwable
             ) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                Log.d("onFailure", error.message.toString())
             }
 
         })
