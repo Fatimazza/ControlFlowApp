@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.weather
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
@@ -32,5 +33,13 @@ class WeatherActivity : AppCompatActivity() {
 
         rvWeatherList.layoutManager = LinearLayoutManager(this)
         rvWeatherList.adapter = adapter
+    }
+
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            pbWeatherLoading.visibility = View.VISIBLE
+        } else {
+            pbWeatherLoading.visibility = View.GONE
+        }
     }
 }
