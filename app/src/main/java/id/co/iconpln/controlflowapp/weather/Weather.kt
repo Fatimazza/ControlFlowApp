@@ -1,0 +1,9 @@
+package id.co.iconpln.controlflowapp.weather
+
+class Weather {
+    var id: Int = 0
+    var name: String? = null
+    var currentWeather: String? = null
+    var description: String? = null
+    var temperature: String? = null
+}
