@@ -155,5 +155,12 @@
     <string name="sp_field_required" translatable="false">Field tidak boleh kosong</string>
     <string name="sp_field_digit_only" translatable="false">Hanya boleh terisi numerik</string>
     <string name="sp_field_email_not_valid" translatable="false">Email tidak valid</string>
-    
+
+    <string name="weather_description" translatable="false">Deskripsi</string>
+    <string name="weather_temperature" translatable="false">Temperatur</string>
+    <string name="weather_city" translatable="false">Nama Kota</string>
+    <string name="weather_insert_city" translatable="false">Masukkan id kota misal Jakarta = 1642911</string>
+    <string name="weather_search" translatable="false">Cari</string>
+    <string name="weather_id_jakarta_bandung_semarang" translatable="false">1642911,1650357,1627896</string>
+
 </resources>
