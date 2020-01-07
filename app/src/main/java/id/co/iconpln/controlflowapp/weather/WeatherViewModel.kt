@@ -26,17 +26,17 @@ class WeatherViewModel: ViewModel() {
         client.get(url, object : AsyncHttpResponseHandler(){
             override fun onSuccess(
                 statusCode: Int,
-                headers: Array<out Header>?,
-                responseBody: ByteArray?
+                headers: Array<out Header>,
+                responseBody: ByteArray
             ) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onFailure(
                 statusCode: Int,
-                headers: Array<out Header>?,
-                responseBody: ByteArray?,
-                error: Throwable?
+                headers: Array<out Header>,
+                responseBody: ByteArray,
+                error: Throwable
             ) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
