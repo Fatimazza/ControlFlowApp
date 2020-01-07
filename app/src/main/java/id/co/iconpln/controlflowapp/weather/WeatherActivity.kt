@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.activity_weather.*
 
-class WeatherActivity : AppCompatActivity() {
+class WeatherActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var adapter: WeatherAdapter
 
@@ -20,6 +20,7 @@ class WeatherActivity : AppCompatActivity() {
 
         initViewModel()
         showListWeather()
+        btnWeatherSearch.setOnClickListener(this)
     }
 
     private fun initViewModel() {
@@ -33,6 +34,12 @@ class WeatherActivity : AppCompatActivity() {
 
         rvWeatherList.layoutManager = LinearLayoutManager(this)
         rvWeatherList.adapter = adapter
+    }
+
+    override fun onClick(view: View) {
+        if (view.id == R.id.btnWeatherSearch) {
+
+        }
     }
 
     private fun showLoading(state: Boolean) {
