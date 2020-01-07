@@ -25,6 +25,12 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() 
         holder.bind(weatherData[position])
     }
 
+    fun setData(weatherItems: ArrayList<Weather>) {
+        weatherData.clear()
+        weatherData.addAll(weatherItems)
+        notifyDataSetChanged()
+    }
+
     inner class WeatherViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind (weatherItem: Weather) {
             itemView.tvWeatherCity.text = weatherItem.name
