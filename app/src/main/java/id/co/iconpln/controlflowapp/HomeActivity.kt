@@ -11,6 +11,8 @@ import id.co.iconpln.controlflowapp.fragments.DemoFragmentActivity
 import id.co.iconpln.controlflowapp.hero.ListHeroActivity
 import id.co.iconpln.controlflowapp.fragmentTab.TabActivity
 import id.co.iconpln.controlflowapp.fragmentViewPager.ScrollActivity
+import id.co.iconpln.controlflowapp.sharedPreference.SharedPreferenceActivity
+import id.co.iconpln.controlflowapp.weather.WeatherActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
@@ -41,6 +43,8 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnBottomSheetDemo.setOnClickListener(this)
         btnViewPager.setOnClickListener(this)
         btnLocalization.setOnClickListener(this)
+        btnSharedPreference.setOnClickListener(this)
+        btnWeather.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -116,6 +120,14 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnLocalization -> {
                 val localizationIntent = Intent(this, LocalizationActivity::class.java)
                 startActivity(localizationIntent)
+            }
+            R.id.btnSharedPreference -> {
+                val sharedPrefIntent = Intent(this, SharedPreferenceActivity::class.java)
+                startActivity(sharedPrefIntent)
+            }
+            R.id.btnWeather -> {
+                val weatherIntent = Intent(this, WeatherActivity::class.java)
+                startActivity(weatherIntent)
             }
         }
     }

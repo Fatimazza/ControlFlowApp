@@ -121,6 +121,18 @@
             android:layout_height="wrap_content"
             android:text="Localization"/>
 
+        <Button
+            android:id="@+id/btnSharedPreference"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shared Preference"/>
+
+        <Button
+            android:id="@+id/btnWeather"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Weather"/>
+
     </LinearLayout>
 
 </ScrollView>
