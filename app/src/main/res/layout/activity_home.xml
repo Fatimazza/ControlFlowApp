@@ -133,6 +133,12 @@
             android:layout_height="wrap_content"
             android:text="Weather"/>
 
+        <Button
+            android:id="@+id/btnContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact"/>
+
     </LinearLayout>
 
 </ScrollView>
