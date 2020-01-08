@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import id.co.iconpln.controlflowapp.bottomSheetDialog.BottomSheetActivity
+import id.co.iconpln.controlflowapp.contact.ContactActivity
 import id.co.iconpln.controlflowapp.fragmentBottomNav.BottomNavActivity
 import id.co.iconpln.controlflowapp.fragmentNavDrawer.NavDrawerActivity
 import id.co.iconpln.controlflowapp.fragments.DemoFragmentActivity
@@ -45,6 +46,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnLocalization.setOnClickListener(this)
         btnSharedPreference.setOnClickListener(this)
         btnWeather.setOnClickListener(this)
+        btnContact.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -128,6 +130,10 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnWeather -> {
                 val weatherIntent = Intent(this, WeatherActivity::class.java)
                 startActivity(weatherIntent)
+            }
+            R.id.btnContact -> {
+                val contactIntent = Intent(this, ContactActivity::class.java)
+                startActivity(contactIntent)
             }
         }
     }
