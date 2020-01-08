@@ -16,7 +16,7 @@ class ContactViewModel : ViewModel() {
     internal fun setContact() {
         val client = AsyncHttpClient()
         val listItemContacts = ArrayList<Contact>()
-        val url = "https://api.androidhive.info/contacts/"
+        val url = "https://api.androidhive.info/contacts"
 
         // Request Contact API
         client.get(url, object : AsyncHttpResponseHandler(){
@@ -29,7 +29,9 @@ class ContactViewModel : ViewModel() {
                     //get data list JSON Array
                     val result = String(responseBody)
                     val responseObject = JSONObject(result)
-                    val arrayContacts = responseObject.getJSONArray("contact")
+                    val arrayContacts = responseObject.getJSONArray("contacts")
+
+                    Log.d("Izza ", "" +result)
 
                     //convert JSON Object to readable data
                     //data in JSON Object is read by its KEY, exp. id, name
