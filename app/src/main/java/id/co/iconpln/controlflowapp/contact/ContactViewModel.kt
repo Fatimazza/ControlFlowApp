@@ -1,5 +1,6 @@
 package id.co.iconpln.controlflowapp.contact
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -23,7 +24,11 @@ class ContactViewModel : ViewModel() {
                 headers: Array<out Header>,
                 responseBody: ByteArray
             ) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                try {
+                    
+                } catch (e: Exception) {
+                    Log.d("Exception", e.message.toString())
+                }
             }
 
             override fun onFailure(
@@ -32,7 +37,7 @@ class ContactViewModel : ViewModel() {
                 responseBody: ByteArray,
                 error: Throwable
             ) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                Log.d("onFailure", error.message.toString())
             }
         })
     }
