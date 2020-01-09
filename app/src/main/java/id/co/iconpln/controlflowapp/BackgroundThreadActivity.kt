@@ -19,6 +19,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
         btnThreadWorker.setOnClickListener(this)
         btnThreadHandler.setOnClickListener(this)
         btnThreadAsyncTask.setOnClickListener(this)
+        btnThreadCoroutine.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -53,6 +54,9 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
             R.id.btnThreadAsyncTask -> {
                 val urlResult = URL("https://api.androidhive.info/contacts")
                 FetchContactAsyncTask(this).execute(urlResult)
+            }
+            R.id.btnThreadCoroutine -> {
+                
             }
         }
     }
