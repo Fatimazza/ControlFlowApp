@@ -7,6 +7,9 @@ import android.os.Handler
 import android.os.Message
 import android.view.View
 import kotlinx.android.synthetic.main.activity_background_thread.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.lang.ref.WeakReference
 import java.net.URL
 
@@ -56,7 +59,12 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
                 FetchContactAsyncTask(this).execute(urlResult)
             }
             R.id.btnThreadCoroutine -> {
-                
+                runBlocking {
+                    launch {
+                        delay(1000)
+                        tvThreadCoroutineResult.text = "Coroutine!"
+                    }
+                }
             }
         }
     }
