@@ -47,6 +47,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnSharedPreference.setOnClickListener(this)
         btnWeather.setOnClickListener(this)
         btnContact.setOnClickListener(this)
+        btnThread.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -134,6 +135,10 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnContact -> {
                 val contactIntent = Intent(this, ContactActivity::class.java)
                 startActivity(contactIntent)
+            }
+            R.id.btnThread -> {
+                val backgrounThreadIntent = Intent(this, BackhroundThreadActivity::class.java)
+                startActivity(backgrounThreadIntent)
             }
         }
     }
