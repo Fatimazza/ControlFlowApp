@@ -63,6 +63,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
     }
 
     override fun onPreExecute() {
+        tvThreadAsyncResult.visibility = View.GONE
         pbThreadAsyncProgress.visibility = View.VISIBLE
     }
 
@@ -71,6 +72,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
     }
 
     override fun onPostExecute(result: String?) {
+        tvThreadAsyncResult.visibility = View.VISIBLE
         pbThreadAsyncProgress.visibility = View.GONE
         tvThreadAsyncResult.text = result
     }
