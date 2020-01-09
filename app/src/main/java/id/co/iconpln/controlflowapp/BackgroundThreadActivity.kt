@@ -61,8 +61,20 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     class FetchContactAsyncTask: AsyncTask<URL, Int, String>() {
+        override fun onPreExecute() {
+            super.onPreExecute()
+        }
+
         override fun doInBackground(vararg urls: URL): String {
             TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun onProgressUpdate(vararg values: Int?) {
+            super.onProgressUpdate(*values)
+        }
+
+        override fun onPostExecute(result: String?) {
+            super.onPostExecute(result)
         }
     }
 }
