@@ -34,4 +34,23 @@
         android:layout_height="wrap_content"
         android:text="Handler" />
 
+    <TextView
+        android:id="@+id/tvThreadAsyncResult"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="Async Task Result" />
+
+    <ProgressBar
+        android:id="@+id/pbThreadAsyncProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnThreadAsyncTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Async Task" />
+
 </LinearLayout>
