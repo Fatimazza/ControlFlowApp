@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_background_thread.*
 import java.lang.ref.WeakReference
 import java.net.URL
 
-class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
+class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, ContactAsyncTaskCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +61,18 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
         true
     }
 
+    override fun onPreExecute() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onProgressUpdate(vararg values: Int?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onPostExecute(result: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     class FetchContactAsyncTask(val listener: ContactAsyncTaskCallback): AsyncTask<URL, Int, String>() {
 
         //using WeakReference to avoid Memory Leak in AsyncTask
@@ -87,6 +99,6 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
 
 interface ContactAsyncTaskCallback {
     fun onPreExecute()
-    fun onProgressUpdate()
-    fun onPostExecute()
+    fun onProgressUpdate(vararg values: Int?)
+    fun onPostExecute(result: String?)
 }
