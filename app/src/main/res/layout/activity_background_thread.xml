@@ -53,4 +53,17 @@
         android:layout_height="wrap_content"
         android:text="Async Task" />
 
+    <TextView
+        android:id="@+id/tvThreadCoroutineResult"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="Coroutine Result" />
+
+    <Button
+        android:id="@+id/btnThreadCoroutine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coroutine" />
+
 </LinearLayout>
