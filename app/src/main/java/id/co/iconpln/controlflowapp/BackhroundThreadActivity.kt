@@ -3,10 +3,7 @@ package id.co.iconpln.controlflowapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
-import id.co.iconpln.controlflowapp.contact.ContactViewModel
 import kotlinx.android.synthetic.main.activity_backhround_thread.*
-import java.net.URL
 
 class BackhroundThreadActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -20,8 +17,11 @@ class BackhroundThreadActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when (view.id) {
             R.id.btnThreadWorker -> {
+                /*
+                Don't : Call Network in Main Thread
                 val text = URL("https://api.androidhive.info/contacts").readText()
                 tvThreadWorkerResult.text = text
+                */
             }
         }
     }
