@@ -11,7 +11,7 @@
     <TextView
         android:id="@+id/tvThreadWorkerResult"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:gravity="center"
         android:text="Worker Thread Result" />
 
@@ -24,7 +24,7 @@
     <TextView
         android:id="@+id/tvThreadHandlerResult"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:gravity="center"
         android:text="Handler Result" />
 
@@ -37,7 +37,7 @@
     <TextView
         android:id="@+id/tvThreadAsyncResult"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:gravity="center"
         android:text="Async Task Result" />
 
@@ -56,7 +56,7 @@
     <TextView
         android:id="@+id/tvThreadCoroutineResult"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:gravity="center"
         android:text="Coroutine Result" />
 
