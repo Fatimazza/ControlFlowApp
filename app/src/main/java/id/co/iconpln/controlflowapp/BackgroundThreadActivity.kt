@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
-import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_background_thread.*
 import java.net.URL
@@ -17,6 +16,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
 
         btnThreadWorker.setOnClickListener(this)
         btnThreadHandler.setOnClickListener(this)
+        btnThreadAsyncTask.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -47,6 +47,9 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
                     msg.target = contactHandler
                     msg.sendToTarget()
                 }).start()
+            }
+            R.id.btnThreadAsyncTask -> {
+
             }
         }
     }
