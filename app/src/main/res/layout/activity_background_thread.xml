@@ -8,15 +8,17 @@
     android:gravity="center"
     tools:context=".BackgroundThreadActivity">
 
+    <TextView
+        android:id="@+id/tvThreadWorkerResult"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="Worker Thread Result" />
+
     <Button
         android:id="@+id/btnThreadWorker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Worker Thread" />
-
-    <TextView
-        android:id="@+id/tvThreadWorkerResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
 </LinearLayout>
