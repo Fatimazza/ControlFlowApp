@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Message
 import android.view.View
 import kotlinx.android.synthetic.main.activity_background_thread.*
+import java.lang.ref.WeakReference
 import java.net.URL
 
 class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
@@ -60,7 +61,11 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
         true
     }
 
-    class FetchContactAsyncTask: AsyncTask<URL, Int, String>() {
+    class FetchContactAsyncTask(val listener: ContactAsyncTaskCallback): AsyncTask<URL, Int, String>() {
+
+        //using WeakReference to avoid Memory Leak in AsyncTask
+        private val contactListener: WeakReference<ContactAsyncTaskCallback> = WeakReference(listener)
+
         override fun onPreExecute() {
             super.onPreExecute()
         }
@@ -77,4 +82,11 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
             super.onPostExecute(result)
         }
     }
+
+}
+
+interface ContactAsyncTaskCallback {
+    fun onPreExecute()
+    fun onProgressUpdate()
+    fun onPostExecute()
 }
