@@ -1,5 +1,6 @@
 package id.co.iconpln.controlflowapp
 
+import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -57,5 +58,11 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
     private val contactHandler = Handler() { message ->
         tvThreadHandlerResult.text = message.obj as String
         true
+    }
+
+    class FetchContactAsyncTask: AsyncTask<URL, Int, String>() {
+        override fun doInBackground(vararg urls: URL): String {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
     }
 }
