@@ -2,6 +2,9 @@ package id.co.iconpln.controlflowapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
+import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_background_thread.*
 import java.net.URL
@@ -37,8 +40,19 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
                 ).start()
             }
             R.id.btnThreadHandler -> {
-                
+                Thread(Runnable {
+                    val urlResult = URL("https://api.androidhive.info/contacts").readText()
+                    val msg = Message.obtain()
+                    msg.obj = urlResult
+                    msg.target = contactHandler
+                    msg.sendToTarget()
+                }).start()
             }
         }
+    }
+
+    private val contactHandler = Handler() { message ->
+        tvThreadHandlerResult.text = message.obj as String
+        true
     }
 }
