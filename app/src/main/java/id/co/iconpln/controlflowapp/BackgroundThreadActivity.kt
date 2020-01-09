@@ -62,7 +62,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
     }
 
     override fun onPreExecute() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        pbThreadAsyncProgress.visibility = View.VISIBLE
     }
 
     override fun onProgressUpdate(vararg values: Int?) {
@@ -70,7 +70,8 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
     }
 
     override fun onPostExecute(result: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        pbThreadAsyncProgress.visibility = View.GONE
+        tvThreadAsyncResult.text = result
     }
 
     class FetchContactAsyncTask(val listener: ContactAsyncTaskCallback): AsyncTask<URL, Int, String>() {
@@ -86,7 +87,8 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
         }
 
         override fun doInBackground(vararg urls: URL): String {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            val urlResult = urls[0].readText()
+            return urlResult
         }
 
         override fun onProgressUpdate(vararg values: Int?) {
