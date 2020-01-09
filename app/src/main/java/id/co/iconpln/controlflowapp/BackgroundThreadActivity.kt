@@ -3,14 +3,14 @@ package id.co.iconpln.controlflowapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import kotlinx.android.synthetic.main.activity_backhround_thread.*
+import kotlinx.android.synthetic.main.activity_background_thread.*
 import java.net.URL
 
-class BackhroundThreadActivity : AppCompatActivity(), View.OnClickListener {
+class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_backhround_thread)
+        setContentView(R.layout.activity_background_thread)
 
         btnThreadWorker.setOnClickListener(this)
     }

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".BackhroundThreadActivity" />
+        <activity android:name=".BackgroundThreadActivity" />
         <activity android:name=".contact.ContactActivity" />
         <activity android:name=".weather.WeatherActivity" />
         <activity android:name=".sharedPreference.SharedPreferenceFormActivity" />

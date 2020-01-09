@@ -137,7 +137,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(contactIntent)
             }
             R.id.btnThread -> {
-                val backgrounThreadIntent = Intent(this, BackhroundThreadActivity::class.java)
+                val backgrounThreadIntent = Intent(this, BackgroundThreadActivity::class.java)
                 startActivity(backgrounThreadIntent)
             }
         }
