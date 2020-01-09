@@ -26,9 +26,12 @@ class BackhroundThreadActivity : AppCompatActivity(), View.OnClickListener {
 
                 Thread(
                     Runnable {
-                        val text = URL("https://api.androidhive.info/contacts").readText()
+                        val urlResult = URL("https://api.androidhive.info/contacts").readText()
                         // Don't Call UI Thread in Background
                         // tvThreadWorkerResult.text = text
+                        tvThreadWorkerResult.post(Runnable {
+                            tvThreadWorkerResult.text = urlResult
+                        })
                     }
                 ).start()
             }
