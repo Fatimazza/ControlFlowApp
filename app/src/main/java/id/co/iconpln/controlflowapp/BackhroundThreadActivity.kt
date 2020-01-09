@@ -27,7 +27,8 @@ class BackhroundThreadActivity : AppCompatActivity(), View.OnClickListener {
                 Thread(
                     Runnable {
                         val text = URL("https://api.androidhive.info/contacts").readText()
-                        //tvThreadWorkerResult.text = text
+                        // Don't Call UI Thread in Background
+                        // tvThreadWorkerResult.text = text
                     }
                 ).start()
             }
