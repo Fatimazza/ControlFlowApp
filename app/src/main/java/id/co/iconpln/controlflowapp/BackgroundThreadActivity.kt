@@ -51,7 +51,8 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
                 }).start()
             }
             R.id.btnThreadAsyncTask -> {
-
+                val urlResult = URL("https://api.androidhive.info/contacts")
+                FetchContactAsyncTask(this).execute(urlResult)
             }
         }
     }
