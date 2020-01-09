@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Message
 import android.view.View
 import kotlinx.android.synthetic.main.activity_background_thread.*
+import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -59,14 +60,29 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
                 FetchContactAsyncTask(this).execute(urlResult)
             }
             R.id.btnThreadCoroutine -> {
-                runBlocking {
+                /*runBlocking {
                     launch {
                         delay(1000)
                         tvThreadCoroutineResult.text = "Coroutine!"
                     }
+                }*/
+                runBlocking {
+                    val first = async { getNumber() }
+                    val result = first.await()
+                    tvThreadCoroutineResult.text = result.toString()
                 }
             }
         }
+    }
+
+    suspend fun getNumber(): Int {
+        delay(1000)
+        return 3*2
+    }
+
+    suspend fun getContact(): String {
+        val urlResult = URL("https://api.androidhive.info/contacts").readText()
+        return urlResult
     }
 
     private val contactHandler = Handler() { message ->
