@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_backhround_thread.*
+import java.net.URL
 
 class BackhroundThreadActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -22,6 +23,13 @@ class BackhroundThreadActivity : AppCompatActivity(), View.OnClickListener {
                 val text = URL("https://api.androidhive.info/contacts").readText()
                 tvThreadWorkerResult.text = text
                 */
+
+                Thread(
+                    Runnable {
+                        val text = URL("https://api.androidhive.info/contacts").readText()
+                        //tvThreadWorkerResult.text = text
+                    }
+                ).start()
             }
         }
     }
