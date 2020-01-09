@@ -13,6 +13,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_background_thread)
 
         btnThreadWorker.setOnClickListener(this)
+        btnThreadHandler.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -34,6 +35,9 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
                         })
                     }
                 ).start()
+            }
+            R.id.btnThreadHandler -> {
+                
             }
         }
     }
