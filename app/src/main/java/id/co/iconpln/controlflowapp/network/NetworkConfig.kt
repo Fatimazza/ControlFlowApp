@@ -1,8 +1,11 @@
 package id.co.iconpln.controlflowapp.network
 
 import id.co.iconpln.controlflowapp.BuildConfig
+import id.co.iconpln.controlflowapp.contactFragment.ContactResponse
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
 
 class NetworkConfig {
 
@@ -26,6 +29,18 @@ class NetworkConfig {
                 .build()
         }
 
+        fun contactApi(): ContactAPIService {
+            return getRetrofit().create(ContactAPIService::class.java)
+        }
+
     }
+
+}
+
+interface ContactAPIService {
+
+    @GET("contacts")
+    fun fetchContacts()
+            : Call<ContactResponse>
 
 }
