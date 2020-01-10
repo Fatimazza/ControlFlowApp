@@ -163,4 +163,6 @@
     <string name="weather_search" translatable="false">Cari</string>
     <string name="weather_id_jakarta_bandung_semarang" translatable="false">1642911,1650357,1627896</string>
 
+    <string name="tab_contact">Contacts</string>
+
 </resources>
