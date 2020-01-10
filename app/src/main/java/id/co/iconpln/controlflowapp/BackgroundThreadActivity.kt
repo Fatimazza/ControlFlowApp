@@ -7,10 +7,8 @@ import android.os.Handler
 import android.os.Message
 import android.view.View
 import kotlinx.android.synthetic.main.activity_background_thread.*
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
+import java.lang.Runnable
 import java.lang.ref.WeakReference
 import java.net.URL
 
@@ -67,7 +65,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
                     }
                 }*/
                 runBlocking {
-                    val first = async { getNumber() }
+                    val first = async { getContact() }
                     val result = first.await()
                     tvThreadCoroutineResult.text = result.toString()
                 }
@@ -81,8 +79,9 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
     }
 
     suspend fun getContact(): String {
-        val urlResult = URL("https://api.androidhive.info/contacts").readText()
-        return urlResult
+        return withContext(Dispatchers.IO) {
+            URL("https://api.androidhive.info/contacts").readText()
+        }
     }
 
     private val contactHandler = Handler() { message ->
