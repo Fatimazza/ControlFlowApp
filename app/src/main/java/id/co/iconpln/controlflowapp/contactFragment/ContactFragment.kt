@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 
@@ -35,6 +36,8 @@ class ContactFragment : Fragment() {
 
         initViewModel()
         showListContact()
+        contactFragmentViewModel.setContact()
+        fetchContactData()
     }
 
     private fun initViewModel() {
@@ -49,5 +52,14 @@ class ContactFragment : Fragment() {
         rvContactFragmentList.layoutManager = LinearLayoutManager(requireContext())
         rvContactFragmentList.adapter = adapter
     }
-    
+
+    private fun fetchContactData() {
+        //get value from View Model's Live Data
+        contactFragmentViewModel.getContact().observe(this, Observer { contactItem ->
+            if (contactItem != null) {
+                adapter.setData(contactItem)
+                // showLoading(false)
+            }
+        })
+    }
 }
