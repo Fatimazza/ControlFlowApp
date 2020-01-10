@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import id.co.iconpln.controlflowapp.bottomSheetDialog.BottomSheetActivity
 import id.co.iconpln.controlflowapp.contact.ContactActivity
+import id.co.iconpln.controlflowapp.contactFragment.ContactTabActivity
 import id.co.iconpln.controlflowapp.fragmentBottomNav.BottomNavActivity
 import id.co.iconpln.controlflowapp.fragmentNavDrawer.NavDrawerActivity
 import id.co.iconpln.controlflowapp.fragments.DemoFragmentActivity
@@ -48,6 +49,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnWeather.setOnClickListener(this)
         btnContact.setOnClickListener(this)
         btnThread.setOnClickListener(this)
+        btnContactFragment.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -139,6 +141,10 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnThread -> {
                 val backgrounThreadIntent = Intent(this, BackgroundThreadActivity::class.java)
                 startActivity(backgrounThreadIntent)
+            }
+            R.id.btnContactFragment -> {
+                val contactFragmentIntent = Intent(this, ContactTabActivity::class.java)
+                startActivity(contactFragmentIntent)
             }
         }
     }

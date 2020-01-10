@@ -140,6 +140,12 @@
             android:text="Contact"/>
 
         <Button
+            android:id="@+id/btnContactFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact Fragment"/>
+
+        <Button
             android:id="@+id/btnThread"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
