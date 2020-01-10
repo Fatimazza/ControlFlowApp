@@ -1,7 +1,7 @@
 package id.co.iconpln.controlflowapp.network
 
 import id.co.iconpln.controlflowapp.BuildConfig
-import id.co.iconpln.controlflowapp.contactFragment.ContactResponse
+import id.co.iconpln.controlflowapp.model.contact.ContactResponse
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

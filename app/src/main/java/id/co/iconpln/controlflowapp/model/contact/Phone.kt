@@ -1,4 +1,4 @@
-package id.co.iconpln.controlflowapp.contactFragment
+package id.co.iconpln.controlflowapp.model.contact
 
 data class Phone(
     val home: String,
