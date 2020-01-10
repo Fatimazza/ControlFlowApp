@@ -36,6 +36,8 @@ class ContactFragment : Fragment() {
 
         initViewModel()
         showListContact()
+
+        showLoading(true)
         contactFragmentViewModel.setContact()
         fetchContactData()
     }
@@ -58,8 +60,16 @@ class ContactFragment : Fragment() {
         contactFragmentViewModel.getContact().observe(this, Observer { contactItem ->
             if (contactItem != null) {
                 adapter.setData(contactItem)
-                // showLoading(false)
+                showLoading(false)
             }
         })
+    }
+
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            pbContactFragmentLoading.visibility = View.VISIBLE
+        } else {
+            pbContactFragmentLoading.visibility = View.GONE
+        }
     }
 }
