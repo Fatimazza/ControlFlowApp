@@ -18,7 +18,7 @@ class ContactTabPagerAdapter(private val context: Context, fm: FragmentManager) 
     override fun getItem(position: Int): Fragment {
         var fragment: Fragment? = null
         when (position) {
-            0 -> fragment = FirstFragment()
+            0 -> fragment = ContactFragment()
             1 -> fragment = SecondFragment()
         }
         return fragment as Fragment
