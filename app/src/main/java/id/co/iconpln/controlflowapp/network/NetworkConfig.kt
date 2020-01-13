@@ -4,7 +4,7 @@ import id.co.iconpln.controlflowapp.BuildConfig
 import id.co.iconpln.controlflowapp.model.myContact.BaseContactResponse
 import id.co.iconpln.controlflowapp.model.myContact.ContactResponse
 import id.co.iconpln.controlflowapp.model.myUser.BaseUserResponse
-import id.co.iconpln.controlflowapp.model.myUser.Data
+import id.co.iconpln.controlflowapp.model.myUser.UserDataResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -68,6 +68,10 @@ class NetworkConfig {
             return getRetrofit().create(ContactAPIService::class.java)
         }
 
+        fun userApi(): UserAPIService {
+            return getUserRetrofit().create(UserAPIService::class.java)
+        }
+
     }
 
 }
@@ -84,6 +88,6 @@ interface UserAPIService {
 
     @GET("api/v1/users")
     fun getAllUsers()
-            : Call<BaseUserResponse<Data>>
+            : Call<BaseUserResponse<UserDataResponse>>
 
 }
