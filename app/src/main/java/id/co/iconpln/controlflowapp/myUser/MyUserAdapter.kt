@@ -11,6 +11,8 @@ class MyUserAdapter : RecyclerView.Adapter<MyUserAdapter.MyUserViewHolder>() {
 
     private val userData = ArrayList<MyUser>()
 
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyUserViewHolder {
         val mView =
             LayoutInflater.from(parent.context).inflate(R.layout.item_list_contact, parent, false)
@@ -23,6 +25,9 @@ class MyUserAdapter : RecyclerView.Adapter<MyUserAdapter.MyUserViewHolder>() {
 
     override fun onBindViewHolder(holder: MyUserViewHolder, position: Int) {
         holder.bind(userData[position])
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClick(userData[holder.adapterPosition])
+        }
     }
 
     fun setData(userItems: ArrayList<MyUser>) {
@@ -37,6 +42,10 @@ class MyUserAdapter : RecyclerView.Adapter<MyUserAdapter.MyUserViewHolder>() {
             itemView.tvContactEmail.text = userItem.address
             itemView.tvContactMobile.text = userItem.phone
         }
+    }
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
     }
 
     interface OnItemClickCallback {
