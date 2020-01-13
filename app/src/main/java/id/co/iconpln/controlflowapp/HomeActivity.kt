@@ -14,6 +14,7 @@ import id.co.iconpln.controlflowapp.hero.ListHeroActivity
 import id.co.iconpln.controlflowapp.fragmentTab.TabActivity
 import id.co.iconpln.controlflowapp.fragmentViewPager.ScrollActivity
 import id.co.iconpln.controlflowapp.myContact.MyContactActivity
+import id.co.iconpln.controlflowapp.myUser.MyUserActivity
 import id.co.iconpln.controlflowapp.sharedPreference.SharedPreferenceActivity
 import id.co.iconpln.controlflowapp.weather.WeatherActivity
 import kotlinx.android.synthetic.main.activity_home.*
@@ -52,6 +53,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnThread.setOnClickListener(this)
         btnContactFragment.setOnClickListener(this)
         btnMyContact.setOnClickListener(this)
+        btnMyUser.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -151,6 +153,10 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnMyContact -> {
                 val myContactIntent = Intent(this, MyContactActivity::class.java)
                 startActivity(myContactIntent)
+            }
+            R.id.btnMyUser -> {
+                val myUserIntent = Intent(this, MyUserActivity::class.java)
+                startActivity(myUserIntent)
             }
         }
     }
