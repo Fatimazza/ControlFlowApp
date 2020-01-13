@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.myUser
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.activity_my_user.*
@@ -15,6 +16,7 @@ class MyUserActivity : AppCompatActivity() {
         setContentView(R.layout.activity_my_user)
 
         showListUser()
+        addListClickListener()
     }
 
     private fun showListUser() {
@@ -23,5 +25,13 @@ class MyUserActivity : AppCompatActivity() {
 
         rvMyUserList.layoutManager = LinearLayoutManager(this)
         rvMyUserList.adapter = adapter
+    }
+
+    private fun addListClickListener() {
+        adapter.setOnItemClickCallback(object : MyUserAdapter.OnItemClickCallback {
+            override fun onItemClick(myUser: MyUser) {
+                Toast.makeText(this@MyUserActivity, "You choose ${myUser.name}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
