@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.myContact
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
@@ -19,6 +20,9 @@ class MyContactActivity : AppCompatActivity() {
 
         initViewModel()
         showListContact()
+
+        viewModel.setContact()
+        fetchContactData()
     }
 
     private fun initViewModel() {
@@ -32,5 +36,15 @@ class MyContactActivity : AppCompatActivity() {
 
         rvMyContactList.layoutManager = LinearLayoutManager(this)
         rvMyContactList.adapter = adapter
+    }
+
+    private fun fetchContactData() {
+        //get value from View Model's Live Data
+        viewModel.getContact().observe(this, Observer { contactItem ->
+            if (contactItem != null) {
+                adapter.setData(contactItem)
+                // showLoading(false)
+            }
+        })
     }
 }
