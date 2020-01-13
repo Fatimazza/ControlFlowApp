@@ -21,7 +21,6 @@ class MyContactActivity : AppCompatActivity() {
         initViewModel()
         showListContact()
 
-        viewModel.setContact()
         fetchContactData()
     }
 
@@ -40,7 +39,7 @@ class MyContactActivity : AppCompatActivity() {
 
     private fun fetchContactData() {
         //get value from View Model's Live Data
-        viewModel.getContact().observe(this, Observer { contactItem ->
+        viewModel.getListContacts().observe(this, Observer { contactItem ->
             if (contactItem != null) {
                 adapter.setData(contactItem)
                 // showLoading(false)
