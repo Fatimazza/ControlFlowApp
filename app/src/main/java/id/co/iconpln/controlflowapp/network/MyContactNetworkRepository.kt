@@ -9,7 +9,7 @@ import retrofit2.Response
 
 class MyContactNetworkRepository {
 
-    fun getContacts(): MutableLiveData<ArrayList<ContactResponse>> {
+    fun fetchContacts(): MutableLiveData<ArrayList<ContactResponse>> {
 
         val contactsData = MutableLiveData<ArrayList<ContactResponse>>()
 
