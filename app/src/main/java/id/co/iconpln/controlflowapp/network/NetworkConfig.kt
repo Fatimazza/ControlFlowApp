@@ -1,6 +1,7 @@
 package id.co.iconpln.controlflowapp.network
 
 import id.co.iconpln.controlflowapp.BuildConfig
+import id.co.iconpln.controlflowapp.model.myContact.BaseContactResponse
 import id.co.iconpln.controlflowapp.model.myContact.ContactResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -57,6 +58,6 @@ interface ContactAPIService {
 
     @GET("contacts")
     fun fetchContacts()
-            : Call<ContactResponse>
+            : Call<BaseContactResponse<ContactResponse>>
 
 }
