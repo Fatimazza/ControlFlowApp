@@ -1,6 +1,6 @@
 package id.co.iconpln.controlflowapp.model.myContact
 
-data class Contact(
+data class MyContact(
     val address: String,
     val email: String,
     val gender: String,
