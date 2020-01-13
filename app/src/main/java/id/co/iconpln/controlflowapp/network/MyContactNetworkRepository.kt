@@ -12,17 +12,24 @@ class MyContactNetworkRepository {
     fun fetchContacts(): MutableLiveData<ArrayList<ContactResponse>> {
 
         val contactsData = MutableLiveData<ArrayList<ContactResponse>>()
+        val listContact = ArrayList<ContactResponse>()
 
         NetworkConfig.contactApi().fetchContacts().enqueue(object : Callback<BaseContactResponse<ContactResponse>> {
             override fun onFailure(call: Call<BaseContactResponse<ContactResponse>>, t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                contactsData.postValue(null)
             }
 
             override fun onResponse(
                 call: Call<BaseContactResponse<ContactResponse>>,
                 response: Response<BaseContactResponse<ContactResponse>>
             ) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                if (response.isSuccessful) {
+                    val listContactSize = response.body()?.contacts?.size as Int
+                    for (i in 0 until listContactSize) {
+                        listContact.add(response.body()?.contacts?.get(i) as ContactResponse)
+                    }
+                    contactsData.postValue(listContact)
+                }
             }
         })
 
