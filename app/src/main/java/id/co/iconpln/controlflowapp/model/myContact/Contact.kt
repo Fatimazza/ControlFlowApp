@@ -1,4 +1,4 @@
-package id.co.iconpln.controlflowapp.model.contact
+package id.co.iconpln.controlflowapp.model.myContact
 
 data class Contact(
     val address: String,

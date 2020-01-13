@@ -1,7 +1,7 @@
 package id.co.iconpln.controlflowapp.network
 
 import id.co.iconpln.controlflowapp.BuildConfig
-import id.co.iconpln.controlflowapp.model.contact.ContactResponse
+import id.co.iconpln.controlflowapp.model.myContact.ContactResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
