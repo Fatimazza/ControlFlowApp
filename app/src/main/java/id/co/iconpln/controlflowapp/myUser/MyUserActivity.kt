@@ -3,16 +3,18 @@ package id.co.iconpln.controlflowapp.myUser
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.model.myUser.UserDataResponse
 import kotlinx.android.synthetic.main.activity_my_user.*
-
-private lateinit var adapter: MyUserAdapter
 
 class MyUserActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MyUserViewModel
+
+    private lateinit var adapter: MyUserAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +23,8 @@ class MyUserActivity : AppCompatActivity() {
         initViewModel()
         showListUser()
         addListClickListener()
+
+        fetchUserData()
     }
 
     private fun initViewModel() {
@@ -36,9 +40,19 @@ class MyUserActivity : AppCompatActivity() {
         rvMyUserList.adapter = adapter
     }
 
+    private fun fetchUserData() {
+        //get value from View Model's Live Data
+        viewModel.getListUsers().observe(this, Observer { contactItem ->
+            if (contactItem != null) {
+                adapter.setData(contactItem)
+                // showLoading(false)
+            }
+        })
+    }
+
     private fun addListClickListener() {
         adapter.setOnItemClickCallback(object : MyUserAdapter.OnItemClickCallback {
-            override fun onItemClick(myUser: MyUser) {
+            override fun onItemClick(myUser: UserDataResponse) {
                 Toast.makeText(this@MyUserActivity, "You choose ${myUser.name}", Toast.LENGTH_SHORT).show()
             }
         })
