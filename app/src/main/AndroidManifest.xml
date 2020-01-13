@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".myUser.MyUserActivity" />
         <activity android:name=".myContact.MyContactActivity" />
         <activity android:name=".contactFragment.ContactTabActivity" />
         <activity android:name=".BackgroundThreadActivity" />
