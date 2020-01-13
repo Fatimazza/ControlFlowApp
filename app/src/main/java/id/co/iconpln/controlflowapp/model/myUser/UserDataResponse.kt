@@ -1,6 +1,6 @@
 package id.co.iconpln.controlflowapp.model.myUser
 
-data class Data(
+data class UserDataResponse(
     val address: String,
     val id: Int,
     val name: String,
