@@ -39,4 +39,8 @@ class MyUserAdapter : RecyclerView.Adapter<MyUserAdapter.MyUserViewHolder>() {
         }
     }
 
+    interface OnItemClickCallback {
+        fun onItemClick(myUser: MyUser)
+    }
+
 }
