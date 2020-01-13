@@ -151,6 +151,12 @@
             android:layout_height="wrap_content"
             android:text="Background Thread"/>
 
+        <Button
+            android:id="@+id/btnMyContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact Retrofit"/>
+
     </LinearLayout>
 
 </ScrollView>
