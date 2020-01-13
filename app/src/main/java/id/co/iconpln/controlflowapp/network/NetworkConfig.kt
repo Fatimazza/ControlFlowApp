@@ -3,6 +3,8 @@ package id.co.iconpln.controlflowapp.network
 import id.co.iconpln.controlflowapp.BuildConfig
 import id.co.iconpln.controlflowapp.model.myContact.BaseContactResponse
 import id.co.iconpln.controlflowapp.model.myContact.ContactResponse
+import id.co.iconpln.controlflowapp.model.myUser.BaseUserResponse
+import id.co.iconpln.controlflowapp.model.myUser.Data
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -59,5 +61,13 @@ interface ContactAPIService {
     @GET("contacts")
     fun fetchContacts()
             : Call<BaseContactResponse<ContactResponse>>
+
+}
+
+interface UserAPIService {
+
+    @GET("api/v1/users")
+    fun getAllUsers()
+            : Call<BaseUserResponse<Data>>
 
 }
