@@ -37,11 +37,11 @@ class MyUserNetworkRepository {
         return usersData
     }
 
-    fun updateUser(id: Int): MutableLiveData<UserDataResponse>{
+    fun updateUser(id: Int, userData: UserDataResponse): MutableLiveData<UserDataResponse>{
 
         val updatedUserData = MutableLiveData<UserDataResponse>()
 
-        NetworkConfig.userApi().updateUser(id).enqueue(object : Callback<UpdatedUserResponse<UserDataResponse>> {
+        NetworkConfig.userApi().updateUser(id, userData).enqueue(object : Callback<UpdatedUserResponse<UserDataResponse>> {
             override fun onFailure(
                 call: Call<UpdatedUserResponse<UserDataResponse>>,
                 t: Throwable

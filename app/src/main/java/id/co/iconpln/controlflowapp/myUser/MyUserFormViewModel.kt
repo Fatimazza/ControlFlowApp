@@ -7,8 +7,8 @@ import id.co.iconpln.controlflowapp.network.MyUserNetworkRepository
 
 class MyUserFormViewModel : ViewModel() {
 
-    fun updateUser(id: Int): MutableLiveData<UserDataResponse> {
-        return MyUserNetworkRepository().updateUser(id)
+    fun updateUser(id: Int, userData: UserDataResponse): MutableLiveData<UserDataResponse> {
+        return MyUserNetworkRepository().updateUser(id, userData)
     }
 
 }

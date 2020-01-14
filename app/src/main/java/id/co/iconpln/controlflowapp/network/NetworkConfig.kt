@@ -11,6 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.PUT
 import retrofit2.http.Path
@@ -94,7 +95,7 @@ interface UserAPIService {
             : Call<BaseUserResponse<UserDataResponse>>
 
     @PUT("api/v1/user/{id}")
-    fun updateUser(@Path("id") id: Int)
+    fun updateUser(@Path("id") id: Int, @Body userData: UserDataResponse)
             : Call<UpdatedUserResponse<UserDataResponse>>
 
 }

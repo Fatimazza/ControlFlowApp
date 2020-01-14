@@ -56,15 +56,21 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
         when (view.id) {
             R.id.btnUserFormSave -> {
                 if (userId != null) {
-                    updateUser(userId as Int)
+                    val updateUserData = UserDataResponse(
+                        etUserFormAddress.text.toString(),
+                        userId ?: 0,
+                        etUserFormName.text.toString(),
+                        etUserFormHp.text.toString()
+                    )
+                    updateUser(userId as Int, updateUserData)
                 }
             }
         }
     }
 
-    private fun updateUser(id: Int) {
+    private fun updateUser(id: Int, userData: UserDataResponse) {
         //get result from View Model's Live Data
-        viewModel.updateUser(id).observe(this, Observer { userData ->
+        viewModel.updateUser(id, userData).observe(this, Observer { userData ->
             if (userData != null) {
                 Toast.makeText(this, "User Updated Successfully!", Toast.LENGTH_SHORT).show()
             } else {
