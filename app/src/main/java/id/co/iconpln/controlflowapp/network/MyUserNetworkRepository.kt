@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.network
 
 import androidx.lifecycle.MutableLiveData
 import id.co.iconpln.controlflowapp.model.myUser.BaseUserResponse
+import id.co.iconpln.controlflowapp.model.myUser.UpdatedUserResponse
 import id.co.iconpln.controlflowapp.model.myUser.UserDataResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -39,6 +40,8 @@ class MyUserNetworkRepository {
     fun updateUser(id: Int): MutableLiveData<UserDataResponse>{
 
         val updatedUserData = MutableLiveData<UserDataResponse>()
+
+        NetworkConfig.userApi().updateUser(id).enqueue(object : Callback<UpdatedUserResponse<UserDataResponse>> {})
 
         return updatedUserData
 
