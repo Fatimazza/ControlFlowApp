@@ -56,6 +56,8 @@ class MyUserNetworkRepository {
                 if (response.isSuccessful) {
                     val updatedUserResponse = response.body()?.updated_user as UserDataResponse
                     updatedUserData.postValue(updatedUserResponse)
+                } else {
+                    updatedUserData.postValue(null)
                 }
             }
         })
