@@ -64,6 +64,12 @@
             android:layout_height="wrap_content"
             android:text="@string/sp_save" />
 
+        <Button
+            android:id="@+id/btnUserFormDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete" />
+
     </LinearLayout>
 
 </ScrollView>

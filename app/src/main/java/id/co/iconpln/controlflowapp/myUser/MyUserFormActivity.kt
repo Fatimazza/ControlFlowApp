@@ -39,6 +39,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun setClickListener() {
         btnUserFormSave.setOnClickListener(this)
+        btnUserFormDelete.setOnClickListener(this)
     }
 
     private fun initIntentExtra() {
@@ -64,6 +65,9 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                     )
                     updateUser(userId as Int, updateUserData)
                 }
+            }
+            R.id.btnUserFormDelete -> {
+
             }
         }
     }
