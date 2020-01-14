@@ -71,7 +71,21 @@ class MyUserNetworkRepository {
 
         val deleteUserData = MutableLiveData<UserDataResponse>()
 
-        NetworkConfig.userApi().deleteUser(id).enqueue(object : Callback<DeletedUserResponse<UserDataResponse>>{})
+        NetworkConfig.userApi().deleteUser(id).enqueue(object : Callback<DeletedUserResponse<UserDataResponse>>{
+            override fun onFailure(
+                call: Call<DeletedUserResponse<UserDataResponse>>,
+                t: Throwable
+            ) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onResponse(
+                call: Call<DeletedUserResponse<UserDataResponse>>,
+                response: Response<DeletedUserResponse<UserDataResponse>>
+            ) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+        })
 
         return deleteUserData
 
