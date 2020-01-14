@@ -1,5 +1,6 @@
 package id.co.iconpln.controlflowapp.myUser
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -54,7 +55,14 @@ class MyUserActivity : AppCompatActivity() {
         adapter.setOnItemClickCallback(object : MyUserAdapter.OnItemClickCallback {
             override fun onItemClick(myUser: UserDataResponse) {
                 Toast.makeText(this@MyUserActivity, "You choose ${myUser.name}", Toast.LENGTH_SHORT).show()
+                openUserForm(myUser)
             }
         })
+    }
+
+    private fun openUserForm(myUser: UserDataResponse) {
+        val userFormIntent = Intent(this, MyUserFormActivity::class.java)
+        userFormIntent.putExtra(MyUserFormActivity.EXTRA_USER, myUser)
+        startActivity(userFormIntent)
     }
 }
