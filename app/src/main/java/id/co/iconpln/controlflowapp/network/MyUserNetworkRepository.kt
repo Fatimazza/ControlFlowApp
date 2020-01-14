@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.network
 
 import androidx.lifecycle.MutableLiveData
 import id.co.iconpln.controlflowapp.model.myUser.BaseUserResponse
+import id.co.iconpln.controlflowapp.model.myUser.DeletedUserResponse
 import id.co.iconpln.controlflowapp.model.myUser.UpdatedUserResponse
 import id.co.iconpln.controlflowapp.model.myUser.UserDataResponse
 import retrofit2.Call
@@ -69,6 +70,8 @@ class MyUserNetworkRepository {
     fun deleteUser(id: Int): MutableLiveData<UserDataResponse> {
 
         val deleteUserData = MutableLiveData<UserDataResponse>()
+
+        NetworkConfig.userApi().deleteUser(id).enqueue(object : Callback<DeletedUserResponse<UserDataResponse>>{})
 
         return deleteUserData
 
