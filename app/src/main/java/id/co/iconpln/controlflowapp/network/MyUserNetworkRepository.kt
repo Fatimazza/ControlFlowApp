@@ -76,14 +76,19 @@ class MyUserNetworkRepository {
                 call: Call<DeletedUserResponse<UserDataResponse>>,
                 t: Throwable
             ) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                deleteUserData.postValue(null)
             }
 
             override fun onResponse(
                 call: Call<DeletedUserResponse<UserDataResponse>>,
                 response: Response<DeletedUserResponse<UserDataResponse>>
             ) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                if (response.isSuccessful) {
+                    val deleteUserResponse = response.body()?.deleted_user as UserDataResponse
+                    deleteUserData.postValue(deleteUserResponse)
+                } else {
+                    deleteUserData.postValue(null)
+                }
             }
         })
 
