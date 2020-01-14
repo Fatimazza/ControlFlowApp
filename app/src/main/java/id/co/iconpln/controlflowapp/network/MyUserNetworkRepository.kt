@@ -41,7 +41,24 @@ class MyUserNetworkRepository {
 
         val updatedUserData = MutableLiveData<UserDataResponse>()
 
-        NetworkConfig.userApi().updateUser(id).enqueue(object : Callback<UpdatedUserResponse<UserDataResponse>> {})
+        NetworkConfig.userApi().updateUser(id).enqueue(object : Callback<UpdatedUserResponse<UserDataResponse>> {
+            override fun onFailure(
+                call: Call<UpdatedUserResponse<UserDataResponse>>,
+                t: Throwable
+            ) {
+                updatedUserData.postValue(null)
+            }
+
+            override fun onResponse(
+                call: Call<UpdatedUserResponse<UserDataResponse>>,
+                response: Response<UpdatedUserResponse<UserDataResponse>>
+            ) {
+                if (response.isSuccessful) {
+                    val updatedUserResponse = response.body()?.updated_user as UserDataResponse
+                    updatedUserData.postValue(updatedUserResponse)
+                }
+            }
+        })
 
         return updatedUserData
 
