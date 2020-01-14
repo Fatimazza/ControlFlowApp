@@ -66,4 +66,12 @@ class MyUserNetworkRepository {
 
     }
 
+    fun deleteUser(id: Int): MutableLiveData<UserDataResponse> {
+
+        val deleteUserData = MutableLiveData<UserDataResponse>()
+
+        return deleteUserData
+
+    }
+
 }
