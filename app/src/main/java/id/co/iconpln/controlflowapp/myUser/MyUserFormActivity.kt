@@ -41,7 +41,8 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
             btnUserFormSave.visibility = View.VISIBLE
             btnUserFormDelete.visibility = View.VISIBLE
         } else {
-
+            btnUserFormSave.visibility = View.GONE
+            btnUserFormDelete.visibility = View.GONE
         }
     }
 
@@ -56,7 +57,11 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initIntentExtra() {
-        user = intent.getParcelableExtra(EXTRA_USER)
+        if (intent.hasExtra(EXTRA_USER)) {
+            user = intent.getParcelableExtra(EXTRA_USER)
+        } else {
+            user = UserDataResponse("", 0, "", "")
+        }
         isEditUser = intent.getBooleanExtra(EXTRA_USER_EDIT, false)
     }
 

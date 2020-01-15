@@ -76,7 +76,8 @@ class MyUserActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when(view.id) {
             R.id.fabMyUserAdd -> {
-                
+                val userFormAddIntent = Intent(this, MyUserFormActivity::class.java)
+                startActivity(userFormAddIntent)
             }
         }
     }
