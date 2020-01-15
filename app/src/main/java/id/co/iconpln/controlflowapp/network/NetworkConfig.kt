@@ -100,4 +100,8 @@ interface UserAPIService {
     @POST("api/v1/user")
     fun createUser(@Body userData: UserDataResponse)
             : Call<CreatedUserResponse<UserDataResponse>>
+
+    @GET("api/v1/user/{id}")
+    fun getUser(@Path("id") id: Int)
+            : Call<SingleUserResponse<UserDataResponse>>
 }
