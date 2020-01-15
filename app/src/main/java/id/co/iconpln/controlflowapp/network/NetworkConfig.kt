@@ -3,10 +3,7 @@ package id.co.iconpln.controlflowapp.network
 import id.co.iconpln.controlflowapp.BuildConfig
 import id.co.iconpln.controlflowapp.model.myContact.BaseContactResponse
 import id.co.iconpln.controlflowapp.model.myContact.ContactResponse
-import id.co.iconpln.controlflowapp.model.myUser.BaseUserResponse
-import id.co.iconpln.controlflowapp.model.myUser.DeletedUserResponse
-import id.co.iconpln.controlflowapp.model.myUser.UpdatedUserResponse
-import id.co.iconpln.controlflowapp.model.myUser.UserDataResponse
+import id.co.iconpln.controlflowapp.model.myUser.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -99,4 +96,8 @@ interface UserAPIService {
     @DELETE("api/v1/user/{id}")
     fun deleteUser(@Path("id") id: Int)
             : Call<DeletedUserResponse<UserDataResponse>>
+
+    @POST("api/v1/user")
+    fun createUser(@Body userData: UserDataResponse)
+            : Call<CreatedUserResponse<UserDataResponse>>
 }
