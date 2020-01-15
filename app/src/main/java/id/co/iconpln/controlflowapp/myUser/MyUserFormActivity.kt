@@ -14,6 +14,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
         const val EXTRA_USER = "extra_user"
+        const val EXTRA_USER_ADD = "extra_user_add"
     }
 
     private lateinit var user: UserDataResponse
@@ -22,6 +23,8 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
 
     private var userId: Int? = null
 
+    private var isAddUser = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_user_form)
@@ -29,7 +32,17 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
         initViewModel()
         initIntentExtra()
         setClickListener()
-        populateFormData(user)
+        checkForm(isAddUser)
+    }
+
+    private fun checkForm(addUser: Boolean) {
+        if (addUser) {
+
+        } else {
+            populateFormData(user)
+            btnUserFormSave.visibility = View.VISIBLE
+            btnUserFormDelete.visibility = View.VISIBLE
+        }
     }
 
     private fun initViewModel() {
@@ -44,6 +57,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun initIntentExtra() {
         user = intent.getParcelableExtra(EXTRA_USER)
+        isAddUser = intent.getBooleanExtra(EXTRA_USER_ADD, false)
     }
 
     private fun populateFormData(user: UserDataResponse) {
