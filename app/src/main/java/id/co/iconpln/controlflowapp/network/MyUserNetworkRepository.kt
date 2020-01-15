@@ -1,10 +1,7 @@
 package id.co.iconpln.controlflowapp.network
 
 import androidx.lifecycle.MutableLiveData
-import id.co.iconpln.controlflowapp.model.myUser.BaseUserResponse
-import id.co.iconpln.controlflowapp.model.myUser.DeletedUserResponse
-import id.co.iconpln.controlflowapp.model.myUser.UpdatedUserResponse
-import id.co.iconpln.controlflowapp.model.myUser.UserDataResponse
+import id.co.iconpln.controlflowapp.model.myUser.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -99,6 +96,8 @@ class MyUserNetworkRepository {
     fun createUser(userData: UserDataResponse): MutableLiveData<UserDataResponse> {
 
         val createdUserData = MutableLiveData<UserDataResponse>()
+
+        NetworkConfig.userApi().createUser(userData).enqueue(object : Callback<CreatedUserResponse<UserDataResponse>>{} )
 
         return createdUserData
     }
