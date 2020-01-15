@@ -97,7 +97,21 @@ class MyUserNetworkRepository {
 
         val createdUserData = MutableLiveData<UserDataResponse>()
 
-        NetworkConfig.userApi().createUser(userData).enqueue(object : Callback<CreatedUserResponse<UserDataResponse>>{} )
+        NetworkConfig.userApi().createUser(userData).enqueue(object : Callback<CreatedUserResponse<UserDataResponse>>{
+            override fun onFailure(
+                call: Call<CreatedUserResponse<UserDataResponse>>,
+                t: Throwable
+            ) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onResponse(
+                call: Call<CreatedUserResponse<UserDataResponse>>,
+                response: Response<CreatedUserResponse<UserDataResponse>>
+            ) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+        } )
 
         return createdUserData
     }
