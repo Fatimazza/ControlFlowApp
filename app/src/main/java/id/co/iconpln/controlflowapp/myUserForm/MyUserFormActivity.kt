@@ -33,12 +33,15 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
         checkForm(isEditUser)
     }
 
+    private fun fetchUserData() {
+        pbMyUserFormLoading.visibility = View.VISIBLE
+        llMyUserFormContent.visibility = View.GONE
+        getUser(userId as Int)
+    }
+
     private fun checkForm(editUser: Boolean) {
         if (editUser) {
-            populateFormData(userId as Int)
-            btnUserFormSave.visibility = View.VISIBLE
-            btnUserFormDelete.visibility = View.VISIBLE
-            btnUserFormAdd.visibility = View.GONE
+            fetchUserData()
         } else {
             btnUserFormSave.visibility = View.GONE
             btnUserFormDelete.visibility = View.GONE
@@ -62,11 +65,27 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
         isEditUser = intent.getBooleanExtra(EXTRA_USER_EDIT, false)
     }
 
-    private fun populateFormData(userId: Int) {
-        /*etUserFormName.setText(user.name)
+    private fun populateFormData(user: UserDataResponse) {
+        etUserFormName.setText(user.name)
         etUserFormAddress.setText(user.address)
         etUserFormHp.setText(user.phone)
-        userId = user.id*/
+        btnUserFormSave.visibility = View.VISIBLE
+        btnUserFormDelete.visibility = View.VISIBLE
+        btnUserFormAdd.visibility = View.GONE
+    }
+
+    private fun getUser(userId: Int) {
+        viewModel.getUser(userId).observe(this, Observer { userDataResponse ->
+            if (userDataResponse != null) {
+                Toast.makeText(this, "User loaded Successfully!", Toast.LENGTH_SHORT).show()
+                populateFormData(userDataResponse)
+                pbMyUserFormLoading.visibility = View.GONE
+                llMyUserFormContent.visibility = View.VISIBLE
+            } else {
+                Toast.makeText(this, "Failed to load User", Toast.LENGTH_SHORT).show()
+                pbMyUserFormLoading.visibility = View.GONE
+            }
+        })
     }
 
     override fun onClick(view: View) {
