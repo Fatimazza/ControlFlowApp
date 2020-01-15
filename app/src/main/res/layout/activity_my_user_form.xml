@@ -4,7 +4,7 @@
     android:id="@+id/activity_form_user_preference"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".myUser.MyUserFormActivity">
+    tools:context=".myUserForm.MyUserFormActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
