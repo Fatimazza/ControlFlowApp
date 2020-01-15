@@ -125,6 +125,8 @@ class MyUserNetworkRepository {
 
         val userData = MutableLiveData<UserDataResponse>()
 
+        NetworkConfig.userApi().getUser(id).enqueue(object : Callback<SingleUserResponse<UserDataResponse>> {})
+
         return userData
 
     }
