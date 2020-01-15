@@ -102,14 +102,19 @@ class MyUserNetworkRepository {
                 call: Call<CreatedUserResponse<UserDataResponse>>,
                 t: Throwable
             ) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                createdUserData.postValue(null)
             }
 
             override fun onResponse(
                 call: Call<CreatedUserResponse<UserDataResponse>>,
                 response: Response<CreatedUserResponse<UserDataResponse>>
             ) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                if (response.isSuccessful) {
+                    val createUserResponse = response.body()?.created_users as UserDataResponse
+                    createdUserData.postValue(createUserResponse)
+                } else {
+                    createdUserData.postValue(null)
+                }
             }
         } )
 
