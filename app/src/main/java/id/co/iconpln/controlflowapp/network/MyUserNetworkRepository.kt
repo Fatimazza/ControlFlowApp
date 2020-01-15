@@ -121,4 +121,12 @@ class MyUserNetworkRepository {
         return createdUserData
     }
 
+    fun getUser(id: Int): MutableLiveData<UserDataResponse> {
+
+        val userData = MutableLiveData<UserDataResponse>()
+
+        return userData
+
+    }
+
 }
