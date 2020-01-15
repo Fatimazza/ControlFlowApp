@@ -96,4 +96,11 @@ class MyUserNetworkRepository {
 
     }
 
+    fun createUser(userData: UserDataResponse): MutableLiveData<UserDataResponse> {
+
+        val createdUserData = MutableLiveData<UserDataResponse>()
+
+        return createdUserData
+    }
+
 }
