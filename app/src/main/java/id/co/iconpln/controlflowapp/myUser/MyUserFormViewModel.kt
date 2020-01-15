@@ -15,4 +15,8 @@ class MyUserFormViewModel : ViewModel() {
         return MyUserNetworkRepository().deleteUser(id)
     }
 
+    fun createUser(userData: UserDataResponse): MutableLiveData<UserDataResponse> {
+        return MyUserNetworkRepository().createUser(userData)
+    }
+
 }
