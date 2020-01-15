@@ -58,11 +58,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initIntentExtra() {
-        if (intent.hasExtra(EXTRA_USER_ID)) {
-            userId = intent.getParcelableExtra(EXTRA_USER_ID)
-        } else {
-            userId = 0
-        }
+        userId = intent.getIntExtra(EXTRA_USER_ID, 0)
         isEditUser = intent.getBooleanExtra(EXTRA_USER_EDIT, false)
     }
 
