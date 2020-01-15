@@ -67,7 +67,9 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             R.id.btnUserFormDelete -> {
-
+                if (userId != null) {
+                    deleteUser(userId as Int)
+                }
             }
         }
     }
@@ -79,6 +81,16 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this, "User Updated Successfully!", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Failed to update User", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun deleteUser(id: Int) {
+        viewModel.deleteUser(id).observe(this, Observer {userDataResponse ->
+            if (userDataResponse != null) {
+                Toast.makeText(this, "User Deleted Successfully!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Failed to delete User", Toast.LENGTH_SHORT).show()
             }
         })
     }
