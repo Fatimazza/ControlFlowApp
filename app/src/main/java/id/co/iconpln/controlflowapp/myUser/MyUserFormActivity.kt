@@ -56,6 +56,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     private fun setClickListener() {
         btnUserFormSave.setOnClickListener(this)
         btnUserFormDelete.setOnClickListener(this)
+        btnUserFormAdd.setOnClickListener(this)
     }
 
     private fun initIntentExtra() {
@@ -92,6 +93,16 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                     deleteUser(userId as Int)
                 }
             }
+            R.id.btnUserFormAdd -> {
+                userId = 0
+                val addUserData = UserDataResponse(
+                    etUserFormAddress.text.toString(),
+                    userId ?: 0,
+                    etUserFormName.text.toString(),
+                    etUserFormHp.text.toString()
+                )
+                addUser(addUserData)
+            }
         }
     }
 
@@ -112,6 +123,17 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this, "User Deleted Successfully!", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Failed to delete User", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun addUser(userData: UserDataResponse) {
+        viewModel.createUser(userData).observe(this, Observer { userDataResponse ->
+            if (userDataResponse != null) {
+                Toast.makeText(this, "User Added Successfully!", Toast.LENGTH_SHORT).show()
+                finish()
+            } else {
+                Toast.makeText(this, "Failed to add User", Toast.LENGTH_SHORT).show()
             }
         })
     }
