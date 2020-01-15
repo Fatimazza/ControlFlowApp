@@ -1,4 +1,4 @@
-package id.co.iconpln.controlflowapp.myUser
+package id.co.iconpln.controlflowapp.myUserFavorite
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

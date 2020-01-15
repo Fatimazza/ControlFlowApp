@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".myUser.MyUserFavoriteActivity" />
+        <activity android:name=".myUserFavorite.MyUserFavoriteActivity" />
         <activity android:name=".myUser.MyUserFormActivity" />
         <activity android:name=".myUser.MyUserActivity" />
         <activity android:name=".myContact.MyContactActivity" />
