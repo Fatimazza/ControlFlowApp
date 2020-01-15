@@ -58,6 +58,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/btnUserFormAdd"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add" />
+
+        <Button
             android:id="@+id/btnUserFormSave"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"

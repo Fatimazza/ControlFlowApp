@@ -40,9 +40,11 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
             populateFormData(user)
             btnUserFormSave.visibility = View.VISIBLE
             btnUserFormDelete.visibility = View.VISIBLE
+            btnUserFormAdd.visibility = View.GONE
         } else {
             btnUserFormSave.visibility = View.GONE
             btnUserFormDelete.visibility = View.GONE
+            btnUserFormAdd.visibility = View.VISIBLE
         }
     }
 
