@@ -3,6 +3,7 @@ package id.co.iconpln.controlflowapp.myUser
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -11,7 +12,7 @@ import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.model.myUser.UserDataResponse
 import kotlinx.android.synthetic.main.activity_my_user.*
 
-class MyUserActivity : AppCompatActivity() {
+class MyUserActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var viewModel: MyUserViewModel
 
@@ -24,6 +25,7 @@ class MyUserActivity : AppCompatActivity() {
         initViewModel()
         showListUser()
         addListClickListener()
+        addClickListener()
 
         fetchUserData()
     }
@@ -65,5 +67,17 @@ class MyUserActivity : AppCompatActivity() {
         userFormIntent.putExtra(MyUserFormActivity.EXTRA_USER, myUser)
         userFormIntent.putExtra(MyUserFormActivity.EXTRA_USER_ADD, false)
         startActivity(userFormIntent)
+    }
+
+    private fun addClickListener() {
+        fabMyUserAdd.setOnClickListener(this)
+    }
+
+    override fun onClick(view: View) {
+        when(view.id) {
+            R.id.fabMyUserAdd -> {
+                
+            }
+        }
     }
 }
