@@ -13,12 +13,10 @@ import kotlinx.android.synthetic.main.activity_my_user_form.*
 class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
-        const val EXTRA_USER = "extra_user"
         const val EXTRA_USER_EDIT = "extra_user_edit"
+        const val EXTRA_USER_ID = "extra_user_id"
     }
-
-    private lateinit var user: UserDataResponse
-
+    
     private lateinit var viewModel: MyUserFormViewModel
 
     private var userId: Int? = null
@@ -37,7 +35,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun checkForm(editUser: Boolean) {
         if (editUser) {
-            populateFormData(user)
+            populateFormData(userId as Int)
             btnUserFormSave.visibility = View.VISIBLE
             btnUserFormDelete.visibility = View.VISIBLE
             btnUserFormAdd.visibility = View.GONE
@@ -60,19 +58,19 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initIntentExtra() {
-        if (intent.hasExtra(EXTRA_USER)) {
-            user = intent.getParcelableExtra(EXTRA_USER)
+        if (intent.hasExtra(EXTRA_USER_ID)) {
+            userId = intent.getParcelableExtra(EXTRA_USER_ID)
         } else {
-            user = UserDataResponse("", 0, "", "")
+            userId = 0
         }
         isEditUser = intent.getBooleanExtra(EXTRA_USER_EDIT, false)
     }
 
-    private fun populateFormData(user: UserDataResponse) {
-        etUserFormName.setText(user.name)
+    private fun populateFormData(userId: Int) {
+        /*etUserFormName.setText(user.name)
         etUserFormAddress.setText(user.address)
         etUserFormHp.setText(user.phone)
-        userId = user.id
+        userId = user.id*/
     }
 
     override fun onClick(view: View) {
@@ -94,7 +92,6 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             R.id.btnUserFormAdd -> {
-                userId = 0
                 val addUserData = UserDataResponse(
                     etUserFormAddress.text.toString(),
                     userId ?: 0,

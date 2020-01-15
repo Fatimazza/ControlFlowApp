@@ -65,7 +65,7 @@ class MyUserActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun openUserForm(myUser: UserDataResponse) {
         val userFormIntent = Intent(this, MyUserFormActivity::class.java)
-        userFormIntent.putExtra(MyUserFormActivity.EXTRA_USER, myUser)
+        userFormIntent.putExtra(MyUserFormActivity.EXTRA_USER_ID, myUser.id)
         userFormIntent.putExtra(MyUserFormActivity.EXTRA_USER_EDIT, true)
         startActivity(userFormIntent)
     }
