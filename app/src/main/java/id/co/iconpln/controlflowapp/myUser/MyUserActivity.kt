@@ -3,6 +3,7 @@ package id.co.iconpln.controlflowapp.myUser
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -81,5 +82,10 @@ class MyUserActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(userFormAddIntent)
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_myuser, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }
