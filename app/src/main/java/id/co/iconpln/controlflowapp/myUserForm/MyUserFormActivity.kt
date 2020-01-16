@@ -168,6 +168,10 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
         menuInflater.inflate(R.menu.menu_myuser_form, menu)
         menuItem = menu
         setFavoriteIcon()
+
+        if (!isEditUser) {
+            menu.findItem(R.id.action_favorite).isVisible = false
+        }
         return super.onCreateOptionsMenu(menu)
     }
 
