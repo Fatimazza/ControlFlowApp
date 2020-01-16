@@ -95,11 +95,22 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                 populateFormData(userDataResponse)
                 pbMyUserFormLoading.visibility = View.GONE
                 llMyUserFormContent.visibility = View.VISIBLE
+                setFavorite()
             } else {
                 Toast.makeText(this, "Failed to load User", Toast.LENGTH_SHORT).show()
                 pbMyUserFormLoading.visibility = View.GONE
             }
         })
+    }
+
+    private fun setFavorite() {
+        if (userId != null) {
+            favoriteViewModel.getUser(userId as Int).observe(this, Observer { favoriteUser ->
+                Log.d("Izza", "getUser $favoriteUser")
+                isFavorite = favoriteUser != null
+                setFavoriteIcon()
+            })
+        }
     }
 
     override fun onClick(view: View) {

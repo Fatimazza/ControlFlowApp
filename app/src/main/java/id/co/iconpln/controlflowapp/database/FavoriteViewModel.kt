@@ -36,4 +36,8 @@ class FavoriteViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
+    fun getUser(id: Int): LiveData<FavoriteUser> {
+        return repository.getUser(id)
+    }
+
 }

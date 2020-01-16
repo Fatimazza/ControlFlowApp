@@ -14,4 +14,6 @@ class FavoriteDatabaseRepository(private val favDatabaseDao: FavoriteDatabaseDao
         favDatabaseDao.deleteUser(id)
     }
 
+    fun getUser(id: Int): LiveData<FavoriteUser> = favDatabaseDao.getFavUser(id)
+
 }
