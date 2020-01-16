@@ -3,6 +3,7 @@ package id.co.iconpln.controlflowapp.myUserForm
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -154,5 +155,15 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_myuser_form, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.action_favorite -> {
+                Toast.makeText(this, "Favorite!", Toast.LENGTH_SHORT).show()
+                true
+            }
+            else -> true
+        }
     }
 }
