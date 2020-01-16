@@ -15,7 +15,12 @@ class MyUserFavoriteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_user_favorite)
 
+        setActionBarTitle()
         showListUser()
+    }
+
+    private fun setActionBarTitle() {
+        supportActionBar?.title = "List Favorite User"
     }
 
     private fun showListUser() {
