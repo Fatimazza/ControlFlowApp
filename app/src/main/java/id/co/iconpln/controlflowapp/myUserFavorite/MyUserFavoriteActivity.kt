@@ -26,7 +26,7 @@ class MyUserFavoriteActivity : AppCompatActivity() {
         setupActionBar()
         showListUser()
         addListClickListener()
-        fetchFavoriteMovieData()
+        fetchFavoriteUserData()
     }
 
     private fun setupActionBar() {
@@ -47,7 +47,7 @@ class MyUserFavoriteActivity : AppCompatActivity() {
         rvMyUserFavList.adapter = adapter
     }
 
-    private fun fetchFavoriteMovieData() {
+    private fun fetchFavoriteUserData() {
         favoriteViewModel.getAllFavoriteUsers().observe(this, Observer { listFavUser ->
             if (listFavUser.isNotEmpty()) {
                 adapter.setData(listFavUser)

@@ -32,11 +32,11 @@ class MyUserFavoriteAdapter : RecyclerView.Adapter<MyUserFavoriteAdapter.MyUserV
     }
 
     fun setData(userItems: List<FavoriteUser>) {
-        val listFavMovie = ArrayList<FavoriteUser>()
+        val listFavUser = ArrayList<FavoriteUser>()
         for (i in 0 until userItems.size) {
-            listFavMovie.add(userItems[i])
+            listFavUser.add(userItems[i])
         }
-        userData = listFavMovie
+        userData = listFavUser
         notifyDataSetChanged()
     }
 
