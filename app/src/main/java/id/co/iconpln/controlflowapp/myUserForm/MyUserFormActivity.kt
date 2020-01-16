@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.myUserForm
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -148,5 +149,10 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this, "Failed to add User", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_myuser_form, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }
