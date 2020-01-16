@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import id.co.iconpln.controlflowapp.R
@@ -24,6 +25,10 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     private var userId: Int? = null
 
     private var isEditUser = false
+
+    private var menuItem: Menu? = null
+
+    private var isFavorite: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -154,16 +159,28 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_myuser_form, menu)
+        menuItem = menu
+        setFavoriteIcon()
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.action_favorite -> {
-                Toast.makeText(this, "Favorite!", Toast.LENGTH_SHORT).show()
+                isFavorite = !isFavorite
+                setFavoriteIcon()
                 true
             }
             else -> true
         }
+    }
+
+    private fun setFavoriteIcon() {
+        if (isFavorite)
+            menuItem?.getItem(0)?.icon =
+                ContextCompat.getDrawable(this, R.drawable.ic_favorite)
+        else
+            menuItem?.getItem(0)?.icon =
+                ContextCompat.getDrawable(this, R.drawable.ic_unfavorite)
     }
 }
