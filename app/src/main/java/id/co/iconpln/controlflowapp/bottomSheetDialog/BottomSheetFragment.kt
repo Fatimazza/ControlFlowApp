@@ -71,7 +71,7 @@ class BottomSheetFragment : BottomSheetDialogFragment(), View.OnClickListener {
         }
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
 
         if (context is ItemClickListener) {

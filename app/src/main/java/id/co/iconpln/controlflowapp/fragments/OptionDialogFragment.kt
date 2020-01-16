@@ -38,7 +38,7 @@ class OptionDialogFragment : DialogFragment(), View.OnClickListener {
         btnDialogClose.setOnClickListener(this)
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
 
         val parentFragment = parentFragment
@@ -77,11 +77,11 @@ class OptionDialogFragment : DialogFragment(), View.OnClickListener {
                     if (optionsDialogListener != null) {
                         optionsDialogListener?.onOptionChosen(favColor)
                     }
-                    dialog.dismiss()
+                    dialog?.dismiss()
                 }
             }
             R.id.btnDialogClose -> {
-                dialog.cancel()
+                dialog?.cancel()
             }
         }
     }
