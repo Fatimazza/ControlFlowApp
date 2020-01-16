@@ -22,14 +22,14 @@ class FavoriteViewModel(application: Application) : AndroidViewModel(application
         return allFavoriteUsers
     }
 
-    fun insertMovie(user: FavoriteUser) {
+    fun insertUser(user: FavoriteUser) {
         GlobalScope.launch {
             repository.insertUser(user)
             Log.d("Izza", "User ${user.userName} ${user.userId} - - INSERTED")
         }
     }
 
-    fun deleteMovie(userId: Int) {
+    fun deleteUser(userId: Int) {
         GlobalScope.launch {
             repository.deleteMovie(userId)
             Log.d("Izza", "User $userId - - DELETED")

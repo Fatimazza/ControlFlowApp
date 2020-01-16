@@ -214,7 +214,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun addToFavorite() {
         Toast.makeText(this, "Add to Favorite", Toast.LENGTH_SHORT).show()
-        favoriteViewModel.insertMovie(
+        favoriteViewModel.insertUser(
             FavoriteUser(
                 0,
                 etUserFormAddress.text.toString(),
@@ -227,7 +227,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun removeFromFavorite() {
         if (userId != null) {
-            favoriteViewModel.deleteMovie(
+            favoriteViewModel.deleteUser(
                 userId as Int
             )
         }
