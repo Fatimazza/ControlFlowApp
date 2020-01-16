@@ -189,6 +189,11 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.action_favorite -> {
+                if (llMyUserFormContent.visibility == View.GONE) {
+                    Toast.makeText(this, "Can't add to Favorite", Toast.LENGTH_SHORT)
+                        .show()
+                    return false
+                }
                 isFavorite = !isFavorite
                 setFavoriteIcon()
                 addOrRemoveFavorite()
