@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.item_list_contact.view.*
 
 class MyUserFavoriteAdapter : RecyclerView.Adapter<MyUserFavoriteAdapter.MyUserViewHolder>() {
 
-    private val userData = ArrayList<FavoriteUser>()
+    private var userData = emptyList<FavoriteUser>()
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -31,9 +31,12 @@ class MyUserFavoriteAdapter : RecyclerView.Adapter<MyUserFavoriteAdapter.MyUserV
         }
     }
 
-    fun setData(userItems: ArrayList<FavoriteUser>) {
-        userData.clear()
-        userData.addAll(userItems)
+    fun setData(userItems: List<FavoriteUser>) {
+        val listFavMovie = ArrayList<FavoriteUser>()
+        for (i in 0 until userItems.size) {
+            listFavMovie.add(userItems[i])
+        }
+        userData = listFavMovie
         notifyDataSetChanged()
     }
 

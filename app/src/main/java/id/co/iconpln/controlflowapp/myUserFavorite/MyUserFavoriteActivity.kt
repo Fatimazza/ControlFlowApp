@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.myUserFavorite
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
@@ -21,6 +22,7 @@ class MyUserFavoriteActivity : AppCompatActivity() {
         initViewModel()
         setActionBarTitle()
         showListUser()
+        fetchFavoriteMovieData()
     }
 
     private fun setActionBarTitle() {
@@ -39,4 +41,13 @@ class MyUserFavoriteActivity : AppCompatActivity() {
         rvMyUserFavList.layoutManager = LinearLayoutManager(this)
         rvMyUserFavList.adapter = adapter
     }
+
+    private fun fetchFavoriteMovieData() {
+        favoriteViewModel.getAllFavoriteUsers().observe(this, Observer { listFavUser ->
+            if (listFavUser.isNotEmpty()) {
+                adapter.setData(listFavUser)
+            }
+        })
+    }
+
 }
