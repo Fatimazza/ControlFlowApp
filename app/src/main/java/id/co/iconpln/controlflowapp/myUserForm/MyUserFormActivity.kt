@@ -196,7 +196,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
         if (isFavorite) {
             addToFavorite()
         } else {
-
+            removeFromFavorite()
         }
 
         favoriteViewModel.getAllFavoriteUsers().observe(this, Observer { listFavUser ->
@@ -219,6 +219,14 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                 etUserFormHp.text.toString()
             )
         )
+    }
+
+    private fun removeFromFavorite() {
+        if (userId != null) {
+            favoriteViewModel.deleteMovie(
+                userId as Int
+            )
+        }
     }
 
 }

@@ -29,4 +29,11 @@ class FavoriteViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
+    fun deleteMovie(userId: Int) {
+        GlobalScope.launch {
+            repository.deleteMovie(userId)
+            Log.d("Izza", "User $userId - - DELETED")
+        }
+    }
+
 }

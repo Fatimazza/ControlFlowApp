@@ -10,4 +10,8 @@ class FavoriteDatabaseRepository(private val favDatabaseDao: FavoriteDatabaseDao
         favDatabaseDao.insertUser(user)
     }
 
+    fun deleteMovie(id: Int) {
+        favDatabaseDao.deleteUser(id)
+    }
+
 }
