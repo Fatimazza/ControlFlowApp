@@ -42,11 +42,11 @@ class FavoriteDatabaseTest {
 
     @Test
     @Throws(Exception::class)
-    fun insertAndGetMovie() {
+    fun insertAndGetUser() {
         val user = FavoriteUser()
         favDao.insertUser(user)
-        val favoriteMovie = favDao.getFavUser(0)
-        assertEquals(favoriteMovie.value?.userName, null)
+        val favoriteUser = favDao.getFavUser(0)
+        assertEquals(favoriteUser.value?.userName, null)
     }
 
 }
