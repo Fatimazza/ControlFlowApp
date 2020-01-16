@@ -23,13 +23,14 @@ class MyUserFavoriteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_my_user_favorite)
 
         initViewModel()
-        setActionBarTitle()
+        setupActionBar()
         showListUser()
         addListClickListener()
         fetchFavoriteMovieData()
     }
 
-    private fun setActionBarTitle() {
+    private fun setupActionBar() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "List Favorite User"
     }
 
