@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.model.myUser.UserDataResponse
+import id.co.iconpln.controlflowapp.myUserFavorite.MyUserFavoriteActivity
 import id.co.iconpln.controlflowapp.myUserForm.MyUserFormActivity
 import kotlinx.android.synthetic.main.activity_my_user.*
 
@@ -87,5 +89,16 @@ class MyUserActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_myuser, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.action_show_favorite -> {
+                val myUserFavIntent = Intent(this, MyUserFavoriteActivity::class.java)
+                startActivity(myUserFavIntent)
+                true
+            }
+            else -> true
+        }
     }
 }
