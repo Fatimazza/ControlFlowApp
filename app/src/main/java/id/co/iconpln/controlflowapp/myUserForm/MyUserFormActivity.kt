@@ -158,6 +158,8 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
         viewModel.deleteUser(id).observe(this, Observer {userDataResponse ->
             if (userDataResponse != null) {
                 Toast.makeText(this, "User Deleted Successfully!", Toast.LENGTH_SHORT).show()
+                if (isFavorite) removeFromFavorite()
+                finish()
             } else {
                 Toast.makeText(this, "Failed to delete User", Toast.LENGTH_SHORT).show()
             }
