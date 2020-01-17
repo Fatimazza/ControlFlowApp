@@ -40,4 +40,11 @@ class FavoriteViewModel(application: Application) : AndroidViewModel(application
         return repository.getUser(id)
     }
 
+    fun updateUser(user: FavoriteUser) {
+        GlobalScope.launch {
+            repository.updateUser(user)
+            Log.d("Izza", "User ${user.userName} ${user.userId} - - UPDATED")
+        }
+    }
+
 }
