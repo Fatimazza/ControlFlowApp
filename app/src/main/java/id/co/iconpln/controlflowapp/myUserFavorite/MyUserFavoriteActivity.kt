@@ -29,6 +29,11 @@ class MyUserFavoriteActivity : AppCompatActivity() {
         fetchFavoriteUserData()
     }
 
+    override fun onResume() {
+        super.onResume()
+        favoriteViewModel.getAllFavoriteUsers()
+    }
+
     private fun setupActionBar() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "List Favorite User"
@@ -49,9 +54,7 @@ class MyUserFavoriteActivity : AppCompatActivity() {
 
     private fun fetchFavoriteUserData() {
         favoriteViewModel.getAllFavoriteUsers().observe(this, Observer { listFavUser ->
-            if (listFavUser.isNotEmpty()) {
-                adapter.setData(listFavUser)
-            }
+            adapter.setData(listFavUser)
         })
     }
 
