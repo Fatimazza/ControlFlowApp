@@ -35,6 +35,8 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
 
     private var isFavorite: Boolean = false
 
+    private var favoriteUserId: Long? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_user_form)
@@ -109,6 +111,10 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                 Log.d("Izza", "getUser $favoriteUser")
                 isFavorite = favoriteUser != null
                 setFavoriteIcon()
+
+                if (favoriteUser != null) {
+                    favoriteUserId = favoriteUser.favUserId
+                }
             })
         }
     }
@@ -148,10 +154,26 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
         viewModel.updateUser(id, userData).observe(this, Observer { userDataResponse ->
             if (userDataResponse != null) {
                 Toast.makeText(this, "User Updated Successfully!", Toast.LENGTH_SHORT).show()
+                updateFavoriteUser(userData)
+                finish()
             } else {
                 Toast.makeText(this, "Failed to update User", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun updateFavoriteUser(userData: UserDataResponse) {
+        if (favoriteUserId != null) {
+            favoriteViewModel.updateUser(
+                FavoriteUser(
+                    favoriteUserId as Long,
+                    userData.address,
+                    userData.id.toString(),
+                    userData.name,
+                    userData.phone
+                )
+            )
+        }
     }
 
     private fun deleteUser(id: Int) {
@@ -249,6 +271,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                 userId as Int
             )
         }
+        favoriteUserId = null
     }
 
 }
