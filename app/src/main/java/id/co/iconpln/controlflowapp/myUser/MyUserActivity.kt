@@ -34,6 +34,11 @@ class MyUserActivity : AppCompatActivity(), View.OnClickListener {
         fetchUserData()
     }
 
+    override fun onResume() {
+        super.onResume()
+        fetchUserData()
+    }
+
     private fun initViewModel() {
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
             .get(MyUserViewModel::class.java)
