@@ -2,13 +2,15 @@ package id.co.iconpln.controlflowapp.myProfileRegister
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.model.myProfile.ProfileRegisterUser
+import kotlinx.android.synthetic.main.activity_my_profile_register.*
 
-class MyProfileRegisterActivity : AppCompatActivity() {
+class MyProfileRegisterActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var viewModel: MyProfileRegisterViewModel
 
@@ -17,11 +19,21 @@ class MyProfileRegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_my_profile_register)
 
         initViewModel()
+
+        btnProfileReg.setOnClickListener(this)
     }
 
     private fun initViewModel() {
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
             .get(MyProfileRegisterViewModel::class.java)
+    }
+
+    override fun onClick(view: View) {
+        when(view.id) {
+            R.id.btnProfileReg -> {
+
+            }
+        }
     }
 
     private fun fetchUserData(profileRegisterUser: ProfileRegisterUser) {
