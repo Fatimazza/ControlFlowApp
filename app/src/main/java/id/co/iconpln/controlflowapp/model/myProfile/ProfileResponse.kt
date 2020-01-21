@@ -1,6 +1,6 @@
 package id.co.iconpln.controlflowapp.model.myProfile
 
-data class Customer(
+data class ProfileResponse(
     val balance: Int,
     val created_at: String,
     val device_id: String,
