@@ -1,9 +1,7 @@
 package id.co.iconpln.controlflowapp.network
 
 import androidx.lifecycle.MutableLiveData
-import id.co.iconpln.controlflowapp.model.myProfile.BaseProfileResponse
-import id.co.iconpln.controlflowapp.model.myProfile.ProfileLoginResponse
-import id.co.iconpln.controlflowapp.model.myProfile.ProfileLoginUser
+import id.co.iconpln.controlflowapp.model.myProfile.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,6 +35,18 @@ class MyProfileNetworkRepository {
         })
 
         return loginData
+    }
+
+    fun doRegister(profileRegisterUser: ProfileRegisterUser)
+            : MutableLiveData<ProfileResponse> {
+
+        val registerData = MutableLiveData<ProfileResponse>()
+
+        NetworkConfig.profileApi().registerUser(profileRegisterUser)
+            .enqueue(object : Callback<ProfileRegisterResponse<ProfileResponse>> {})
+
+        return registerData
+
     }
 
 }
