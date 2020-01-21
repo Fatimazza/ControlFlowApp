@@ -87,6 +87,10 @@ class NetworkConfig {
             return getUserRetrofit().create(UserAPIService::class.java)
         }
 
+        fun profileApi(): ProfileAPIService {
+            return getProfileRetrofit().create(ProfileAPIService::class.java)
+        }
+
     }
 
 }
@@ -120,4 +124,8 @@ interface UserAPIService {
     @GET("api/v1/user/{id}")
     fun getUser(@Path("id") id: Int)
             : Call<SingleUserResponse<UserDataResponse>>
+}
+
+interface ProfileAPIService {
+
 }
