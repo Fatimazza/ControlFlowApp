@@ -12,9 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".MyProfile.MyProfileActivity" />
         <activity android:name=".myProfileLogin.MyProfileLoginActivity" />
-        <activity android:name=".myProfileRegister.MyProfileRegisterActivity"
-            android:parentActivityName=".myProfileLogin.MyProfileLoginActivity"/>
+        <activity
+            android:name=".myProfileRegister.MyProfileRegisterActivity"
+            android:parentActivityName=".myProfileLogin.MyProfileLoginActivity" />
         <activity
             android:name=".myUserFavorite.MyUserFavoriteActivity"
             android:parentActivityName=".myUser.MyUserActivity" />
