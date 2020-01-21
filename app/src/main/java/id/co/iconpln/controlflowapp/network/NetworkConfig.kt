@@ -51,6 +51,22 @@ class NetworkConfig {
                 .build()
         }
 
+        private fun getProfileRetrofit(): Retrofit {
+            return retrofit ?: synchronized(this) {
+                retrofit ?: buildProfileRetrofit().also {
+                    retrofit = it
+                }
+            }
+        }
+
+        private fun buildProfileRetrofit(): Retrofit {
+            return Retrofit.Builder()
+                .baseUrl(BuildConfig.PROFILE_BASE_URL)
+                .client(getInterceptor())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+        }
+
         private fun getInterceptor(): OkHttpClient {
             val httpLoggingInterceptor = HttpLoggingInterceptor()
             httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
