@@ -13,7 +13,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".myProfileLogin.MyProfileLoginActivity" />
-        <activity android:name=".myProfileRegister.MyProfileRegisterActivity" />
+        <activity android:name=".myProfileRegister.MyProfileRegisterActivity"
+            android:parentActivityName=".myProfileLogin.MyProfileLoginActivity"/>
         <activity
             android:name=".myUserFavorite.MyUserFavoriteActivity"
             android:parentActivityName=".myUser.MyUserActivity" />

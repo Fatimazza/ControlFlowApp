@@ -19,13 +19,18 @@ class MyProfileRegisterActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_my_profile_register)
 
         initViewModel()
-
+        setupActionBar()
         btnProfileReg.setOnClickListener(this)
     }
 
     private fun initViewModel() {
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
             .get(MyProfileRegisterViewModel::class.java)
+    }
+
+    private fun setupActionBar() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "My Profile Register"
     }
 
     override fun onClick(view: View) {
