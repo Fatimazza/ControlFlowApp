@@ -1,5 +1,9 @@
 package id.co.iconpln.controlflowapp.model.myProfile
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class ProfileResponse(
     val balance: Int,
     val created_at: String,
@@ -12,4 +16,4 @@ data class ProfileResponse(
     val notif_token: String,
     val phone: String,
     val updated_at: String
-)
+): Parcelable

@@ -7,7 +7,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import id.co.iconpln.controlflowapp.MyProfile.MyProfileActivity
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.model.myProfile.ProfileLoginResponse
 import id.co.iconpln.controlflowapp.model.myProfile.ProfileLoginUser
 import id.co.iconpln.controlflowapp.myProfileRegister.MyProfileRegisterActivity
 import kotlinx.android.synthetic.main.activity_my_profile_login.*
@@ -53,7 +55,15 @@ class MyProfileLoginActivity : AppCompatActivity(), View.OnClickListener {
         viewModel.login(profileLoginUser).observe(this, Observer { loginResponse ->
             if (loginResponse != null) {
                 Toast.makeText(this, "Success login ${loginResponse.customer.email}", Toast.LENGTH_SHORT).show()
+                openProfilePage(loginResponse)
             }
         })
+    }
+
+    private fun openProfilePage(profileLoginResponse: ProfileLoginResponse) {
+        val myProfileIntent = Intent(this, MyProfileActivity::class.java)
+        myProfileIntent.putExtra(MyProfileActivity.EXTRA_PROFILE, profileLoginResponse)
+        startActivity(myProfileIntent)
+        finish()
     }
 }
