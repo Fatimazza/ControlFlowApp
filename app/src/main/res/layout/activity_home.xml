@@ -163,6 +163,12 @@
             android:layout_height="wrap_content"
             android:text="CRUD User"/>
 
+        <Button
+            android:id="@+id/btnMyProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile"/>
+
     </LinearLayout>
 
 </ScrollView>
