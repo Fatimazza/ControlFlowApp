@@ -3,8 +3,11 @@ package id.co.iconpln.controlflowapp.myProfileLogin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.model.myProfile.ProfileLoginUser
 import kotlinx.android.synthetic.main.activity_my_profile_login.*
 
 class MyProfileLoginActivity : AppCompatActivity(), View.OnClickListener {
@@ -29,8 +32,21 @@ class MyProfileLoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when(view.id) {
             R.id.btnProfileLogin -> {
-
+                fetchUserData(
+                    ProfileLoginUser(
+                        etProfileLoginEmail.text.toString(),
+                        etProfileLoginPassword.text.toString()
+                    )
+                )
             }
         }
+    }
+
+    private fun fetchUserData(profileLoginUser: ProfileLoginUser) {
+        viewModel.login(profileLoginUser).observe(this, Observer { loginResponse ->
+            if (loginResponse != null) {
+                Toast.makeText(this, "Success login ${loginResponse.customer.email}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
