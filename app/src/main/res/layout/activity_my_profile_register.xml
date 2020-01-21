@@ -12,89 +12,73 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <ProgressBar
-            android:id="@+id/pbProfileRegLoading"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:visibility="gone" />
-
-        <LinearLayout
-            android:id="@+id/llProfileRegContent"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginBottom="16dp">
 
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
+                android:id="@+id/etProfileRegEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1" />
 
-                <EditText
-                    android:id="@+id/etProfileRegEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
 
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
+                android:id="@+id/etProfileRegPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:minEms="7"
+                android:maxLines="1" />
 
-                <EditText
-                    android:id="@+id/etProfileRegPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Password"
-                    android:inputType="textPassword"
-                    android:minEms="7"
-                    android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
 
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
+                android:id="@+id/etProfileRegName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                android:hint="Nama"
+                android:inputType="textPersonName"
+                android:maxLines="1" />
 
-                <EditText
-                    android:id="@+id/etProfileRegName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Nama"
-                    android:inputType="textPersonName"
-                    android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
 
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
+                android:id="@+id/etProfileRegHp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                android:hint="Handphone"
+                android:inputType="phone"
+                android:maxLines="1" />
 
-                <EditText
-                    android:id="@+id/etProfileRegHp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Handphone"
-                    android:inputType="phone"
-                    android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/btnProfileReg"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Resgister" />
-
-        </LinearLayout>
-
+        <Button
+            android:id="@+id/btnProfileReg"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Resgister" />
 
     </LinearLayout>
 
