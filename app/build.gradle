@@ -19,6 +19,7 @@ android {
         buildConfigField("String", "API_KEY", API_KEY)
         buildConfigField("String", "CONTACT_BASE_URL", CONTACT_BASE_URL)
         buildConfigField("String", "USER_BASE_URL", USER_BASE_URL)
+        buildConfigField("String", "PROFILE_BASE_URL", PROFILE_BASE_URL)
     }
     buildTypes {
         release {
