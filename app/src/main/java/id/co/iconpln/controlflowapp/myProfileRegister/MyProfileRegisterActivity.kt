@@ -31,7 +31,14 @@ class MyProfileRegisterActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when(view.id) {
             R.id.btnProfileReg -> {
-
+                fetchUserData(
+                    ProfileRegisterUser(
+                        etProfileRegEmail.text.toString(),
+                        etProfileRegPassword.text.toString(),
+                        etProfileRegName.text.toString(),
+                        etProfileRegHp.text.toString()
+                    )
+                )
             }
         }
     }
