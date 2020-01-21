@@ -53,6 +53,10 @@ class MyProfileRegisterActivity : AppCompatActivity(), View.OnClickListener {
             if (registerResponse != null) {
                 Toast.makeText(
                     this, "Success register ${registerResponse.email}", Toast.LENGTH_SHORT).show()
+                finish()
+            } else {
+                Toast.makeText(
+                    this, "Registration failed. Please try again.", Toast.LENGTH_SHORT).show()
             }
         })
     }
