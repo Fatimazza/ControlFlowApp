@@ -11,7 +11,7 @@ class MyProfileActivity : AppCompatActivity() {
         const val EXTRA_PROFILE = "extra_profile"
     }
 
-    private var profile: ProfileLoginResponse? = null
+    private var profileLoginResponse: ProfileLoginResponse? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,7 @@ class MyProfileActivity : AppCompatActivity() {
 
     private fun initIntentExtra() {
         if (intent.hasExtra(EXTRA_PROFILE)) {
-            profile = intent.getParcelableExtra(EXTRA_PROFILE)
+            profileLoginResponse = intent.getParcelableExtra(EXTRA_PROFILE)
         }
     }
 }
