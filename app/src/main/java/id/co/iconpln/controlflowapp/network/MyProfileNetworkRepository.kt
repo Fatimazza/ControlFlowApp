@@ -12,17 +12,17 @@ class MyProfileNetworkRepository {
 
         val loginData = MutableLiveData<ProfileLoginResponse>()
 
-        NetworkConfig.profileApi().loginUser(profileLoginUser).enqueue(object : Callback<BaseProfileResponse<ProfileLoginResponse>> {
+        NetworkConfig.profileApi().loginUser(profileLoginUser).enqueue(object : Callback<BaseProfileLoginResponse<ProfileLoginResponse>> {
             override fun onFailure(
-                call: Call<BaseProfileResponse<ProfileLoginResponse>>,
+                call: Call<BaseProfileLoginResponse<ProfileLoginResponse>>,
                 t: Throwable
             ) {
                 loginData.postValue(null)
             }
 
             override fun onResponse(
-                call: Call<BaseProfileResponse<ProfileLoginResponse>>,
-                response: Response<BaseProfileResponse<ProfileLoginResponse>>
+                call: Call<BaseProfileLoginResponse<ProfileLoginResponse>>,
+                response: Response<BaseProfileLoginResponse<ProfileLoginResponse>>
             ) {
                 if (response.isSuccessful) {
                     val loginResponse = response.body()?.data
