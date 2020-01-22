@@ -71,5 +71,22 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
     private fun showExistingPreference() {
         profileUserPreference = ProfileUserPreference(this)
         profileUser = profileUserPreference.getProfileUser()
+
+        if (!profileUserPreference.getProfileUser().userToken.isNullOrEmpty()) {
+
+        } else {
+            showLogoutProfile()
+        }
+    }
+
+    private fun showLogoutProfile() {
+        llProfileContent.visibility = View.VISIBLE
+        tvProfileWarning.visibility = View.VISIBLE
+        btnProfileToLogin.visibility = View.VISIBLE
+        
+        tvProfileId.text = resources.getString(R.string.profile_empty)
+        tvProfileName.text = resources.getString(R.string.profile_empty)
+        tvProfileEmail.text = resources.getString(R.string.profile_empty)
+        tvProfileHandphone.text = resources.getString(R.string.profile_empty)
     }
 }
