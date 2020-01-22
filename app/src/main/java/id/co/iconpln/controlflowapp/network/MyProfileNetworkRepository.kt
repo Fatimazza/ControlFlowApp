@@ -78,14 +78,19 @@ class MyProfileNetworkRepository {
                     call: Call<BaseProfileResponse<ProfileResponse>>,
                     t: Throwable
                 ) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                    profileData.postValue(null)
                 }
 
                 override fun onResponse(
                     call: Call<BaseProfileResponse<ProfileResponse>>,
                     response: Response<BaseProfileResponse<ProfileResponse>>
                 ) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                    if (response.isSuccessful) {
+                        val profileResponse = response.body()?.data
+                        profileData.postValue(profileResponse)
+                    } else {
+                        profileData.postValue(null)
+                    }
                 }
             }
         )
