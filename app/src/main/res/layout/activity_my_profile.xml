@@ -22,7 +22,7 @@
         android:layout_marginBottom="16dp"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:text="0" />
+        android:text="@string/profile_empty" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
         android:layout_marginBottom="16dp"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:text="@string/sp_name" />
+        android:text="@string/profile_empty" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
         android:layout_marginBottom="16dp"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:text="@string/sp_email" />
+        android:text="@string/profile_empty" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,7 +67,7 @@
         android:layout_marginBottom="16dp"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:text="@string/sp_handphone" />
+        android:text="@string/profile_empty" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
