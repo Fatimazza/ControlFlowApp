@@ -23,8 +23,7 @@ class MyProfileLoginActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_my_profile_login)
 
         initViewModel()
-
-        supportActionBar?.title = "My Profile Login"
+        setupActionBar()
         btnProfileLogin.setOnClickListener(this)
         tvProfileLoginReg.setOnClickListener(this)
     }
@@ -32,6 +31,11 @@ class MyProfileLoginActivity : AppCompatActivity(), View.OnClickListener {
     private fun initViewModel() {
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
             .get(MyProfileLoginViewModel::class.java)
+    }
+
+    private fun setupActionBar() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "My Profile Login"
     }
 
     override fun onClick(view: View) {
