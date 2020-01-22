@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.model.myProfile.ProfileLoginResponse
 import id.co.iconpln.controlflowapp.model.myProfile.ProfileUser
@@ -22,13 +23,21 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var profileUserPreference: ProfileUserPreference
     private lateinit var profileUser: ProfileUser
 
+    private lateinit var viewModel: MyProfileViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_profile)
 
+        initViewModel()
         setupActionBar()
         setClickListener()
         showExistingPreference()
+    }
+
+    private fun initViewModel() {
+        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
+            .get(MyProfileViewModel::class.java)
     }
 
     private fun setClickListener() {
