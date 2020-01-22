@@ -8,12 +8,11 @@ import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.model.myProfile.ProfileLoginResponse
 import id.co.iconpln.controlflowapp.myProfileLogin.MyProfileLoginActivity
 import kotlinx.android.synthetic.main.activity_my_profile.*
-import kotlinx.android.synthetic.main.activity_my_profile_login.*
 
 class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
-        const val EXTRA_PROFILE = "extra_profile"
+        private const val REQUEST_CODE = 200
     }
 
     private var profileLoginResponse: ProfileLoginResponse? = null
@@ -23,7 +22,6 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_my_profile)
 
         setupActionBar()
-        initIntentExtra()
         setClickListener()
     }
 
@@ -35,17 +33,11 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
         supportActionBar?.title = "My Profile"
     }
 
-    private fun initIntentExtra() {
-        if (intent.hasExtra(EXTRA_PROFILE)) {
-            profileLoginResponse = intent.getParcelableExtra(EXTRA_PROFILE)
-        }
-    }
-
     override fun onClick(view: View) {
         when (view.id) {
             R.id.btnProfileToLogin -> {
                 val loginIntent = Intent(this, MyProfileLoginActivity::class.java)
-                startActivity(loginIntent)
+                startActivityForResult(loginIntent, REQUEST_CODE)
             }
         }
     }

@@ -16,6 +16,11 @@ import kotlinx.android.synthetic.main.activity_my_profile_login.*
 
 class MyProfileLoginActivity : AppCompatActivity(), View.OnClickListener {
 
+    companion object {
+        const val EXTRA_PROFILE_RESULT = "extra_profile_result"
+        const val RESULT_CODE = 201
+    }
+
     private lateinit var viewModel: MyProfileLoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,9 +70,8 @@ class MyProfileLoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun openProfilePage(profileLoginResponse: ProfileLoginResponse) {
-        val myProfileIntent = Intent(this, MyProfileActivity::class.java)
-        myProfileIntent.putExtra(MyProfileActivity.EXTRA_PROFILE, profileLoginResponse)
-        startActivity(myProfileIntent)
+        val resultIntent = Intent().putExtra(EXTRA_PROFILE_RESULT, profileLoginResponse)
+        setResult(RESULT_CODE, resultIntent)
         finish()
     }
 }
