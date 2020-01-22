@@ -9,83 +9,97 @@
     android:padding="@dimen/activity_horizontal_margin"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Id" />
+    <ProgressBar
+        android:id="@+id/pbProfileLoading"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/tvProfileId"
+    <LinearLayout
+        android:id="@+id/llProfileContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:text="@string/profile_empty" />
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/sp_name" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Id" />
 
-    <TextView
-        android:id="@+id/tvProfileName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:text="@string/profile_empty" />
+        <TextView
+            android:id="@+id/tvProfileId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/profile_empty" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/sp_email" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/sp_name" />
 
-    <TextView
-        android:id="@+id/tvProfileEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:text="@string/profile_empty" />
+        <TextView
+            android:id="@+id/tvProfileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/profile_empty" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/sp_handphone" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/sp_email" />
 
-    <TextView
-        android:id="@+id/tvProfileHandphone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:text="@string/profile_empty" />
+        <TextView
+            android:id="@+id/tvProfileEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/profile_empty" />
 
-    <TextView
-        android:id="@+id/tvProfileWarning"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        style="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:text="@string/profile_warning" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/sp_handphone" />
 
-    <Button
-        android:id="@+id/btnProfileToLogin"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login" />
+        <TextView
+            android:id="@+id/tvProfileHandphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/profile_empty" />
 
+        <TextView
+            android:id="@+id/tvProfileWarning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="@string/profile_warning" />
+
+        <Button
+            android:id="@+id/btnProfileToLogin"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login" />
+
+    </LinearLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
