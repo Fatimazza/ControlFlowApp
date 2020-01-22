@@ -69,5 +69,23 @@
         android:textStyle="bold"
         android:text="@string/profile_empty" />
 
+    <TextView
+        android:id="@+id/tvProfileWarning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="@string/profile_warning" />
+
+    <Button
+        android:id="@+id/btnProfileToLogin"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login" />
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

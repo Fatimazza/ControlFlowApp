@@ -166,5 +166,6 @@
     <string name="tab_contact">Contacts</string>
 
     <string name="profile_empty">[EMPTY]</string>
+    <string name="profile_warning">Please Login to view Your Profile</string>
 
 </resources>
