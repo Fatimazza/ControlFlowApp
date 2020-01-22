@@ -139,5 +139,5 @@ interface ProfileAPIService {
 
     @GET("api/v1/customer/profile")
     fun getProfile(@Header("Authorization") token: String)
-            : Call<BaseProfileResponse<ProfileLoginResponse>>
+            : Call<BaseProfileResponse<ProfileResponse>>
 }
