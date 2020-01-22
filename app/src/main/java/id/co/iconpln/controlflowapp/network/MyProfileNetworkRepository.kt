@@ -3,6 +3,7 @@ package id.co.iconpln.controlflowapp.network
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import id.co.iconpln.controlflowapp.model.myProfile.*
+import id.co.iconpln.controlflowapp.myProfileLogin.MyProfileLoginViewModel
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -34,6 +35,7 @@ class MyProfileNetworkRepository {
                         400 -> {
                             val errorResponse = JSONObject(response.errorBody()?.string() ?: "")
                             val errorMessage = errorResponse.getJSONArray("messages")[0].toString()
+                            MyProfileLoginViewModel.errorMessage = errorMessage
                             Log.d("okhttp - -", errorMessage)
                         }
                     }

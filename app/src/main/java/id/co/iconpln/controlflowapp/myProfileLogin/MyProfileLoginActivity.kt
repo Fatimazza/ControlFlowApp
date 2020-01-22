@@ -65,6 +65,8 @@ class MyProfileLoginActivity : AppCompatActivity(), View.OnClickListener {
             if (loginResponse != null) {
                 Toast.makeText(this, "Success login ${loginResponse.customer.email}", Toast.LENGTH_SHORT).show()
                 openProfilePage(loginResponse)
+            } else {
+                Toast.makeText(this, "Login failed: ${MyProfileLoginViewModel.errorMessage}", Toast.LENGTH_SHORT).show()
             }
         })
     }
