@@ -136,4 +136,8 @@ interface ProfileAPIService {
     @POST("api/v1/customer/register")
     fun registerUser(@Body profileRegisterUser: ProfileRegisterUser)
             : Call<ProfileRegisterResponse<ProfileResponse>>
+
+    @GET("api/v1/customer/profile")
+    fun getProfile(@Header("Authorization") token: String)
+            : Call<BaseProfileResponse<ProfileLoginResponse>>
 }

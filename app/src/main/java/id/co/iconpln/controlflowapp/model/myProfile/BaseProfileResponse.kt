@@ -1,6 +1,6 @@
 package id.co.iconpln.controlflowapp.model.myProfile
 
-data class BaseProfileResponse(
+data class BaseProfileResponse<T>(
     val `data`: ProfileUser,
     val messages: List<String>,
     val status: Int,
