@@ -24,4 +24,10 @@ internal class ProfileUserPreference(context: Context) {
         return model
     }
 
+    fun removeProfileUser(value: ProfileUser) {
+        val editor = preferences.edit()
+        editor.remove(TOKEN)
+        editor.apply()
+    }
+
 }

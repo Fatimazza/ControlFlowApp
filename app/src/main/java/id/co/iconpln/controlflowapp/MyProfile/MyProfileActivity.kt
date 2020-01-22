@@ -1,6 +1,7 @@
 package id.co.iconpln.controlflowapp.MyProfile
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -100,6 +101,7 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun showLogoutProfile() {
+        pbProfileLoading.visibility = View.GONE
         llProfileContent.visibility = View.VISIBLE
         tvProfileWarning.visibility = View.VISIBLE
         btnProfileToLogin.visibility = View.VISIBLE
@@ -114,6 +116,10 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
         viewModel.getProfile(token).observe(this, Observer { profileResponse ->
             if (profileResponse != null) {
                 showProfile(profileResponse)
+            } else {
+                Toast.makeText(this, "Failed to get Profile", Toast.LENGTH_SHORT).show()
+                profileUserPreference.removeProfileUser(profileUser)
+                showLogoutProfile()
             }
         })
     }
