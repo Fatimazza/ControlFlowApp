@@ -72,6 +72,24 @@ class MyProfileNetworkRepository {
 
         val profileData = MutableLiveData<ProfileResponse>()
 
+        NetworkConfig.profileApi().getProfile(token).enqueue(
+            object : Callback<BaseProfileResponse<ProfileResponse>> {
+                override fun onFailure(
+                    call: Call<BaseProfileResponse<ProfileResponse>>,
+                    t: Throwable
+                ) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onResponse(
+                    call: Call<BaseProfileResponse<ProfileResponse>>,
+                    response: Response<BaseProfileResponse<ProfileResponse>>
+                ) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+            }
+        )
+
         return profileData
 
     }
