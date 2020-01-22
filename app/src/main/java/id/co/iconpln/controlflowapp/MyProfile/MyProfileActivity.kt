@@ -17,7 +17,12 @@ class MyProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_profile)
 
+        setupActionBar()
         initIntentExtra()
+    }
+
+    private fun setupActionBar() {
+        supportActionBar?.title = "My Profile"
     }
 
     private fun initIntentExtra() {
