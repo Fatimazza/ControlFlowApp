@@ -45,6 +45,7 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun setClickListener() {
         btnProfileToLogin.setOnClickListener(this)
+        btnProfileLogout.setOnClickListener(this)
     }
 
     private fun setupActionBar() {
@@ -56,6 +57,11 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnProfileToLogin -> {
                 val loginIntent = Intent(this, MyProfileLoginActivity::class.java)
                 startActivityForResult(loginIntent, REQUEST_CODE)
+            }
+            R.id.btnProfileLogout -> {
+                // remove preference containing Token
+                profileUserPreference.removeProfileUser(profileUser)
+                showLogoutProfile()
             }
         }
     }
@@ -105,6 +111,7 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
         llProfileContent.visibility = View.VISIBLE
         tvProfileWarning.visibility = View.VISIBLE
         btnProfileToLogin.visibility = View.VISIBLE
+        btnProfileLogout.visibility = View.GONE
 
         tvProfileId.text = resources.getString(R.string.profile_empty)
         tvProfileName.text = resources.getString(R.string.profile_empty)
@@ -129,6 +136,7 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
         llProfileContent.visibility = View.VISIBLE
         tvProfileWarning.visibility = View.GONE
         btnProfileToLogin.visibility = View.GONE
+        btnProfileLogout.visibility = View.VISIBLE
 
         tvProfileId.text = profileResponse.id.toString()
         tvProfileName.text = profileResponse.name
