@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import id.co.iconpln.controlflowapp.MyProfile.MyProfileActivity
 import id.co.iconpln.controlflowapp.bottomSheetDialog.BottomSheetActivity
 import id.co.iconpln.controlflowapp.contact.ContactActivity
 import id.co.iconpln.controlflowapp.contactFragment.ContactTabActivity
@@ -161,7 +162,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(myUserIntent)
             }
             R.id.btnMyProfile -> {
-                val myProfileIntent = Intent(this, MyProfileLoginActivity::class.java)
+                val myProfileIntent = Intent(this, MyProfileActivity::class.java)
                 startActivity(myProfileIntent)
             }
         }
