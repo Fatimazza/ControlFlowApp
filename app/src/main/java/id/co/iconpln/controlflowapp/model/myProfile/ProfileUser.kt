@@ -4,6 +4,6 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Profile(
+data class ProfileUser(
     var userToken: String? = null
 ) : Parcelable
