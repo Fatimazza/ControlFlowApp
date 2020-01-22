@@ -72,7 +72,7 @@ class MyProfileNetworkRepository {
 
         val profileData = MutableLiveData<ProfileResponse>()
 
-        NetworkConfig.profileApi().getProfile(token).enqueue(
+        NetworkConfig.profileApi().getProfile("Bearer $token").enqueue(
             object : Callback<BaseProfileResponse<ProfileResponse>> {
                 override fun onFailure(
                     call: Call<BaseProfileResponse<ProfileResponse>>,
