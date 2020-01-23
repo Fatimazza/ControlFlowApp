@@ -66,7 +66,12 @@ class MyProfileLoginActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this, "Success login ${loginResponse.customer.email}", Toast.LENGTH_SHORT).show()
                 openProfilePage(loginResponse)
             } else {
-                Toast.makeText(this, "Login failed: ${MyProfileLoginViewModel.errorMessage}", Toast.LENGTH_SHORT).show()
+                val errorMessage = MyProfileLoginViewModel.errorMessage
+                if (errorMessage.isNotEmpty()) {
+                    Toast.makeText(this, "Login failed: $errorMessage", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Check your connection!", Toast.LENGTH_SHORT).show()
+                }
             }
         })
     }

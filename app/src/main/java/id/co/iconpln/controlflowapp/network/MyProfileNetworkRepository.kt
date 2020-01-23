@@ -20,6 +20,7 @@ class MyProfileNetworkRepository {
                 call: Call<BaseProfileLoginResponse<ProfileLoginResponse>>,
                 t: Throwable
             ) {
+                MyProfileLoginViewModel.errorMessage = ""
                 loginData.postValue(null)
             }
 
@@ -38,6 +39,7 @@ class MyProfileNetworkRepository {
                             MyProfileLoginViewModel.errorMessage = errorMessage
                             Log.d("okhttp - -", errorMessage)
                         }
+                        else -> MyProfileLoginViewModel.errorMessage = "Unknown Error"
                     }
                     loginData.postValue(null)
                 }
