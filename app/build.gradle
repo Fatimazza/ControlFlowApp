@@ -6,6 +6,8 @@ plugins {
 }
 
 android {
+    namespace 'id.co.iconpln.controlflowapp'
+
     compileSdkVersion 34
     buildToolsVersion "29.0.2"
     defaultConfig {
