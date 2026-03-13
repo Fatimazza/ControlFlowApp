@@ -22,7 +22,7 @@ class IntentMoveObjectActivity : AppCompatActivity() {
     }
 
     private fun getIntentExtras() {
-        person = intent.getParcelableExtra<Person>(EXTRA_PERSON)
+        person = intent.getParcelableExtra(EXTRA_PERSON) ?: Person()
     }
 
     private fun showData() {
