@@ -23,7 +23,7 @@ class IntentMoveDataActivity : AppCompatActivity() {
     }
 
     private fun getIntentExtras() {
-        name = intent.getStringExtra(EXTRA_NAME)
+        name = intent.getStringExtra(EXTRA_NAME) ?: ""
         age = intent.getIntExtra(EXTRA_AGE, 0)
     }
 
