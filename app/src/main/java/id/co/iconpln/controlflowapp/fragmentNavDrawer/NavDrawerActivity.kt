@@ -79,8 +79,8 @@ class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             navViewDrawer.menu.getItem(countMenu).isChecked = false
 
             if (navViewDrawer.menu.getItem(countMenu).hasSubMenu()) {
-                for (countSubmenu in 0 until navViewDrawer.menu.getItem(countMenu).subMenu.size()) {
-                    navViewDrawer.menu.getItem(countMenu).subMenu.getItem(countSubmenu).isChecked = false
+                for (countSubmenu in 0 until navViewDrawer.menu.getItem(countMenu).subMenu!!.size()) {
+                    navViewDrawer.menu.getItem(countMenu).subMenu!!.getItem(countSubmenu).isChecked = false
                 }
             }
         }
