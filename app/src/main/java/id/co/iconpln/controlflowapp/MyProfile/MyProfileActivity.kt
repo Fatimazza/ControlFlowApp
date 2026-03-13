@@ -70,7 +70,7 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE) {
             if (resultCode == MyProfileLoginActivity.RESULT_CODE) {
-                profileLoginResponse = data?.getParcelableExtra(
+                profileLoginResponse = data?.getParcelableExtra<ProfileLoginResponse>(
                     MyProfileLoginActivity.EXTRA_PROFILE_RESULT
                 ) as ProfileLoginResponse
                 saveProfileUserPreference()
