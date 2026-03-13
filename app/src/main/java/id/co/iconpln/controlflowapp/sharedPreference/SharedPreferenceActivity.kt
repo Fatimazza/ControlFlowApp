@@ -88,7 +88,7 @@ class SharedPreferenceActivity : AppCompatActivity(), View.OnClickListener {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE) {
             if (resultCode == SharedPreferenceFormActivity.RESULT_CODE) {
-                user = data?.getParcelableExtra(
+                user = data?.getParcelableExtra<User>(
                     SharedPreferenceFormActivity.EXTRA_RESULT
                 ) as User
                 populateView(user)
