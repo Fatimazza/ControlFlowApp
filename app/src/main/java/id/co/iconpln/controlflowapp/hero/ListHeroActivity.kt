@@ -9,10 +9,12 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.databinding.ActivityListHeroBinding
 import id.co.iconpln.controlflowapp.model.Hero
-import kotlinx.android.synthetic.main.activity_hero.*
 
 class ListHeroActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityListHeroBinding
 
     private var listHero: ArrayList<Hero> = arrayListOf()
 
@@ -27,7 +29,9 @@ class ListHeroActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_hero)
+
+        binding = ActivityListHeroBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupListHero()
 
@@ -60,7 +64,7 @@ class ListHeroActivity : AppCompatActivity() {
     }
 
     private fun setupListHero() {
-        rvListHero.setHasFixedSize(true)
+        binding.rvListHero.setHasFixedSize(true)
         listHero.addAll(getDataHero())
         setupListDivider()
     }
@@ -83,30 +87,33 @@ class ListHeroActivity : AppCompatActivity() {
     }
 
     private fun showRecyclerList() {
-        rvListHero.layoutManager = LinearLayoutManager(this)
+        binding.rvListHero.layoutManager = LinearLayoutManager(this)
         val listHeroAdapter = ListHeroAdapter(listHero)
-        rvListHero.adapter = listHeroAdapter
+        binding.rvListHero.adapter = listHeroAdapter
 
         listHeroAdapter.setOnItemClickCallback(object : ListHeroAdapter.OnItemClickCallback {
             override fun onItemClick(hero: Hero) {
-                Toast.makeText(this@ListHeroActivity, "You choose ${hero.name}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ListHeroActivity, "You choose ${hero.name}", Toast.LENGTH_SHORT)
+                    .show()
             }
         })
     }
 
     private fun setupListDivider() {
-        val dividerItemDecoration =  DividerItemDecoration(rvListHero.context, DividerItemDecoration.VERTICAL)
-        rvListHero.addItemDecoration(dividerItemDecoration)
+        val dividerItemDecoration =
+            DividerItemDecoration(binding.rvListHero.context, DividerItemDecoration.VERTICAL)
+        binding.rvListHero.addItemDecoration(dividerItemDecoration)
     }
 
     private fun showRecyclerGrid() {
-        rvListHero.layoutManager = GridLayoutManager(this,2)
+        binding.rvListHero.layoutManager = GridLayoutManager(this, 2)
         val gridHeroAdapter = GridHeroAdapter(listHero)
-        rvListHero.adapter = gridHeroAdapter
+        binding.rvListHero.adapter = gridHeroAdapter
 
-        gridHeroAdapter.setOnItemClickCallback(object : GridHeroAdapter.OnItemClickCallback{
+        gridHeroAdapter.setOnItemClickCallback(object : GridHeroAdapter.OnItemClickCallback {
             override fun onItemClick(hero: Hero) {
-                Toast.makeText(this@ListHeroActivity, "You choose ${hero.name}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ListHeroActivity, "You choose ${hero.name}", Toast.LENGTH_SHORT)
+                    .show()
             }
         })
     }
@@ -127,6 +134,7 @@ class ListHeroActivity : AppCompatActivity() {
                 title = "Mode List"
                 showRecyclerList()
             }
+
             R.id.action_hero_grid -> {
                 title = "Mode Grid"
                 showRecyclerGrid()
