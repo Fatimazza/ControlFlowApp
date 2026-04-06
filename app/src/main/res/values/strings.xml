@@ -10,6 +10,7 @@
     <string name="status_login_title">Status Login: -</string>
     <string name="login_success">Status Login: Berhasil</string>
     <string name="login_failed">Status Login: Gagal</string>
+    <string name="zero">0</string>
     <string name="operation_inputx">Bilangan X:</string>
     <string name="operation_inputy">Bilangan Y:</string>
     <string name="operation_reset">Reset</string>
