@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.activity_operation.*
+import id.co.iconpln.controlflowapp.databinding.ActivityOperationBinding
 
 class OperationActivity : AppCompatActivity(), View.OnClickListener {
+
+    private lateinit var binding: ActivityOperationBinding
 
     private var inputX: Long = 0
     private var inputY: Long = 0
@@ -15,7 +17,9 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_operation)
+
+        binding = ActivityOperationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         initViewModel()
         displayResult()
@@ -27,59 +31,65 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun displayResult() {
-        tvOperator.text = operationViewModel.operation
-        tvOperationResult.text = operationViewModel.operationResult.toString()
+        binding.tvOperator.text = operationViewModel.operation
+        binding.tvOperationResult.text = operationViewModel.operationResult.toString()
     }
 
     private fun setButtonClickListener() {
-        btnOpAdd.setOnClickListener(this)
-        btnOpSubstract.setOnClickListener(this)
-        btnOpMultiply.setOnClickListener(this)
-        btnOpDivide.setOnClickListener(this)
-        btnOpReset.setOnClickListener(this)
+        binding.btnOpAdd.setOnClickListener(this)
+        binding.btnOpSubstract.setOnClickListener(this)
+        binding.btnOpMultiply.setOnClickListener(this)
+        binding.btnOpDivide.setOnClickListener(this)
+        binding.btnOpReset.setOnClickListener(this)
     }
 
     private fun getInputNumbers() {
-        if (etBilanganX.text?.isNotEmpty() == true || etBilanganY.text?.isNotEmpty() == true) {
-            inputX = etBilanganX.text.toString().toLong()
-            inputY = etBilanganY.text.toString().toLong()
+        if (binding.etBilanganX.text?.isNotEmpty() == true
+            || binding.etBilanganY.text?.isNotEmpty() == true
+        ) {
+            inputX = binding.etBilanganX.text.toString().toLong()
+            inputY = binding.etBilanganY.text.toString().toLong()
         }
     }
 
     override fun onClick(view: View) {
-        when (view.id) {
-            R.id.btnOpAdd -> {
+        when (view) {
+            binding.btnOpAdd -> {
                 operationViewModel.operation = resources.getString(R.string.operation_add)
                 getInputNumbers()
                 val add = Operation.Add(inputX)
                 operationViewModel.execute(inputY, add)
                 displayResult()
             }
-            R.id.btnOpSubstract -> {
+
+            binding.btnOpSubstract -> {
                 operationViewModel.operation = resources.getString(R.string.operation_substract)
                 getInputNumbers()
                 val substract = Operation.Substract(inputX)
                 operationViewModel.execute(inputY, substract)
                 displayResult()
             }
-            R.id.btnOpMultiply -> {
+
+            binding.btnOpMultiply -> {
                 operationViewModel.operation = resources.getString(R.string.operation_multiply)
                 getInputNumbers()
                 val multiply = Operation.Multiply(inputX)
                 operationViewModel.execute(inputY, multiply)
                 displayResult()
             }
-            R.id.btnOpDivide -> {
+
+            binding.btnOpDivide -> {
                 operationViewModel.operation = resources.getString(R.string.operation_divide)
                 getInputNumbers()
                 val divide = Operation.Divide(inputX)
                 operationViewModel.execute(inputY, divide)
                 displayResult()
             }
-            R.id.btnOpReset -> {
+
+            binding.btnOpReset -> {
                 operationViewModel.operation = ""
-                etBilanganX.setText("0")
-                etBilanganY.setText("0")
+                binding.etBilanganX.setText("0")
+                binding.etBilanganY.setText("0")
                 operationViewModel.operationResult = 0
                 displayResult()
             }
