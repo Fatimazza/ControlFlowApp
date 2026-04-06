@@ -2,9 +2,11 @@ package id.co.iconpln.controlflowapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_intent_move_bundle.*
+import id.co.iconpln.controlflowapp.databinding.ActivityIntentMoveBundleBinding
 
 class IntentMoveBundle : AppCompatActivity() {
+
+    private lateinit var binding: ActivityIntentMoveBundleBinding
 
     companion object {
         const val EXTRA_BUNDLE_AGE = "extra_age"
@@ -16,19 +18,21 @@ class IntentMoveBundle : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_intent_move_bundle)
+
+        binding = ActivityIntentMoveBundleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         getIntentExtras()
         showData()
     }
 
     private fun getIntentExtras() {
-        name = intent.extras?.getString(EXTRA_BUNDLE_NAME)?:""
-        age = intent.extras?.getInt(EXTRA_BUNDLE_AGE, 0)?:0
+        name = intent.extras?.getString(EXTRA_BUNDLE_NAME) ?: ""
+        age = intent.extras?.getInt(EXTRA_BUNDLE_AGE, 0) ?: 0
     }
 
     private fun showData() {
         val text = "Nama : $name, Age : $age"
-        tvBundleReceived.text = text
+        binding.tvBundleReceived.text = text
     }
 }
