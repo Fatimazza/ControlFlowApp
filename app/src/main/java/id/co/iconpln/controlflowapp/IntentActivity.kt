@@ -83,15 +83,13 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
 
             binding.btnSendSms -> {
                 val phonenumber = "08123456789"
-                val sendSms = Uri.parse("smsto: $phonenumber")
+                val sendSms = "smsto: $phonenumber".toUri()
                 val message = "Halo, Ini Izza kece"
 
                 val sendSmsIntent = Intent(Intent.ACTION_SENDTO, sendSms)
                 sendSmsIntent.putExtra("sms_body", message)
 
-                if (sendSmsIntent.resolveActivity(packageManager) != null) {
-                    startActivity(sendSmsIntent)
-                }
+                startActivity(sendSmsIntent)
             }
 
             binding.btnShowMap -> {
