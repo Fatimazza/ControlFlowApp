@@ -2,18 +2,22 @@ package id.co.iconpln.controlflowapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.*
+import id.co.iconpln.controlflowapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        etNilai.setText("0")
-        btnShow.setOnClickListener {
-            if (etNilai.text.isNotEmpty()) {
-                val angka = etNilai.text.toString().toInt()
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.tvHasil.text = getString(R.string.hasilnya).format(0)
+        binding.btnShow.setOnClickListener {
+            if (binding.etNilai.text.isNotEmpty()) {
+                val angka = binding.etNilai.text.toString().toInt()
                 hitungPangkat(angka)
             }
         }
@@ -21,6 +25,6 @@ class MainActivity : AppCompatActivity() {
 
     fun hitungPangkat(angka: Int) {
         val hitungPangkat = angka * angka
-        tvHasil.text = "Hasilnya: $hitungPangkat"
+        binding.tvHasil.text = getString(R.string.hasilnya).format(hitungPangkat)
     }
 }
