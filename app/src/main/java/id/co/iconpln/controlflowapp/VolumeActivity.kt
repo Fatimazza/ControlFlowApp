@@ -2,34 +2,20 @@ package id.co.iconpln.controlflowapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.activity_volume.*
+import id.co.iconpln.controlflowapp.databinding.ActivityVolumeBinding
 
 class VolumeActivity : AppCompatActivity() {
 
-    private val tvResult: TextView
-        get() = tv_result
-
-    private val btnCalculate: Button
-        get() = btn_calculate
-
-    private val etLength: EditText
-        get() = edt_length
-
-    private val etWidth: EditText
-        get() = edt_width
-
-    private val etHeight: EditText
-        get() = edt_height
+    private lateinit var binding: ActivityVolumeBinding
 
     private lateinit var volumeViewModel: VolumeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_volume)
+
+        binding = ActivityVolumeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         initViewModel()
         displayResult()
@@ -41,19 +27,19 @@ class VolumeActivity : AppCompatActivity() {
     }
 
     private fun displayResult() {
-        tvResult.text = volumeViewModel.volumeResult.toString()
+        binding.tvResult.text = volumeViewModel.volumeResult.toString()
     }
 
     private fun setClickListener() {
-        btnCalculate.setOnClickListener {
-            val length = etLength.text.toString()
-            val width = etWidth.text.toString()
-            val height = etHeight.text.toString()
+        binding.btnCalculate.setOnClickListener {
+            val length = binding.edtLength.text.toString()
+            val width = binding.edtWidth.text.toString()
+            val height = binding.edtHeight.text.toString()
 
             when {
-                length.isEmpty() -> etLength.error = "Empty Field"
-                width.isEmpty() -> etWidth.error = "Empty Field"
-                height.isEmpty() -> etHeight.error = "Empty Field"
+                length.isEmpty() -> binding.edtLength.error = "Empty Field"
+                width.isEmpty() -> binding.edtWidth.error = "Empty Field"
+                height.isEmpty() -> binding.edtHeight.error = "Empty Field"
                 else -> {
                     volumeViewModel.calculate(length, width, height)
                     displayResult()
