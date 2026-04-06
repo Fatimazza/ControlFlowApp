@@ -8,6 +8,8 @@
     <string name="password_field">Password</string>
     <string name="login_title">Login</string>
     <string name="status_login_title">Status Login: -</string>
+    <string name="login_success">Status Login: Berhasil</string>
+    <string name="login_failed">Status Login: Gagal</string>
     <string name="operation_inputx">Bilangan X:</string>
     <string name="operation_inputy">Bilangan Y:</string>
     <string name="operation_reset">Reset</string>
@@ -168,5 +170,4 @@
 
     <string name="profile_empty">[EMPTY]</string>
     <string name="profile_warning">Please Login to view Your Profile</string>
-
 </resources>

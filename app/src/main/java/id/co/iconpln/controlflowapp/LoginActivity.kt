@@ -51,14 +51,14 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun doLogin(username: String, password: String) {
-        var loginStatus = ""
-        if (username.equals("user@mail.com", false)
-            && password.equals("password", false)
-        ) {
-            loginStatus = "Status Login: Berhasil"
+        val isSuccess =
+            username.trim() == "user@mail.com"
+                    && password == "password"
+
+        if (isSuccess) {
+            binding.tvLoginStatus.text = getString(R.string.login_success)
         } else {
-            loginStatus = "Status Login: Gagal"
+            binding.tvLoginStatus.text = getString(R.string.login_failed)
         }
-        binding.tvLoginStatus.text = loginStatus
     }
 }
