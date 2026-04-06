@@ -93,12 +93,10 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
             binding.btnShowMap -> {
                 val latitude = "47.6"
                 val longitude = "-122.3"
-                val showMap = Uri.parse("geo: $latitude, $longitude")
+                val showMap = "geo: $latitude, $longitude".toUri()
 
                 val showMapIntent = Intent(Intent.ACTION_VIEW, showMap)
-                if (showMapIntent.resolveActivity(packageManager) != null) {
-                    startActivity(showMapIntent)
-                }
+                startActivity(showMapIntent)
             }
 
             binding.btnShareText -> {
