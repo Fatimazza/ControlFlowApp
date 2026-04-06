@@ -2,13 +2,17 @@ package id.co.iconpln.controlflowapp.fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.databinding.ActivityDemoFragmentBinding
 
 class DemoFragmentActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityDemoFragmentBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_demo_fragment)
+
+        binding = ActivityDemoFragmentBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         initFragment()
     }
@@ -18,7 +22,7 @@ class DemoFragmentActivity : AppCompatActivity() {
         val fragmentTransaction = fragmentManager.beginTransaction()
 
         val fragment = HomeFragment()
-        fragmentTransaction.add(R.id.flContainer, fragment)
+        fragmentTransaction.add(binding.flContainer.id, fragment)
         fragmentTransaction.commit()
     }
 }
