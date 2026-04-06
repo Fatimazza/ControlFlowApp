@@ -3,15 +3,19 @@ package id.co.iconpln.controlflowapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
-import kotlinx.android.synthetic.main.activity_login.*
+import id.co.iconpln.controlflowapp.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
 
-        btnLogin.setOnClickListener {
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnLogin.setOnClickListener {
             checkBlankLoginField()
         }
 
@@ -23,15 +27,25 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkBlankLoginField() {
-        tvLoginStatus.text = resources.getString(R.string.status_login_title)
+        binding.tvLoginStatus.text = resources.getString(R.string.status_login_title)
         when {
-            etLoginUsername.text.isBlank() -> etLoginUsername.error = "Tidak boleh kosong"
-            etLoginPassword.text.isBlank() -> etLoginPassword.error = "Tidak boleh kosong"
-            etLoginPassword.text.length < 7 -> etLoginPassword.error = "Minimal 7 karakter"
-            !Patterns.EMAIL_ADDRESS.matcher(
-                etLoginUsername.text).matches() -> etLoginUsername.error = "Format email salah"
+            binding.etLoginUsername.text.isBlank()
+                -> binding.etLoginUsername.error = "Tidak boleh kosong"
+
+            binding.etLoginPassword.text.isBlank()
+                -> binding.etLoginPassword.error = "Tidak boleh kosong"
+
+            binding.etLoginPassword.text.length < 7
+                -> binding.etLoginPassword.error = "Minimal 7 karakter"
+
+            !Patterns.EMAIL_ADDRESS.matcher(binding.etLoginUsername.text)
+                .matches() -> binding.etLoginUsername.error = "Format email salah"
+
             else -> {
-                doLogin(etLoginUsername.text.toString(), etLoginPassword.text.toString())
+                doLogin(
+                    binding.etLoginUsername.text.toString(),
+                    binding.etLoginPassword.text.toString()
+                )
             }
         }
     }
@@ -39,11 +53,12 @@ class LoginActivity : AppCompatActivity() {
     private fun doLogin(username: String, password: String) {
         var loginStatus = ""
         if (username.equals("user@mail.com", false)
-            && password.equals("password", false)) {
+            && password.equals("password", false)
+        ) {
             loginStatus = "Status Login: Berhasil"
         } else {
             loginStatus = "Status Login: Gagal"
         }
-        tvLoginStatus.text = loginStatus
+        binding.tvLoginStatus.text = loginStatus
     }
 }
