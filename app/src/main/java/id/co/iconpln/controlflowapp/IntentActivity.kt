@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import id.co.iconpln.controlflowapp.databinding.ActivityIntentBinding
 import id.co.iconpln.controlflowapp.model.Person
+import androidx.core.net.toUri
 
 class IntentActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -68,10 +69,8 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
 
             binding.btnDialNumber -> {
                 val phoneNumber = "081234567890"
-                val dialPhoneIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber"))
-                if (dialPhoneIntent.resolveActivity(packageManager) != null) {
-                    startActivity(dialPhoneIntent)
-                }
+                val dialPhoneIntent = Intent(Intent.ACTION_DIAL, "tel:$phoneNumber".toUri())
+                startActivity(dialPhoneIntent)
             }
 
             binding.btnOpenWeb -> {
