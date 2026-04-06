@@ -1,22 +1,22 @@
 package id.co.iconpln.controlflowapp.hero
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.databinding.ItemGridHeroBinding
 import id.co.iconpln.controlflowapp.model.Hero
-import kotlinx.android.synthetic.main.item_grid_hero.view.*
 
-class GridHeroAdapter(val listHero: ArrayList<Hero>): RecyclerView.Adapter<GridHeroAdapter.GridHeroViewHolder>() {
+class GridHeroAdapter(val listHero: ArrayList<Hero>) :
+    RecyclerView.Adapter<GridHeroAdapter.GridHeroViewHolder>() {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridHeroViewHolder {
-        val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_grid_hero, parent, false)
-        return GridHeroViewHolder(view)
+        val binding = ItemGridHeroBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        )
+        return GridHeroViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -24,20 +24,18 @@ class GridHeroAdapter(val listHero: ArrayList<Hero>): RecyclerView.Adapter<GridH
     }
 
     override fun onBindViewHolder(holder: GridHeroViewHolder, position: Int) {
-        holder.bind(listHero[position])
+        val (name, description, photo) = listHero[position]
+        Glide.with(holder.binding.root)
+            .load(photo)
+            .into(holder.binding.ivHeroGridPhoto)
+
         holder.itemView.setOnClickListener {
             onItemClickCallback.onItemClick(listHero[holder.adapterPosition])
         }
     }
 
-    inner class GridHeroViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
-
-        fun bind(hero: Hero) {
-            Glide.with(view.context)
-                .load(hero.photo)
-                .into(view.ivHeroGridPhoto)
-        }
-    }
+    class GridHeroViewHolder(var binding: ItemGridHeroBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback
