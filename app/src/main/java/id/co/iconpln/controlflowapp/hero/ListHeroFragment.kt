@@ -8,19 +8,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-
-import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.databinding.FragmentListHeroBinding
 import id.co.iconpln.controlflowapp.model.Hero
 import id.co.iconpln.controlflowapp.model.HeroesData
-import kotlinx.android.synthetic.main.fragment_list_hero.*
 
 /**
  * A simple [Fragment] subclass.
  */
 class ListHeroFragment : Fragment() {
 
-    private var listHero: ArrayList<Hero> = arrayListOf()
+    private var _binding: FragmentListHeroBinding? = null
+    private val binding get() = _binding!!
 
+    private var listHero: ArrayList<Hero> = arrayListOf()
     private lateinit var listHeroAdapter: ListHeroAdapter
 
     override fun onCreateView(
@@ -28,7 +28,8 @@ class ListHeroFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_hero, container, false)
+        _binding = FragmentListHeroBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,21 +40,28 @@ class ListHeroFragment : Fragment() {
     }
 
     private fun setupListHero() {
-        rvFragmentListHero.setHasFixedSize(true)
+        binding.rvFragmentListHero.setHasFixedSize(true)
         listHero.addAll(HeroesData.listDataHero)
     }
 
     private fun showRecyclerViewList() {
-        rvFragmentListHero.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvFragmentListHero.layoutManager = LinearLayoutManager(requireContext())
         listHeroAdapter = ListHeroAdapter(listHero)
-        rvFragmentListHero.adapter = listHeroAdapter
+        binding.rvFragmentListHero.adapter = listHeroAdapter
     }
 
     private fun setListHeroItemClickListener() {
-        listHeroAdapter.setOnItemClickCallback(object : ListHeroAdapter.OnItemClickCallback{
+        listHeroAdapter.setOnItemClickCallback(object : ListHeroAdapter.OnItemClickCallback {
             override fun onItemClick(hero: Hero) {
-                Toast.makeText(requireContext(), "You choose ${hero.name}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "You choose ${hero.name}", Toast.LENGTH_SHORT)
+                    .show()
             }
         })
+    }
+
+    // Clean up binding to prevent memory leaks
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
