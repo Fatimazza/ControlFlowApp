@@ -14,22 +14,26 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_demo.*
+import id.co.iconpln.controlflowapp.databinding.ActivityDemoBinding
 
 class DemoActivity : AppCompatActivity(), View.OnClickListener {
 
+    private lateinit var binding: ActivityDemoBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_demo)
+
+        binding = ActivityDemoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setButtonClickListener()
     }
 
     private fun setButtonClickListener() {
-        btnSubmit.setOnClickListener(this)
-        btnSnackbar.setOnClickListener(this)
-        btnSnackbarButton.setOnClickListener(this)
-        btnSnackbarCustom.setOnClickListener(this)
+        binding.btnSubmit.setOnClickListener(this)
+        binding.btnSnackbar.setOnClickListener(this)
+        binding.btnSnackbarButton.setOnClickListener(this)
+        binding.btnSnackbarCustom.setOnClickListener(this)
     }
 
     override fun onStart() {
@@ -89,21 +93,21 @@ class DemoActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        when(view.id) {
-            R.id.btnSubmit -> {
+        when(view) {
+            binding.btnSubmit -> {
                 val styleIntent = Intent(this, StyleActivity::class.java)
                 startActivity(styleIntent)
             }
-            R.id.btnSnackbar -> {
+            binding.btnSnackbar -> {
                 Snackbar.make(findViewById(R.id.clDemo), "This is Snackbar", Snackbar.LENGTH_SHORT).show()
             }
-            R.id.btnSnackbarButton -> {
+            binding.btnSnackbarButton -> {
                 Snackbar
                     .make(findViewById(R.id.clDemo), "Message is deleted", Snackbar.LENGTH_SHORT)
                     .setAction("Undo", undoListener)
                     .show()
             }
-            R.id.btnSnackbarCustom -> {
+            binding.btnSnackbarCustom -> {
                 val customSnackbar = Snackbar
                     .make(findViewById(R.id.clDemo), "This is a Custom Snackbar", Snackbar.LENGTH_SHORT)
                     .setActionTextColor(ContextCompat.getColor(this, R.color.button_snackbar))
