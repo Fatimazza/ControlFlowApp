@@ -74,11 +74,9 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             binding.btnOpenWeb -> {
-                val webpage = Uri.parse("https://www.binar.co.id/")
+                val webpage = "https://www.binar.co.id/".toUri()
                 val openWebIntent = Intent(Intent.ACTION_VIEW, webpage)
-                if (openWebIntent.resolveActivity(packageManager) != null) {
-                    startActivity(openWebIntent)
-                }
+                startActivity(openWebIntent)
             }
 
             binding.btnSendSms -> {
