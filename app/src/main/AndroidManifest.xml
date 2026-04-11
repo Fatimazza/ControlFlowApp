@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup,android:icon,android:theme">
-
+        <activity android:name=".fragmentsNavComponent.HomeNavActivity" />
         <activity android:name=".MyProfile.MyProfileActivity" />
         <activity android:name=".myProfileLogin.MyProfileLoginActivity"
             android:parentActivityName=".MyProfile.MyProfileActivity" />
