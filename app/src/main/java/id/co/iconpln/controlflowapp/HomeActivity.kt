@@ -15,6 +15,7 @@ import id.co.iconpln.controlflowapp.fragments.DemoFragmentActivity
 import id.co.iconpln.controlflowapp.hero.ListHeroActivity
 import id.co.iconpln.controlflowapp.fragmentTab.TabActivity
 import id.co.iconpln.controlflowapp.fragmentViewPager.ScrollActivity
+import id.co.iconpln.controlflowapp.fragmentsNavComponent.HomeNavActivity
 import id.co.iconpln.controlflowapp.myContact.MyContactActivity
 import id.co.iconpln.controlflowapp.myUser.MyUserActivity
 import id.co.iconpln.controlflowapp.sharedPreference.SharedPreferenceActivity
@@ -46,6 +47,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnComplexConstraint.setOnClickListener(this)
         binding.btnRecyclerView.setOnClickListener(this)
         binding.btnFragment.setOnClickListener(this)
+        binding.btnNavFragment.setOnClickListener(this)
         binding.btnTab.setOnClickListener(this)
         binding.btnBottomNav.setOnClickListener(this)
         binding.btnNavDrawer.setOnClickListener(this)
@@ -122,6 +124,11 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             binding.btnFragment -> {
                 val demoFragment = Intent(this, DemoFragmentActivity::class.java)
                 startActivity(demoFragment)
+            }
+
+            binding.btnNavFragment -> {
+                val navFragment = Intent(this, HomeNavActivity::class.java)
+                startActivity(navFragment)
             }
 
             binding.btnTab -> {
