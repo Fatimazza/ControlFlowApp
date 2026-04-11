@@ -1,6 +1,5 @@
 package id.co.iconpln.controlflowapp.fragments
 
-
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -9,14 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-
 import id.co.iconpln.controlflowapp.R
-import kotlinx.android.synthetic.main.fragment_option_dialog.*
+import id.co.iconpln.controlflowapp.databinding.FragmentOptionDialogBinding
 
 /**
  * A simple [Fragment] subclass.
  */
 class OptionDialogFragment : DialogFragment(), View.OnClickListener {
+
+    private var _binding: FragmentOptionDialogBinding? = null
+    private val binding get() = _binding!!
 
     companion object {
         val TAG: String = OptionDialogFragment::class.java.simpleName
@@ -25,17 +26,17 @@ class OptionDialogFragment : DialogFragment(), View.OnClickListener {
     private var optionsDialogListener: OnOptionsDialogListener? = null
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_option_dialog, container, false)
+        _binding = FragmentOptionDialogBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnDialogChoose.setOnClickListener(this)
-        btnDialogClose.setOnClickListener(this)
+        binding.btnDialogChoose.setOnClickListener(this)
+        binding.btnDialogClose.setOnClickListener(this)
     }
 
     override fun onAttach(context: Context) {
@@ -54,23 +55,26 @@ class OptionDialogFragment : DialogFragment(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        when(view.id) {
-            R.id.btnDialogChoose -> {
-                val checkedRadioButtonId = rgDialogOptions.checkedRadioButtonId
+        when (view) {
+            binding.btnDialogChoose -> {
+                val checkedRadioButtonId = binding.rgDialogOptions.checkedRadioButtonId
                 if (checkedRadioButtonId != -1) {
                     var favColor = ""
                     when (checkedRadioButtonId) {
                         R.id.rbDialogBlue -> {
-                            favColor = rbDialogBlue.text.toString().trim()
+                            favColor = binding.rbDialogBlue.text.toString().trim()
                         }
+
                         R.id.rbDialogRed -> {
-                            favColor = rbDialogRed.text.toString().trim()
+                            favColor = binding.rbDialogRed.text.toString().trim()
                         }
+
                         R.id.rbDialogPurple -> {
-                            favColor = rbDialogPurple.text.toString().trim()
+                            favColor = binding.rbDialogPurple.text.toString().trim()
                         }
+
                         R.id.rbDialogGreen -> {
-                            favColor = rbDialogGreen.text.toString().trim()
+                            favColor = binding.rbDialogGreen.text.toString().trim()
                         }
                     }
                     Log.d(TAG, "color $favColor")
@@ -80,7 +84,8 @@ class OptionDialogFragment : DialogFragment(), View.OnClickListener {
                     dialog?.dismiss()
                 }
             }
-            R.id.btnDialogClose -> {
+
+            binding.btnDialogClose -> {
                 dialog?.cancel()
             }
         }
