@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.databinding.FragmentOptionDialogBinding
 
 /**
@@ -61,19 +60,19 @@ class OptionDialogFragment : DialogFragment(), View.OnClickListener {
                 if (checkedRadioButtonId != -1) {
                     var favColor = ""
                     when (checkedRadioButtonId) {
-                        R.id.rbDialogBlue -> {
+                        binding.rbDialogBlue.id -> {
                             favColor = binding.rbDialogBlue.text.toString().trim()
                         }
 
-                        R.id.rbDialogRed -> {
+                        binding.rbDialogRed.id -> {
                             favColor = binding.rbDialogRed.text.toString().trim()
                         }
 
-                        R.id.rbDialogPurple -> {
+                        binding.rbDialogPurple.id -> {
                             favColor = binding.rbDialogPurple.text.toString().trim()
                         }
 
-                        R.id.rbDialogGreen -> {
+                        binding.rbDialogGreen.id -> {
                             favColor = binding.rbDialogGreen.text.toString().trim()
                         }
                     }
@@ -94,5 +93,4 @@ class OptionDialogFragment : DialogFragment(), View.OnClickListener {
     interface OnOptionsDialogListener {
         fun onOptionChosen(text: String)
     }
-
 }
