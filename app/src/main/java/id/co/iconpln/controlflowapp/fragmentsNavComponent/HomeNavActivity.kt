@@ -13,14 +13,5 @@ class HomeNavActivity : AppCompatActivity() {
 
         binding = ActivityHomeNavBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        initFragment()
-    }
-
-    private fun initFragment() {
-        val fragment = HomeNavFragment()
-        supportFragmentManager.beginTransaction()
-            .add(binding.flContainer.id, fragment)
-            .commit()
     }
 }
