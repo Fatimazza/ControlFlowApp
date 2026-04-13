@@ -22,11 +22,21 @@
         android:id="@+id/otherNavFragment"
         android:name="id.co.iconpln.controlflowapp.fragmentsNavComponent.OtherNavFragment"
         android:label="fragment_other_nav"
-        tools:layout="@layout/fragment_other_nav" />
+        tools:layout="@layout/fragment_other_nav" >
+        <action
+            android:id="@+id/action_otherNavFragment_to_lastNavFragment"
+            app:destination="@id/lastNavFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/lastNavFragment"
+        android:name="id.co.iconpln.controlflowapp.fragmentsNavComponent.LastNavFragment"
+        android:label="LastNavFragment" />
 
     <activity
         android:id="@+id/styleActivity"
         android:name="id.co.iconpln.controlflowapp.StyleActivity"
         android:label="activity_style"
         tools:layout="@layout/activity_style" />
+
 </navigation>
