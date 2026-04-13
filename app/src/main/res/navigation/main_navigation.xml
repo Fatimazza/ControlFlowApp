@@ -31,7 +31,16 @@
     <fragment
         android:id="@+id/lastNavFragment"
         android:name="id.co.iconpln.controlflowapp.fragmentsNavComponent.LastNavFragment"
-        android:label="LastNavFragment" />
+        android:label="LastNavFragment" >
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="nama" />
+        <argument
+            android:name="desc"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
 
     <activity
         android:id="@+id/styleActivity"
