@@ -22,6 +22,16 @@ class LastNavFragment : Fragment() {
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val dataName = arguments?.getString(OtherNavFragment.EXTRA_NAME)
+        val dataDescription = arguments?.getLong(OtherNavFragment.EXTRA_DESC)
+
+        binding.tvLastName.text = dataName
+        binding.tvLastDescription.text = "Age : $dataDescription"
+    }
+
     // Clean up binding to prevent memory leaks
     override fun onDestroyView() {
         super.onDestroyView()

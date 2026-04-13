@@ -14,6 +14,11 @@ class OtherNavFragment : Fragment() {
     private var _binding: FragmentOtherNavBinding? = null
     private val binding get() = _binding!!
 
+    companion object {
+        val EXTRA_NAME = "extra_name"
+        val EXTRA_DESC = "extra_desc"
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,9 +31,12 @@ class OtherNavFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnLastFragment.setOnClickListener {
-            view -> view.findNavController().navigate(
-                R.id.action_otherNavFragment_to_lastNavFragment
+        binding.btnLastFragment.setOnClickListener { view ->
+            val mBundle = Bundle()
+            mBundle.putString(EXTRA_NAME, "Hi, Izza")
+            mBundle.putLong(EXTRA_DESC, 33)
+            view.findNavController().navigate(
+                R.id.action_otherNavFragment_to_lastNavFragment, mBundle
             )
         }
     }
