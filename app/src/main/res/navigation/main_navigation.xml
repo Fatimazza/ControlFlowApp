@@ -42,7 +42,10 @@
             android:defaultValue="0L" />
         <action
             android:id="@+id/action_lastNavFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <activity
