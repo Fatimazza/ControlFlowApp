@@ -25,11 +25,11 @@ class LastNavFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val dataName = arguments?.getString(OtherNavFragment.EXTRA_NAME)
-        val dataDescription = arguments?.getLong(OtherNavFragment.EXTRA_DESC)
+        val dataName = LastNavFragmentArgs.fromBundle(arguments as Bundle).name
+        val dataDescription = LastNavFragmentArgs.fromBundle(arguments as Bundle).desc
 
         binding.tvLastName.text = dataName
-        binding.tvLastDescription.text = "Age : $dataDescription"
+        binding.tvLastDescription.text = "Age: $dataDescription"
     }
 
     // Clean up binding to prevent memory leaks
