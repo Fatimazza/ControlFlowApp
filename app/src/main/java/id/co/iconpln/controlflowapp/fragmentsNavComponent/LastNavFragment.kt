@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.databinding.FragmentLastNavBinding
 
 class LastNavFragment : Fragment() {
@@ -30,6 +32,12 @@ class LastNavFragment : Fragment() {
 
         binding.tvLastName.text = dataName
         binding.tvLastDescription.text = "Age: $dataDescription"
+
+        binding.btnHomeNavFragment.setOnClickListener(
+            Navigation.createNavigateOnClickListener(
+                R.id.action_lastNavFragment_to_homeFragment
+            )
+        )
     }
 
     // Clean up binding to prevent memory leaks
