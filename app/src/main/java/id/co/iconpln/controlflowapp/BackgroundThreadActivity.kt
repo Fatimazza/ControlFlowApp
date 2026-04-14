@@ -39,7 +39,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener,
 
                 Thread(
                     Runnable {
-                        val urlResult = URL("https://api.androidhive.info/contacts").readText()
+                        val urlResult = URL("https://dummyjson.com/users").readText()
                         // Don't Call UI Thread in Background
                         // tvThreadWorkerResult.text = text
                         binding.tvThreadWorkerResult.post(Runnable {
@@ -51,7 +51,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener,
 
             binding.btnThreadHandler -> {
                 Thread(Runnable {
-                    val urlResult = URL("https://api.androidhive.info/contacts").readText()
+                    val urlResult = URL("https://dummyjson.com/users").readText()
                     val msg = Message.obtain()
                     msg.obj = urlResult
                     msg.target = contactHandler
@@ -60,7 +60,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener,
             }
 
             binding.btnThreadAsyncTask -> {
-                val urlResult = URL("https://api.androidhive.info/contacts")
+                val urlResult = URL("https://dummyjson.com/users")
                 FetchContactAsyncTask(this).execute(urlResult)
             }
 
@@ -87,7 +87,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener,
 
     suspend fun getContact(): String {
         return withContext(Dispatchers.IO) {
-            URL("https://api.androidhive.info/contacts").readText()
+            URL("https://dummyjson.com/users").readText()
         }
     }
 
