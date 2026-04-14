@@ -6,13 +6,17 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_localization.*
+import id.co.iconpln.controlflowapp.databinding.ActivityLocalizationBinding
 
 class LocalizationActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityLocalizationBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_localization)
+
+        binding = ActivityLocalizationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         displayLocalizedTexts()
     }
@@ -21,12 +25,12 @@ class LocalizationActivity : AppCompatActivity() {
         val pokeCount = 3
         val hello =
             resources.getString(R.string.locale_count_hello, "Iconplus Squads", pokeCount, "Izza")
-        tvLocaleHallo.text = hello
+        binding.tvLocaleHallo.text = hello
 
         val songCount = 5
         val pluralText =
             resources.getQuantityString(R.plurals.locale_count_plural_songs, songCount, songCount)
-        tvLocalePlural.text = pluralText
+        binding.tvLocalePlural.text = pluralText
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
