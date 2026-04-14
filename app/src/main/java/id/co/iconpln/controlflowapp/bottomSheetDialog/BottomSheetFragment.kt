@@ -1,22 +1,18 @@
 package id.co.iconpln.controlflowapp.bottomSheetDialog
 
-
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import id.co.iconpln.controlflowapp.databinding.FragmentBottomSheetBinding
 
-import id.co.iconpln.controlflowapp.R
-import kotlinx.android.synthetic.main.fragment_bottom_sheet.*
 
-/**
- * A simple [Fragment] subclass.
- */
 class BottomSheetFragment : BottomSheetDialogFragment(), View.OnClickListener {
+
+    private var _binding: FragmentBottomSheetBinding? = null
+    private val binding get() = _binding!!
 
     private var itemClickListener: ItemClickListener? = null
 
@@ -25,7 +21,8 @@ class BottomSheetFragment : BottomSheetDialogFragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bottom_sheet, container, false)
+        _binding = FragmentBottomSheetBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,38 +31,42 @@ class BottomSheetFragment : BottomSheetDialogFragment(), View.OnClickListener {
     }
 
     private fun setOnClickListener() {
-        llBottomPreview.setOnClickListener(this)
-        llBottomShare.setOnClickListener(this)
-        llBottomEdit.setOnClickListener(this)
-        llBottomSearch.setOnClickListener(this)
-        llBottomExit.setOnClickListener(this)
+        binding.llBottomPreview.setOnClickListener(this)
+        binding.llBottomShare.setOnClickListener(this)
+        binding.llBottomEdit.setOnClickListener(this)
+        binding.llBottomSearch.setOnClickListener(this)
+        binding.llBottomExit.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
-        when (view.id) {
-            llBottomPreview.id -> {
+        when (view) {
+            binding.llBottomPreview -> {
                 if (itemClickListener != null) {
-                    itemClickListener?.onItemClick(tvBottomPreview.text.toString())
+                    itemClickListener?.onItemClick(binding.tvBottomPreview.text.toString())
                 }
             }
-            llBottomShare.id -> {
+
+            binding.llBottomShare -> {
                 if (itemClickListener != null) {
-                    itemClickListener?.onItemClick(tvBottomShare.text.toString())
+                    itemClickListener?.onItemClick(binding.tvBottomShare.text.toString())
                 }
             }
-            llBottomEdit.id -> {
+
+            binding.llBottomEdit -> {
                 if (itemClickListener != null) {
-                    itemClickListener?.onItemClick(tvBottomEdit.text.toString())
+                    itemClickListener?.onItemClick(binding.tvBottomEdit.text.toString())
                 }
             }
-            llBottomSearch.id -> {
+
+            binding.llBottomSearch -> {
                 if (itemClickListener != null) {
-                    itemClickListener?.onItemClick(tvBottomSearch.text.toString())
+                    itemClickListener?.onItemClick(binding.tvBottomSearch.text.toString())
                 }
             }
-            llBottomExit.id -> {
+
+            binding.llBottomExit -> {
                 if (itemClickListener != null) {
-                    itemClickListener?.onItemClick(tvBottomExit.text.toString())
+                    itemClickListener?.onItemClick(binding.tvBottomExit.text.toString())
                 }
             }
         }
@@ -88,4 +89,9 @@ class BottomSheetFragment : BottomSheetDialogFragment(), View.OnClickListener {
         fun onItemClick(text: String)
     }
 
+    // Clean up binding to prevent memory leaks
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
