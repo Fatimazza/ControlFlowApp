@@ -2,34 +2,37 @@ package id.co.iconpln.controlflowapp.fragmentViewPager
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
-import id.co.iconpln.controlflowapp.R
-import kotlinx.android.synthetic.main.activity_scroll.*
+import id.co.iconpln.controlflowapp.databinding.ActivityScrollBinding
 
 class ScrollActivity : FragmentActivity() {
+
+    private lateinit var binding: ActivityScrollBinding
 
     private lateinit var pagerAdapter: ScrollPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_scroll)
+
+        binding = ActivityScrollBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupSlideViewPager()
     }
 
     private fun setupSlideViewPager() {
         pagerAdapter = ScrollPagerAdapter(supportFragmentManager)
-        vpScroll.adapter = pagerAdapter
-        tabScrollDots.setupWithViewPager(vpScroll)
+        binding.vpScroll.adapter = pagerAdapter
+        binding.tabScrollDots.setupWithViewPager(binding.vpScroll)
 
         // Using Library
         // pageIndicatorScroll.setViewPager(vpScroll)
     }
 
     override fun onBackPressed() {
-        if (vpScroll.currentItem == 0) {
+        if (binding.vpScroll.currentItem == 0) {
             super.onBackPressed()
         } else {
-            vpScroll.currentItem = vpScroll.currentItem - 1
+            binding.vpScroll.currentItem = binding.vpScroll.currentItem - 1
         }
     }
 }
