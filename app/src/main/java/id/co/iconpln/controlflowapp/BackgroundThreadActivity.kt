@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.view.View
+import androidx.lifecycle.lifecycleScope
 import id.co.iconpln.controlflowapp.databinding.ActivityBackgroundThreadBinding
 import kotlinx.coroutines.*
 import java.lang.Runnable
@@ -30,6 +31,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener,
         binding.btnThreadAsyncTask.setOnClickListener(this)
         binding.btnThreadExecutor.setOnClickListener(this)
         binding.btnThreadCoroutine.setOnClickListener(this)
+        binding.btnThreadCoroutineNew.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -90,6 +92,16 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener,
                     val first = async { getContact() }
                     val result = first.await()
                     binding.tvThreadCoroutineResult.text = result
+                }
+            }
+
+            binding.btnThreadCoroutineNew -> {
+                lifecycleScope.launch(Dispatchers.Default) {
+                    val urlResult = URL("https://dummyjson.com/users").readText()
+
+                    withContext(Dispatchers.Main) {
+                        binding.tvThreadCoroutineNewResult.text = urlResult
+                    }
                 }
             }
         }

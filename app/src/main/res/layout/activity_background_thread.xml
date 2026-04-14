@@ -79,4 +79,17 @@
         android:layout_height="wrap_content"
         android:text="Coroutine" />
 
+    <TextView
+        android:id="@+id/tvThreadCoroutineNewResult"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:text="Coroutine New Result" />
+
+    <Button
+        android:id="@+id/btnThreadCoroutineNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coroutine New" />
+
 </LinearLayout>
