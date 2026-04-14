@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import id.co.iconpln.controlflowapp.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import id.co.iconpln.controlflowapp.databinding.ActivityBottomSheetBinding
 import id.co.iconpln.controlflowapp.databinding.FragmentBottomSheetBinding
@@ -67,8 +66,8 @@ class BottomSheetActivity :
     }
 
     override fun onClick(view: View) {
-        when (view.id) {
-            R.id.btnBottomSheet -> {
+        when (view) {
+            binding.llMain.btnBottomSheet -> {
                 if (bottomSheetBehavior.state != BottomSheetBehavior.STATE_EXPANDED) {
                     bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED;
                     binding.llMain.btnBottomSheet.text = "Close Bottom Sheet";
@@ -79,7 +78,7 @@ class BottomSheetActivity :
 
             }
 
-            R.id.btnBottomSheetDialog -> {
+            binding.llMain.btnBottomSheetDialog -> {
                 val dialogBinding = FragmentBottomSheetBinding.inflate(layoutInflater)
                 val bottomSheetDialog = BottomSheetDialog(this)
 
@@ -88,12 +87,12 @@ class BottomSheetActivity :
                 setDialogClickListener(dialogBinding)
             }
 
-            R.id.btnBottomSheetDialogFragment -> {
+            binding.llMain.btnBottomSheetDialogFragment -> {
                 val bottomSheetFragment = BottomSheetFragment()
                 bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
             }
 
-            R.id.btnBottomSheetPayment -> {
+            binding.llBottomSheet.btnBottomSheetPayment -> {
                 binding.llMain.tvBottomActivity.text = "Order is Paid"
             }
         }
