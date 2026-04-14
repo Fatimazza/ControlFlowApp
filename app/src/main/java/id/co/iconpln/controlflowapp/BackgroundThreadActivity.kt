@@ -12,6 +12,8 @@ import kotlinx.coroutines.*
 import java.lang.Runnable
 import java.lang.ref.WeakReference
 import java.net.URL
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener,
     ContactAsyncTaskCallback {
@@ -26,6 +28,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener,
         binding.btnThreadWorker.setOnClickListener(this)
         binding.btnThreadHandler.setOnClickListener(this)
         binding.btnThreadAsyncTask.setOnClickListener(this)
+        binding.btnThreadExecutor.setOnClickListener(this)
         binding.btnThreadCoroutine.setOnClickListener(this)
     }
 
@@ -63,6 +66,17 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener,
             binding.btnThreadAsyncTask -> {
                 val urlResult = URL("https://dummyjson.com/users")
                 FetchContactAsyncTask(this).execute(urlResult)
+            }
+
+            binding.btnThreadExecutor -> {
+                val executor: ExecutorService = Executors.newSingleThreadExecutor()
+                val handler = Handler(Looper.getMainLooper())
+                executor.execute {
+                    val urlResult = URL("https://dummyjson.com/users").readText()
+                    handler.post {
+                        binding.tvThreadExecutorResult.setText(urlResult)
+                    }
+                }
             }
 
             binding.btnThreadCoroutine -> {
