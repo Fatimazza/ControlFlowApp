@@ -69,13 +69,13 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener,
                 /*runBlocking {
                     launch {
                         delay(1000)
-                        tvThreadCoroutineResult.text = "Coroutine!"
+                        binding.tvThreadCoroutineResult.text = "Coroutine!"
                     }
                 }*/
                 runBlocking {
                     val first = async { getContact() }
                     val result = first.await()
-                    binding.tvThreadCoroutineResult.text = result.toString()
+                    binding.tvThreadCoroutineResult.text = result
                 }
             }
         }
