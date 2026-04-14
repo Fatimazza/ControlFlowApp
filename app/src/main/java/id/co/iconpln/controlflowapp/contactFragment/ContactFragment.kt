@@ -1,6 +1,5 @@
 package id.co.iconpln.controlflowapp.contactFragment
 
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,15 +8,14 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-
-import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.contact.ContactAdapter
-import kotlinx.android.synthetic.main.fragment_contact.*
+import id.co.iconpln.controlflowapp.databinding.FragmentContactBinding
 
-/**
- * A simple [Fragment] subclass.
- */
+
 class ContactFragment : Fragment() {
+
+    private var _binding: FragmentContactBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var adapter: ContactAdapter
 
@@ -28,7 +26,9 @@ class ContactFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contact, container, false)
+        _binding = FragmentContactBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,21 +43,22 @@ class ContactFragment : Fragment() {
     }
 
     private fun initViewModel() {
-        contactFragmentViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
-            .get(ContactFragmentViewModel::class.java)
+        contactFragmentViewModel = ViewModelProvider(
+            this, ViewModelProvider.NewInstanceFactory()
+        ).get(ContactFragmentViewModel::class.java)
     }
 
     private fun showListContact() {
         adapter = ContactAdapter()
         adapter.notifyDataSetChanged()
 
-        rvContactFragmentList.layoutManager = LinearLayoutManager(requireContext())
-        rvContactFragmentList.adapter = adapter
+        binding.rvContactFragmentList.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvContactFragmentList.adapter = adapter
     }
 
     private fun fetchContactData() {
         //get value from View Model's Live Data
-        contactFragmentViewModel.getContact().observe(this, Observer { contactItem ->
+        contactFragmentViewModel.getContact().observe(viewLifecycleOwner, Observer { contactItem ->
             if (contactItem != null) {
                 adapter.setData(contactItem)
                 showLoading(false)
@@ -67,9 +68,9 @@ class ContactFragment : Fragment() {
 
     private fun showLoading(state: Boolean) {
         if (state) {
-            pbContactFragmentLoading.visibility = View.VISIBLE
+            binding.pbContactFragmentLoading.visibility = View.VISIBLE
         } else {
-            pbContactFragmentLoading.visibility = View.GONE
+            binding.pbContactFragmentLoading.visibility = View.GONE
         }
     }
 }
