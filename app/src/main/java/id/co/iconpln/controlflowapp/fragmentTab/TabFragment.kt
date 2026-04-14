@@ -7,21 +7,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import id.co.iconpln.controlflowapp.R
-import kotlinx.android.synthetic.main.fragment_tab.*
+import id.co.iconpln.controlflowapp.databinding.FragmentTabBinding
 
 
-/**
- * A simple [Fragment] subclass.
- */
 class TabFragment : Fragment() {
+
+    private var _binding: FragmentTabBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab, container, false)
+        _binding = FragmentTabBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,8 +32,8 @@ class TabFragment : Fragment() {
 
     private fun setupTab() {
         val tabPagerAdapter = TabPagerAdapter(requireContext(), childFragmentManager)
-        vpTabFragment.adapter = tabPagerAdapter
-        tabFragment.setupWithViewPager(vpTabFragment)
+        binding.vpTabFragment.adapter = tabPagerAdapter
+        binding.tabFragment.setupWithViewPager(binding.vpTabFragment)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
