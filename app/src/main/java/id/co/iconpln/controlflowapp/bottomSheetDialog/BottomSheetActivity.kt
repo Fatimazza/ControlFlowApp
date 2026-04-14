@@ -5,20 +5,22 @@ import android.os.Bundle
 import android.view.View
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import id.co.iconpln.controlflowapp.R
-import kotlinx.android.synthetic.main.activity_bottom_sheet.*
-import kotlinx.android.synthetic.main.layout_bottom_sheet.*
-import kotlinx.android.synthetic.main.layout_content_main.*
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import kotlinx.android.synthetic.main.fragment_bottom_sheet.view.*
+import id.co.iconpln.controlflowapp.databinding.ActivityBottomSheetBinding
+import id.co.iconpln.controlflowapp.databinding.FragmentBottomSheetBinding
 
 
-class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomSheetFragment.ItemClickListener {
+class BottomSheetActivity :
+    AppCompatActivity(), View.OnClickListener, BottomSheetFragment.ItemClickListener {
+
+    private lateinit var binding: ActivityBottomSheetBinding
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<View>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bottom_sheet)
+        binding = ActivityBottomSheetBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupActionBar()
         setButtonClickListener()
@@ -26,8 +28,10 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomShe
     }
 
     private fun setupBottomSheetBehavior() {
-        bottomSheetBehavior = BottomSheetBehavior.from(llBottomSheet)
-        bottomSheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+        bottomSheetBehavior = BottomSheetBehavior
+            .from(binding.llBottomSheet.llBottomSheet)
+        bottomSheetBehavior.setBottomSheetCallback(object :
+            BottomSheetBehavior.BottomSheetCallback() {
             override fun onSlide(view: View, slideOffset: Float) {
 
             }
@@ -35,12 +39,14 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomShe
             override fun onStateChanged(view: View, newState: Int) {
                 when (newState) {
                     BottomSheetBehavior.STATE_COLLAPSED -> {
-                        btnBottomSheet.text = "Expand Bottom Sheet"
+                        binding.llMain.btnBottomSheet.text = "Expand Bottom Sheet"
                     }
+
                     BottomSheetBehavior.STATE_DRAGGING -> {}
                     BottomSheetBehavior.STATE_EXPANDED -> {
-                        btnBottomSheet.text = "Close Bottom Sheet"
+                        binding.llMain.btnBottomSheet.text = "Close Bottom Sheet"
                     }
+
                     BottomSheetBehavior.STATE_HALF_EXPANDED -> {}
                     BottomSheetBehavior.STATE_HIDDEN -> {}
                     BottomSheetBehavior.STATE_SETTLING -> {}
@@ -50,58 +56,68 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomShe
     }
 
     private fun setupActionBar() {
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
     }
 
     private fun setButtonClickListener() {
-        btnBottomSheet.setOnClickListener(this)
-        btnBottomSheetDialog.setOnClickListener(this)
-        btnBottomSheetDialogFragment.setOnClickListener(this)
-        btnBottomSheetPayment.setOnClickListener(this)
+        binding.llMain.btnBottomSheet.setOnClickListener(this)
+        binding.llMain.btnBottomSheetDialog.setOnClickListener(this)
+        binding.llMain.btnBottomSheetDialogFragment.setOnClickListener(this)
+        binding.llBottomSheet.btnBottomSheetPayment.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
-        when(view.id) {
+        when (view.id) {
             R.id.btnBottomSheet -> {
                 if (bottomSheetBehavior.state != BottomSheetBehavior.STATE_EXPANDED) {
                     bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED;
-                    btnBottomSheet.text = "Close Bottom Sheet";
+                    binding.llMain.btnBottomSheet.text = "Close Bottom Sheet";
                 } else {
                     bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED;
-                    btnBottomSheet.text = "Expand Bottom Sheet";
+                    binding.llMain.btnBottomSheet.text = "Expand Bottom Sheet";
                 }
 
             }
+
             R.id.btnBottomSheetDialog -> {
-                val dialogView = layoutInflater.inflate(R.layout.fragment_bottom_sheet, null)
+                val dialogBinding = FragmentBottomSheetBinding.inflate(layoutInflater)
                 val bottomSheetDialog = BottomSheetDialog(this)
-                bottomSheetDialog.setContentView(dialogView)
+
+                bottomSheetDialog.setContentView(dialogBinding.root)
                 bottomSheetDialog.show()
-                setDialogClickListener(dialogView)
+                setDialogClickListener(dialogBinding)
             }
+
             R.id.btnBottomSheetDialogFragment -> {
                 val bottomSheetFragment = BottomSheetFragment()
                 bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
             }
+
             R.id.btnBottomSheetPayment -> {
-                tvBottomActivity.text = "Order is Paid"
+                binding.llMain.tvBottomActivity.text = "Order is Paid"
             }
         }
     }
 
-    private fun setDialogClickListener(dialogView: View) {
-        dialogView.llBottomPreview.setOnClickListener {
-            tvBottomActivity.text = "Dialog ${dialogView.tvBottomPreview.text}"
+    private fun setDialogClickListener(binding: FragmentBottomSheetBinding) {
+        binding.llBottomPreview.setOnClickListener {
+            onItemClick("Dialog - ${binding.tvBottomPreview.text}")
         }
-        dialogView.llBottomShare.setOnClickListener {
-            onItemClick("Dialog ${dialogView.tvBottomShare.text}")
+        binding.llBottomShare.setOnClickListener {
+            onItemClick("Dialog - ${binding.tvBottomShare.text}")
         }
-        dialogView.llBottomEdit.setOnClickListener {
-            onItemClick("Dialog ${dialogView.tvBottomEdit.text}")
+        binding.llBottomEdit.setOnClickListener {
+            onItemClick("Dialog - ${binding.tvBottomEdit.text}")
+        }
+        binding.llBottomSearch.setOnClickListener {
+            onItemClick("Dialog - ${binding.tvBottomSearch.text}")
+        }
+        binding.llBottomExit.setOnClickListener {
+            onItemClick("Dialog - ${binding.tvBottomExit.text}")
         }
     }
 
     override fun onItemClick(text: String) {
-        tvBottomActivity.text = text
+        binding.llMain.tvBottomActivity.text = text
     }
 }
