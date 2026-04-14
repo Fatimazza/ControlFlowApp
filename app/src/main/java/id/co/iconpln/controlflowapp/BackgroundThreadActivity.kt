@@ -4,6 +4,7 @@ import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.os.Message
 import android.view.View
 import id.co.iconpln.controlflowapp.databinding.ActivityBackgroundThreadBinding
@@ -91,7 +92,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener,
         }
     }
 
-    private val contactHandler = Handler() { message ->
+    private val contactHandler = Handler(Looper.getMainLooper()) { message ->
         binding.tvThreadHandlerResult.text = message.obj as String
         true
     }
