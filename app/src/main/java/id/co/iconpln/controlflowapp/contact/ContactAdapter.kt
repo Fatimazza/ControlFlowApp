@@ -1,28 +1,23 @@
 package id.co.iconpln.controlflowapp.contact
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import id.co.iconpln.controlflowapp.R
-import kotlinx.android.synthetic.main.item_list_contact.view.*
+import id.co.iconpln.controlflowapp.databinding.ItemListContactBinding
 
 class ContactAdapter : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
 
     private val contactData = ArrayList<Contact>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
-        val mView =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_list_contact, parent, false)
-        return ContactViewHolder(mView)
+        val binding = ItemListContactBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        )
+        return ContactViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return contactData.size
-    }
-
-    override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
-        holder.bind(contactData[position])
     }
 
     fun setData(contactItems: ArrayList<Contact>) {
@@ -31,12 +26,13 @@ class ContactAdapter : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() 
         notifyDataSetChanged()
     }
 
-    inner class ContactViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(contactItem: Contact) {
-            itemView.tvContactName.text = contactItem.name
-            itemView.tvContactEmail.text = contactItem.email
-            itemView.tvContactMobile.text = contactItem.mobile
-        }
+    override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
+        val (id, name, email, mobile) = contactData[position]
+        holder.binding.tvContactName.text = name
+        holder.binding.tvContactEmail.text = email
+        holder.binding.tvContactMobile.text = mobile
     }
 
+    class ContactViewHolder(var binding: ItemListContactBinding) :
+        RecyclerView.ViewHolder(binding.root)
 }
