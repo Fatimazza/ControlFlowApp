@@ -1,18 +1,18 @@
 package id.co.iconpln.controlflowapp.fragmentViewPager
 
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import id.co.iconpln.controlflowapp.fragmentTab.FirstFragment
 import id.co.iconpln.controlflowapp.fragmentTab.SecondFragment
 
-class ScrollPagerAdapter(fm: FragmentManager): FragmentStatePagerAdapter(fm) {
+class ScrollSectionsPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
 
     companion object {
         private const val NUM_PAGES = 3
     }
 
-    override fun getItem(position: Int): Fragment {
+    override fun createFragment(position: Int): Fragment {
         var fragment: Fragment? = null
         when (position) {
             0 -> fragment = FirstFragment()
@@ -22,8 +22,7 @@ class ScrollPagerAdapter(fm: FragmentManager): FragmentStatePagerAdapter(fm) {
         return fragment as Fragment
     }
 
-    override fun getCount(): Int {
+    override fun getItemCount(): Int {
         return NUM_PAGES
     }
-
 }

@@ -1,14 +1,13 @@
 package id.co.iconpln.controlflowapp.fragmentViewPager
 
 import android.os.Bundle
-import androidx.fragment.app.FragmentActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.tabs.TabLayoutMediator
 import id.co.iconpln.controlflowapp.databinding.ActivityScrollBinding
 
-class ScrollActivity : FragmentActivity() {
+class ScrollActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityScrollBinding
-
-    private lateinit var pagerAdapter: ScrollPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,9 +19,11 @@ class ScrollActivity : FragmentActivity() {
     }
 
     private fun setupSlideViewPager() {
-        pagerAdapter = ScrollPagerAdapter(supportFragmentManager)
+        val pagerAdapter = ScrollSectionsPagerAdapter(this)
         binding.vpScroll.adapter = pagerAdapter
-        binding.tabScrollDots.setupWithViewPager(binding.vpScroll)
+        TabLayoutMediator(
+            binding.tabScrollDots, binding.vpScroll
+        ) { tab, position -> }.attach()
 
         // Using Library
         // pageIndicatorScroll.setViewPager(vpScroll)
