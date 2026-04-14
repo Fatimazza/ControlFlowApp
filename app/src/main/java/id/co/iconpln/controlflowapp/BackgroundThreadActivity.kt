@@ -6,27 +6,31 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.view.View
-import kotlinx.android.synthetic.main.activity_background_thread.*
+import id.co.iconpln.controlflowapp.databinding.ActivityBackgroundThreadBinding
 import kotlinx.coroutines.*
 import java.lang.Runnable
 import java.lang.ref.WeakReference
 import java.net.URL
 
-class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, ContactAsyncTaskCallback {
+class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener,
+    ContactAsyncTaskCallback {
+
+    private lateinit var binding: ActivityBackgroundThreadBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_background_thread)
+        binding = ActivityBackgroundThreadBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        btnThreadWorker.setOnClickListener(this)
-        btnThreadHandler.setOnClickListener(this)
-        btnThreadAsyncTask.setOnClickListener(this)
-        btnThreadCoroutine.setOnClickListener(this)
+        binding.btnThreadWorker.setOnClickListener(this)
+        binding.btnThreadHandler.setOnClickListener(this)
+        binding.btnThreadAsyncTask.setOnClickListener(this)
+        binding.btnThreadCoroutine.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
-        when (view.id) {
-            R.id.btnThreadWorker -> {
+        when (view) {
+            binding.btnThreadWorker -> {
                 /*
                 Don't : Call Network in Main Thread
                 val text = URL("https://api.androidhive.info/contacts").readText()
@@ -38,13 +42,14 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
                         val urlResult = URL("https://api.androidhive.info/contacts").readText()
                         // Don't Call UI Thread in Background
                         // tvThreadWorkerResult.text = text
-                        tvThreadWorkerResult.post(Runnable {
-                            tvThreadWorkerResult.text = urlResult
+                        binding.tvThreadWorkerResult.post(Runnable {
+                            binding.tvThreadWorkerResult.text = urlResult
                         })
                     }
                 ).start()
             }
-            R.id.btnThreadHandler -> {
+
+            binding.btnThreadHandler -> {
                 Thread(Runnable {
                     val urlResult = URL("https://api.androidhive.info/contacts").readText()
                     val msg = Message.obtain()
@@ -53,11 +58,13 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
                     msg.sendToTarget()
                 }).start()
             }
-            R.id.btnThreadAsyncTask -> {
+
+            binding.btnThreadAsyncTask -> {
                 val urlResult = URL("https://api.androidhive.info/contacts")
                 FetchContactAsyncTask(this).execute(urlResult)
             }
-            R.id.btnThreadCoroutine -> {
+
+            binding.btnThreadCoroutine -> {
                 /*runBlocking {
                     launch {
                         delay(1000)
@@ -67,7 +74,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
                 runBlocking {
                     val first = async { getContact() }
                     val result = first.await()
-                    tvThreadCoroutineResult.text = result.toString()
+                    binding.tvThreadCoroutineResult.text = result.toString()
                 }
             }
         }
@@ -75,7 +82,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
 
     suspend fun getNumber(): Int {
         delay(1000)
-        return 3*2
+        return 3 * 2
     }
 
     suspend fun getContact(): String {
@@ -85,13 +92,13 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
     }
 
     private val contactHandler = Handler() { message ->
-        tvThreadHandlerResult.text = message.obj as String
+        binding.tvThreadHandlerResult.text = message.obj as String
         true
     }
 
     override fun onPreExecute() {
-        tvThreadAsyncResult.visibility = View.GONE
-        pbThreadAsyncProgress.visibility = View.VISIBLE
+        binding.tvThreadAsyncResult.visibility = View.GONE
+        binding.pbThreadAsyncProgress.visibility = View.VISIBLE
     }
 
     override fun onProgressUpdate(vararg values: Int?) {
@@ -99,15 +106,17 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
     }
 
     override fun onPostExecute(result: String?) {
-        tvThreadAsyncResult.visibility = View.VISIBLE
-        pbThreadAsyncProgress.visibility = View.GONE
-        tvThreadAsyncResult.text = result
+        binding.tvThreadAsyncResult.visibility = View.VISIBLE
+        binding.pbThreadAsyncProgress.visibility = View.GONE
+        binding.tvThreadAsyncResult.text = result
     }
 
-    class FetchContactAsyncTask(val listener: ContactAsyncTaskCallback): AsyncTask<URL, Int, String>() {
+    class FetchContactAsyncTask(val listener: ContactAsyncTaskCallback) :
+        AsyncTask<URL, Int, String>() {
 
         //using WeakReference to avoid Memory Leak in AsyncTask
-        private val contactListener: WeakReference<ContactAsyncTaskCallback> = WeakReference(listener)
+        private val contactListener: WeakReference<ContactAsyncTaskCallback> =
+            WeakReference(listener)
 
         override fun onPreExecute() {
             super.onPreExecute()
