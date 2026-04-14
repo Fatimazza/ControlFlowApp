@@ -1,10 +1,8 @@
 package id.co.iconpln.controlflowapp.fragmentBottomNav
 
 import android.os.Bundle
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.databinding.ActivityBottomNavBinding
 import id.co.iconpln.controlflowapp.fragmentTab.FirstFragment
@@ -26,31 +24,24 @@ class BottomNavActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNav() {
-        binding.navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-    }
-
-    private val onNavigationItemSelectedListener =
-        object : BottomNavigationView.OnNavigationItemSelectedListener {
-            override fun onNavigationItemSelected(item: MenuItem): Boolean {
-                when (item.itemId) {
-                    R.id.navigation_first -> {
-                        loadFragment(FirstFragment())
-                        return true
-                    }
-
-                    R.id.navigation_second -> {
-                        loadFragment(ListHeroFragment())
-                        return true
-                    }
-
-                    R.id.navigation_third -> {
-                        loadFragment(TabFragment())
-                        return true
-                    }
+        binding.navView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_first -> {
+                    loadFragment(FirstFragment())
+                    true
                 }
-                return false
+                R.id.navigation_second -> {
+                    loadFragment(ListHeroFragment())
+                    true
+                }
+                R.id.navigation_third -> {
+                    loadFragment(TabFragment())
+                    true
+                }
+                else -> false
             }
         }
+    }
 
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
