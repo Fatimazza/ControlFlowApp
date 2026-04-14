@@ -16,7 +16,7 @@ class ContactViewModel : ViewModel() {
     internal fun setContact() {
         val client = AsyncHttpClient()
         val listItemContacts = ArrayList<Contact>()
-        val url = "https://api.androidhive.info/contacts"
+        val url = "https://raw.githubusercontent.com/Fatimazza/ControlFlowApp/refs/heads/master/app/src/main/res/raw/contacts.json"
 
         // Request Contact API
         client.get(url, object : AsyncHttpResponseHandler(){
