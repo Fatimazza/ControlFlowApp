@@ -14,6 +14,9 @@ class ContactFragmentViewModel : ViewModel() {
 
     private val listContacts = MutableLiveData<ArrayList<Contact>>()
 
+    private val _toastMessage = MutableLiveData<String?>()
+    val toastMessage: LiveData<String?> get() = _toastMessage
+
     internal fun setContact() {
         val client = AsyncHttpClient()
         val listItemContacts = ArrayList<Contact>()
@@ -51,9 +54,11 @@ class ContactFragmentViewModel : ViewModel() {
 
                     //post realtime latest value from Background Thread
                     listContacts.postValue(listItemContacts)
+                    _toastMessage.value = "Fetch data Success!"
 
                 } catch (e: Exception) {
                     Log.d("Exception", e.message.toString())
+                    _toastMessage.value = "Exception " +e.message.toString()
                 }
             }
 
@@ -63,7 +68,14 @@ class ContactFragmentViewModel : ViewModel() {
                 responseBody: ByteArray,
                 error: Throwable
             ) {
-                Log.d("onFailure", error.message.toString())
+                val errorMessage = when (statusCode) {
+                    401 -> "$statusCode : Bad Request"
+                    403 -> "$statusCode : Forbidden"
+                    404 -> "$statusCode : Not Found"
+                    else -> "$statusCode : ${error.message}"
+                }
+                Log.d("onFailure", errorMessage)
+                _toastMessage.value = "Error $errorMessage"
             }
         })
     }
