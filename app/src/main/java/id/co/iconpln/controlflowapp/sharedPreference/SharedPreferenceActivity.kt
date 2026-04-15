@@ -68,7 +68,7 @@ class SharedPreferenceActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        if (view.id == R.id.btnPrefSave) {
+        if (view.id == binding.btnPrefSave.id) {
             val sharedPrefFormintent = Intent(this, SharedPreferenceFormActivity::class.java)
             when {
                 isPreferenceEmpty -> {
