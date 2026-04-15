@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.isDigitsOnly
 import id.co.iconpln.controlflowapp.R
-import kotlinx.android.synthetic.main.activity_shared_preference_form.*
+import id.co.iconpln.controlflowapp.databinding.ActivitySharedPreferenceFormBinding
 
 class SharedPreferenceFormActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -20,15 +20,19 @@ class SharedPreferenceFormActivity : AppCompatActivity(), View.OnClickListener {
         const val TYPE_EDIT = 2
     }
 
+    private lateinit var binding: ActivitySharedPreferenceFormBinding
+
     private lateinit var user: User
     private var formType: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_shared_preference_form)
+
+        binding = ActivitySharedPreferenceFormBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         getIntentExtra()
-        btnPrefFormSave.setOnClickListener(this)
+        binding.btnPrefFormSave.setOnClickListener(this)
         setupForm("", "")
         setupFormType()
 
@@ -42,7 +46,7 @@ class SharedPreferenceFormActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun setupForm(actionBarTitle: String, btnTitle: String) {
         supportActionBar?.title = actionBarTitle
-        btnPrefFormSave.text = btnTitle
+        binding.btnPrefFormSave.text = btnTitle
     }
 
     private fun setupFormType() {
@@ -50,6 +54,7 @@ class SharedPreferenceFormActivity : AppCompatActivity(), View.OnClickListener {
             TYPE_ADD -> {
                 setupForm("Tambah Baru", "Simpan")
             }
+
             TYPE_EDIT -> {
                 setupForm("Ubah", "Update")
                 showPreferenceInForm()
@@ -58,44 +63,46 @@ class SharedPreferenceFormActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun showPreferenceInForm() {
-        etPrefFormName.setText(user.name)
-        etPrefFormEmail.setText(user.email)
-        etPrefFormAge.setText(user.age.toString())
-        etPrefFormHp.setText(user.handphone)
-        rbPrefFormReading.isChecked = user.hasReadingHobby
-        rbPrefFormNotReading.isChecked = !user.hasReadingHobby
+        binding.etPrefFormName.setText(user.name)
+        binding.etPrefFormEmail.setText(user.email)
+        binding.etPrefFormAge.setText(user.age.toString())
+        binding.etPrefFormHp.setText(user.handphone)
+        binding.rbPrefFormReading.isChecked = user.hasReadingHobby
+        binding.rbPrefFormNotReading.isChecked = !user.hasReadingHobby
     }
 
     override fun onClick(view: View) {
         if (view.id == R.id.btnPrefFormSave) {
-            val name = etPrefFormName.text.toString().trim()
-            val email = etPrefFormEmail.text.toString().trim()
-            val age = etPrefFormAge.text.toString().trim()
-            val handphone = etPrefFormHp.text.toString().trim()
-            val hasReadingHobby = rgPrefFormHobby.checkedRadioButtonId == R.id.rbPrefFormReading
+            val name = binding.etPrefFormName.text.toString().trim()
+            val email = binding.etPrefFormEmail.text.toString().trim()
+            val age = binding.etPrefFormAge.text.toString().trim()
+            val handphone = binding.etPrefFormHp.text.toString().trim()
+            val hasReadingHobby =
+                binding.rgPrefFormHobby.checkedRadioButtonId == R.id.rbPrefFormReading
 
             if (name.isEmpty()) {
-                etPrefFormName.error = resources.getString(R.string.sp_field_required)
+                binding.etPrefFormName.error = resources.getString(R.string.sp_field_required)
                 return
             }
             if (email.isEmpty()) {
-                etPrefFormEmail.error = resources.getString(R.string.sp_field_required)
+                binding.etPrefFormEmail.error = resources.getString(R.string.sp_field_required)
                 return
             }
             if (!isValidEmail(email)) {
-                etPrefFormEmail.error = resources.getString(R.string.sp_field_email_not_valid)
+                binding.etPrefFormEmail.error =
+                    resources.getString(R.string.sp_field_email_not_valid)
                 return
             }
             if (age.isEmpty()) {
-                etPrefFormAge.error = resources.getString(R.string.sp_field_required)
+                binding.etPrefFormAge.error = resources.getString(R.string.sp_field_required)
                 return
             }
             if (handphone.isEmpty()) {
-                etPrefFormHp.error = resources.getString(R.string.sp_field_required)
+                binding.etPrefFormHp.error = resources.getString(R.string.sp_field_required)
                 return
             }
             if (!handphone.isDigitsOnly()) {
-                etPrefFormHp.error = resources.getString(R.string.sp_field_digit_only)
+                binding.etPrefFormHp.error = resources.getString(R.string.sp_field_digit_only)
                 return
             }
 
