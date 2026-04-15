@@ -72,13 +72,13 @@ class SharedPreferenceFormActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        if (view.id == R.id.btnPrefFormSave) {
+        if (view.id == binding.btnPrefFormSave.id) {
             val name = binding.etPrefFormName.text.toString().trim()
             val email = binding.etPrefFormEmail.text.toString().trim()
             val age = binding.etPrefFormAge.text.toString().trim()
             val handphone = binding.etPrefFormHp.text.toString().trim()
             val hasReadingHobby =
-                binding.rgPrefFormHobby.checkedRadioButtonId == R.id.rbPrefFormReading
+                binding.rgPrefFormHobby.checkedRadioButtonId == binding.rbPrefFormReading.id
 
             if (name.isEmpty()) {
                 binding.etPrefFormName.error = resources.getString(R.string.sp_field_required)
