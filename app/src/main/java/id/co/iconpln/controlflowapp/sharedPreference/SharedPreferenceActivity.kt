@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.databinding.ActivitySharedPreferenceBinding
 
@@ -86,7 +88,21 @@ class SharedPreferenceActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             sharedPrefFormintent.putExtra("USER", user)
-            startActivityForResult(sharedPrefFormintent, REQUEST_CODE)
+            resultLauncher.launch(sharedPrefFormintent)
+        }
+    }
+
+    private val resultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result: ActivityResult ->
+        if (result.data != null
+            && result.resultCode == SharedPreferenceFormActivity.RESULT_CODE
+        ) {
+            user = result.data?.getParcelableExtra<User>(
+                SharedPreferenceFormActivity.EXTRA_RESULT
+            ) as User
+            populateView(user)
+            checkForm(user)
         }
     }
 
