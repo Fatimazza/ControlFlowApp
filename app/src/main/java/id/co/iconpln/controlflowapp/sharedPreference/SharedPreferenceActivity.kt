@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import id.co.iconpln.controlflowapp.R
-import kotlinx.android.synthetic.main.activity_shared_preference.*
+import id.co.iconpln.controlflowapp.databinding.ActivitySharedPreferenceBinding
 
 class SharedPreferenceActivity : AppCompatActivity(), View.OnClickListener {
+
+    private lateinit var binding: ActivitySharedPreferenceBinding
 
     private lateinit var userPreference: UserPreference
 
@@ -21,9 +23,11 @@ class SharedPreferenceActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_shared_preference)
 
-        btnPrefSave.setOnClickListener(this)
+        binding = ActivitySharedPreferenceBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnPrefSave.setOnClickListener(this)
 
         supportActionBar?.title = "My User Preference"
         userPreference = UserPreference(this)
@@ -37,26 +41,27 @@ class SharedPreferenceActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun populateView(user: User) {
-        tvPrefName.text = if (user.name.toString().isEmpty())
+        binding.tvPrefName.text = if (user.name.toString().isEmpty())
             "Tidak Ada" else user.name
-        tvPrefAge.text = if (user.age.toString().isEmpty())
+        binding.tvPrefAge.text = if (user.age.toString().isEmpty())
             "Tidak Ada" else user.age.toString()
-        tvPrefEmail.text = if (user.email.toString().isEmpty())
+        binding.tvPrefEmail.text = if (user.email.toString().isEmpty())
             "Tidak Ada" else user.email
-        tvPrefHandphone.text = if (user.handphone.toString().isEmpty())
+        binding.tvPrefHandphone.text = if (user.handphone.toString().isEmpty())
             "Tidak Ada" else user.handphone
-        tvPrefHobby.text = if (!user.hasReadingHobby)
+        binding.tvPrefHobby.text = if (!user.hasReadingHobby)
             "Tidak Membaca" else "Membaca"
     }
 
     private fun checkForm(user: User) {
         when {
             user.name.toString().isNotEmpty() -> {
-                btnPrefSave.text = resources.getText(R.string.sp_change)
+                binding.btnPrefSave.text = resources.getText(R.string.sp_change)
                 isPreferenceEmpty = false
             }
+
             else -> {
-                btnPrefSave.text = resources.getString(R.string.sp_save)
+                binding.btnPrefSave.text = resources.getString(R.string.sp_save)
                 isPreferenceEmpty = true
             }
         }
@@ -72,6 +77,7 @@ class SharedPreferenceActivity : AppCompatActivity(), View.OnClickListener {
                         SharedPreferenceFormActivity.TYPE_ADD
                     )
                 }
+
                 else -> {
                     sharedPrefFormintent.putExtra(
                         SharedPreferenceFormActivity.EXTRA_TYPE_FORM,
