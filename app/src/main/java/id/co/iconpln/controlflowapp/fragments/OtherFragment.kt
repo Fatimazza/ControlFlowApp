@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.commit
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.databinding.FragmentOtherBinding
 import id.co.iconpln.controlflowapp.fragments.LastFragment.Companion.message
@@ -33,9 +34,7 @@ class OtherFragment : Fragment(), View.OnClickListener {
     override fun onClick(view: View) {
         when (view) {
             binding.btnLastFragment -> {
-                val fragmentManager = fragmentManager
-                val fragmentTransaction = fragmentManager?.beginTransaction()
-
+                val fragmentManager = parentFragmentManager
                 val fragment = LastFragment()
 
                 val bundle = Bundle()
@@ -47,9 +46,10 @@ class OtherFragment : Fragment(), View.OnClickListener {
                     message = hiddenMessage
                 }
 
-                fragmentTransaction?.replace(R.id.flContainer, fragment)
-                fragmentTransaction?.addToBackStack(null)
-                fragmentTransaction?.commit()
+                fragmentManager.commit {
+                    addToBackStack(null)
+                    replace(R.id.flContainer, fragment, LastFragment::class.java.simpleName)
+                }
             }
         }
     }
