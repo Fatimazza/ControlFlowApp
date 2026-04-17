@@ -3,7 +3,7 @@ package id.co.iconpln.controlflowapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import id.co.iconpln.controlflowapp.databinding.ActivityOperationBinding
 
 class OperationActivity : AppCompatActivity(), View.OnClickListener {
@@ -27,7 +27,7 @@ class OperationActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initViewModel() {
-        operationViewModel = ViewModelProviders.of(this).get(OperationViewModel::class.java)
+        operationViewModel = ViewModelProvider(this).get(OperationViewModel::class.java)
     }
 
     private fun displayResult() {
