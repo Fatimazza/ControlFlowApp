@@ -11,56 +11,65 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.StyleActivity
+import id.co.iconpln.controlflowapp.databinding.ActivityNavDrawerBinding
 import id.co.iconpln.controlflowapp.fragmentTab.FirstFragment
 import id.co.iconpln.controlflowapp.fragmentTab.SecondFragment
 import id.co.iconpln.controlflowapp.hero.ListHeroFragment
-import kotlinx.android.synthetic.main.activity_nav_drawer.*
-import kotlinx.android.synthetic.main.layout_toolbar.*
+import androidx.core.view.get
+import androidx.core.view.size
 
 class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    private lateinit var binding: ActivityNavDrawerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_nav_drawer)
+
+        binding = ActivityNavDrawerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupActionBar()
-        navViewDrawer.setNavigationItemSelectedListener(this)
+        binding.navViewDrawer.setNavigationItemSelectedListener(this)
         selectFirstNavigationMenu()
     }
 
     private fun selectFirstNavigationMenu() {
-        navViewDrawer.menu.performIdentifierAction(R.id.nav_home, 0);
+        binding.navViewDrawer.menu.performIdentifierAction(R.id.nav_home, 0)
     }
 
     private fun setupActionBar() {
+        val toolbar = binding.appBarMain.toolbar
         setSupportActionBar(toolbar)
 
         val toggle = ActionBarDrawerToggle(
-            this, dlDrawerLayout, toolbar, R.string.app_name, 0
+            this, binding.dlDrawerLayout, toolbar, R.string.app_name, 0
         )
-        dlDrawerLayout.addDrawerListener(toggle)
+        binding.dlDrawerLayout.addDrawerListener(toggle)
         toggle.syncState()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
+        when (item.itemId) {
             R.id.nav_home -> {
                 loadFragment(FirstFragment())
                 Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
             }
+
             R.id.nav_profile -> {
                 loadFragment(ListHeroFragment())
                 Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
             }
+
             R.id.nav_gallery -> {
                 Toast.makeText(this, "Gallery", Toast.LENGTH_SHORT).show()
                 val openActivityIntent = Intent(this, StyleActivity::class.java)
                 startActivity(openActivityIntent)
             }
+
             R.id.nav_update -> {
                 loadFragment(SecondFragment())
             }
+
             R.id.nav_logout -> {
                 finish()
             }
@@ -70,17 +79,18 @@ class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         item.isChecked = true
 
         title = item.title
-        dlDrawerLayout.closeDrawer(GravityCompat.START)
+        binding.dlDrawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 
     private fun uncheckItemMenu() {
-        for (countMenu in 0 until navViewDrawer.menu.size()) {
-            navViewDrawer.menu.getItem(countMenu).isChecked = false
+        for (countMenu in 0 until binding.navViewDrawer.menu.size) {
+            binding.navViewDrawer.menu[countMenu].isChecked = false
 
-            if (navViewDrawer.menu.getItem(countMenu).hasSubMenu()) {
-                for (countSubmenu in 0 until navViewDrawer.menu.getItem(countMenu).subMenu!!.size()) {
-                    navViewDrawer.menu.getItem(countMenu).subMenu!!.getItem(countSubmenu).isChecked = false
+            if (binding.navViewDrawer.menu[countMenu].hasSubMenu()) {
+                for (countSubmenu
+                in 0 until binding.navViewDrawer.menu[countMenu].subMenu!!.size) {
+                    binding.navViewDrawer.menu[countMenu].subMenu!![countSubmenu].isChecked = false
                 }
             }
         }

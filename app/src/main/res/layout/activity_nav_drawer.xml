@@ -16,9 +16,8 @@
 
         <!-- The ActionBar displayed at the top -->
         <include
-            layout="@layout/layout_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:id="@+id/appBarMain"
+            layout="@layout/layout_toolbar" />
 
         <!-- The main content view where fragments are loaded -->
         <FrameLayout
