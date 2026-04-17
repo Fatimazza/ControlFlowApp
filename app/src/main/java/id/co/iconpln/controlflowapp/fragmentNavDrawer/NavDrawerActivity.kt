@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import id.co.iconpln.controlflowapp.R
@@ -15,8 +16,6 @@ import id.co.iconpln.controlflowapp.databinding.ActivityNavDrawerBinding
 import id.co.iconpln.controlflowapp.fragmentTab.FirstFragment
 import id.co.iconpln.controlflowapp.fragmentTab.SecondFragment
 import id.co.iconpln.controlflowapp.hero.ListHeroFragment
-import androidx.core.view.get
-import androidx.core.view.size
 
 class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -84,14 +83,12 @@ class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     }
 
     private fun uncheckItemMenu() {
-        for (countMenu in 0 until binding.navViewDrawer.menu.size) {
-            binding.navViewDrawer.menu[countMenu].isChecked = false
+        val menu = binding.navViewDrawer.menu
+        menu.forEach { item ->
+            item.isChecked = false
 
-            if (binding.navViewDrawer.menu[countMenu].hasSubMenu()) {
-                for (countSubmenu
-                in 0 until binding.navViewDrawer.menu[countMenu].subMenu!!.size) {
-                    binding.navViewDrawer.menu[countMenu].subMenu!![countSubmenu].isChecked = false
-                }
+            item.subMenu?.forEach { subItem ->
+                subItem.isChecked = false
             }
         }
     }
