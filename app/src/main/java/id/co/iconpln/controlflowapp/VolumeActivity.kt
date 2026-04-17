@@ -2,7 +2,7 @@ package id.co.iconpln.controlflowapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import id.co.iconpln.controlflowapp.databinding.ActivityVolumeBinding
 
 class VolumeActivity : AppCompatActivity() {
@@ -23,7 +23,7 @@ class VolumeActivity : AppCompatActivity() {
     }
 
     private fun initViewModel() {
-        volumeViewModel = ViewModelProviders.of(this).get(VolumeViewModel::class.java)
+        volumeViewModel = ViewModelProvider(this).get(VolumeViewModel::class.java)
     }
 
     private fun displayResult() {
