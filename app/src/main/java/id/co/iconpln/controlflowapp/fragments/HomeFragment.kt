@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.commit
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.databinding.FragmentHomeBinding
 
@@ -32,13 +33,12 @@ class HomeFragment : Fragment(), View.OnClickListener {
     override fun onClick(view: View) {
         when (view) {
             binding.btnOtherFragment -> {
-                val fragmentManager = fragmentManager
-                val fragmentTransaction = fragmentManager?.beginTransaction()
-
+                val fragmentManager = parentFragmentManager
                 val fragment = OtherFragment()
-                fragmentTransaction?.replace(R.id.flContainer, fragment)
-                fragmentTransaction?.addToBackStack(null)
-                fragmentTransaction?.commit()
+                fragmentManager.commit {
+                    addToBackStack(null)
+                    replace(R.id.flContainer, fragment, OtherFragment::class.java.simpleName)
+                }
             }
         }
     }
