@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.commit
 import id.co.iconpln.controlflowapp.databinding.ActivityDemoFragmentBinding
 
 class DemoFragmentActivity : AppCompatActivity() {
@@ -19,10 +20,10 @@ class DemoFragmentActivity : AppCompatActivity() {
 
     private fun initFragment() {
         val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
 
         val fragment = HomeFragment()
-        fragmentTransaction.add(binding.flContainer.id, fragment)
-        fragmentTransaction.commit()
+        fragmentManager.commit {
+            add(binding.flContainer.id, fragment, HomeFragment::class.java.simpleName)
+        }
     }
 }
