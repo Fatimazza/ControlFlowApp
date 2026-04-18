@@ -19,6 +19,7 @@ import id.co.iconpln.controlflowapp.fragmentViewPager.ScrollActivity
 import id.co.iconpln.controlflowapp.fragmentsNavComponent.HomeNavActivity
 import id.co.iconpln.controlflowapp.myContact.MyContactActivity
 import id.co.iconpln.controlflowapp.myUser.MyUserActivity
+import id.co.iconpln.controlflowapp.restaurant.RestaurantActivity
 import id.co.iconpln.controlflowapp.sharedPreference.SharedPreferenceActivity
 import id.co.iconpln.controlflowapp.weather.WeatherActivity
 
@@ -57,6 +58,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnViewPager.setOnClickListener(this)
         binding.btnLocalization.setOnClickListener(this)
         binding.btnSharedPreference.setOnClickListener(this)
+        binding.btnRestaurant.setOnClickListener(this)
         binding.btnWeather.setOnClickListener(this)
         binding.btnContact.setOnClickListener(this)
         binding.btnThread.setOnClickListener(this)
@@ -171,6 +173,11 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             binding.btnSharedPreference -> {
                 val sharedPrefIntent = Intent(this, SharedPreferenceActivity::class.java)
                 startActivity(sharedPrefIntent)
+            }
+
+            binding.btnRestaurant -> {
+                val restaurantIntent = Intent(this, RestaurantActivity::class.java)
+                startActivity(restaurantIntent)
             }
 
             binding.btnWeather -> {

@@ -140,6 +140,12 @@
             android:text="Shared Preference"/>
 
         <Button
+            android:id="@+id/btnRestaurant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Restaurant"/>
+
+        <Button
             android:id="@+id/btnWeather"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
