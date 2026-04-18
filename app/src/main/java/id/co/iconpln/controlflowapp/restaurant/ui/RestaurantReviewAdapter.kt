@@ -29,6 +29,21 @@ class RestaurantReviewAdapter :
     }
 
     companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<CustomerReviewsItem>() {}
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<CustomerReviewsItem>() {
+            
+            override fun areItemsTheSame(
+                oldItem: CustomerReviewsItem,
+                newItem: CustomerReviewsItem
+            ): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun areContentsTheSame(
+                oldItem: CustomerReviewsItem,
+                newItem: CustomerReviewsItem
+            ): Boolean {
+                TODO("Not yet implemented")
+            }
+        }
     }
 }
