@@ -1,4 +1,8 @@
 <resources>
+    <plurals name="locale_count_plural_songs">
+        <item quantity="one">%d lagu ditemukan.</item>
+        <item quantity="other">%d lagu ditemukan.</item>
+    </plurals>
     <string name="app_name">ControlFlowApp</string>
     <string name="et_nilai_hint">Nilai</string>
     <string name="hasilnya">Hasilnya: %1$s</string>
@@ -17,8 +21,8 @@
     <string name="operation_add">+</string>
     <string name="operation_substract">-</string>
     <string name="operation_multiply">x</string>
-    <string name="operation_divide">:</string>
 
+    <string name="operation_divide">:</string>
     <string name="content_text">Google officially announced its much-anticipated Pixel phones; the Pixel and Pixel XL, on October 4. We attended Google’s London UK event, mirroring the main one taking place in San Francisco, US, where the firm unwrapped the new Android 7.1 Nougat devices which will apparently usurp Google’s long-standing Nexus series.</string>
     <string name="content_specs_display">5.0 inches\n
     FHD AMOLED at 441ppi\n
@@ -41,14 +45,14 @@
     <string name="my_name">Izza Kece</string>
     <string name="buy">Beli</string>
     <string name="dummy_value">$735</string>
-    <string name="dummy_photos">6 photos</string>
 
+    <string name="dummy_photos">6 photos</string>
     <string name="width">Lebar</string>
     <string name="height">Tinggi</string>
     <string name="length">Panjang</string>
     <string name="result">Hasil</string>
-    <string name="calculate">Hitung</string>
 
+    <string name="calculate">Hitung</string>
     <string name="move_activity">Pindah Activity</string>
     <string name="move_with_data">Pindah Activity dengan Data</string>
     <string name="move_with_data_bundle">Pindah Activity dengan Data Bundle</string>
@@ -69,13 +73,13 @@
     <string name="data_received">Data Diterima</string>
     <string name="bundle_received">Bundle Diterima</string>
     <string name="object_received">Object Diterima</string>
-    <string name="this_is_moveactivity">Ini MoveActivity</string>
 
+    <string name="this_is_moveactivity">Ini MoveActivity</string>
     <string name="main_hero_name_text">Hero Name</string>
     <string name="main_hero_desc_text">A hero is a real person or a main fictional character of a literary work who, in the face of danger, combats adversity through feats of ingenuity, courage, or strength; the original hero type of classical epics did such things for the sake of glory and honor.</string>
     <string name="menu_list_hero">List Hero</string>
-    <string name="menu_grid_hero">Grid Hero</string>
 
+    <string name="menu_grid_hero">Grid Hero</string>
     <string name="hello_home_fragment">Hello, this is Home fragment</string>
     <string name="to_other_fragment">To Other Fragment</string>
     <string name="hello_other_fragment">Hello, this is Other fragment</string>
@@ -83,24 +87,59 @@
     <string name="hello_last_fragment">Hello, this is Last fragment</string>
     <string name="to_other_activity">To Other Activity</string>
     <string name="show_dialog">Show Dialog</string>
-    <string name="to_home_fragment">To Home Fragment</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="to_home_fragment">To Home Fragment</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <string name="tab_text_1">First</string>
-    <string name="tab_text_2">Second</string>
 
+    <string name="tab_text_2">Second</string>
     <string name="close">Close</string>
     <string name="choose_color">Pilih Warna Favorit Anda:</string>
     <string name="blue">Blue</string>
     <string name="purple">Purple</string>
     <string name="red">Red</string>
-    <string name="green">Green</string>
 
+    <string name="green">Green</string>
     <string name="search">Search</string>
+
     <string name="menu_search_hint">Input keyword … </string>
 
+    <string name="locale_count_hello">Halo %1$s, kamu memiliki %2$d cubitan dari %3$s</string>
+
+    <string name="locale_good_morning">Selamat Pagi</string>
+
+    <string name="locale_language_settings">Ubah Pengaturan Bahasa</string>
+    <string name="sp_name" translatable="false">Nama</string>
+    <string name="sp_email" translatable="false">Email</string>
+    <string name="sp_handphone" translatable="false">Handphone</string>
+
+    <string name="sp_age" translatable="false">Age</string>
+    <string name="sp_hobby" translatable="false">Hobby</string>
+    <string name="sp_save" translatable="false">Save</string>
+    <string name="sp_change" translatable="false">Change</string>
+    <string name="sp_hobby_reading" translatable="false">Reading</string>
+    <string name="sp_hobby_else" translatable="false">No</string>
+    <string name="sp_field_required" translatable="false">Field tidak boleh kosong</string>
+    <string name="sp_field_digit_only" translatable="false">Hanya boleh terisi numerik</string>
+    <string name="sp_field_email_not_valid" translatable="false">Email tidak valid</string>
+    <string name="weather_description" translatable="false">Deskripsi</string>
+    <string name="weather_temperature" translatable="false">Temperatur</string>
+    <string name="weather_city" translatable="false">Nama Kota</string>
+
+    <string name="weather_insert_city" translatable="false">Masukkan id kota misal Jakarta = 1642911</string>
+    <string name="weather_search" translatable="false">Cari</string>
+    <string name="weather_id_jakarta_bandung_semarang" translatable="false">1642911,1650357,1627896</string>
+    <string name="tab_contact">Contacts</string>
+    <string name="profile_empty">[EMPTY]</string>
+    <string name="profile_warning">Please Login to view Your Profile</string>
+
+    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
     <string-array name="hero_name">
         <item>Ahmad Yani</item>
         <item>Sutomo</item>
@@ -113,7 +152,6 @@
         <item>Tan Malaka</item>
         <item>Ahmad Dahlan</item>
     </string-array>
-
     <string-array name="hero_description">
         <item>Jenderal TNI Anumerta Ahmad Yani (juga dieja Achmad Yani; lahir di Purworejo, Jawa Tengah, 19 Juni 1922 – meninggal di Lubang Buaya, Jakarta, 1 Oktober 1965 pada umur 43 tahun) adalah komandan Tentara Nasional Indonesia Angkatan Darat, dan dibunuh oleh anggota Gerakan 30 September saat mencoba untuk menculik dia dari rumahnya.</item>
         <item>Sutomo (lahir di Surabaya, Jawa Timur, 3 Oktober 1920 – meninggal di Padang Arafah, Arab Saudi, 7 Oktober 1981 pada umur 61 tahun) lebih dikenal dengan sapaan akrab oleh rakyat sebagai Bung Tomo, adalah pahlawan yang terkenal karena peranannya dalam membangkitkan semangat rakyat untuk melawan kembalinya penjajah Belanda melalui tentara NICA, yang berakhir dengan pertempuran 10 November 1945 yang hingga kini diperingati sebagai Hari Pahlawan.</item>
@@ -126,7 +164,6 @@
         <item>Tan Malaka atau Ibrahim gelar Datuk Sutan Malaka (lahir di Nagari Pandam Gadang, Suliki, Lima Puluh Kota, Sumatera Barat, 2 Juni 1897 – meninggal di Desa Selopanggung, Kediri, Jawa Timur, 21 Februari 1949 pada umur 51 tahun) adalah seorang pembela kemerdekaan Indonesia, tokoh Partai Komunis Indonesia, juga pendiri Partai Murba, dan merupakan salah satu Pahlawan Nasional Indonesia.</item>
         <item>Salah seorang ulama dan khatib terkemuka di Masjid Besar Kasultanan Yogyakarta pada masa itu, dan ibu dari K.H. Ahmad Dahlan adalah puteri dari H. Ibrahim yang juga menjabat penghulu Kesultanan Ngayogyakarta Hadiningrat pada masa itu. KH. Ahmad Dahlan telah mempelopori kebangkitan ummat Islam untuk menyadari nasibnya sebagai bangsa terjajah yang masih harus belajar dan berbuat. </item>
     </string-array>
-
     <string-array name="hero_photo">
         <item>https://upload.wikimedia.org/wikipedia/commons/3/3f/Ahmad_Yani.jpg</item>
         <item>https://upload.wikimedia.org/wikipedia/commons/e/ed/Bung_Tomo.jpg</item>
@@ -139,37 +176,4 @@
         <item>https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/TanMalaka_DariPendjara_ed3.jpg/330px-TanMalaka_DariPendjara_ed3.jpg</item>
         <item>https://upload.wikimedia.org/wikipedia/commons/8/87/Ahmad_Dahlan.jpg</item>
     </string-array>
-
-    <string name="locale_count_hello">Halo %1$s, kamu memiliki %2$d cubitan dari %3$s</string>
-    <string name="locale_good_morning">Selamat Pagi</string>
-    <plurals name="locale_count_plural_songs">
-        <item quantity="one">%d lagu ditemukan.</item>
-        <item quantity="other">%d lagu ditemukan.</item>
-    </plurals>
-    <string name="locale_language_settings">Ubah Pengaturan Bahasa</string>
-
-    <string name="sp_name" translatable="false">Nama</string>
-    <string name="sp_email" translatable="false">Email</string>
-    <string name="sp_handphone" translatable="false">Handphone</string>
-    <string name="sp_age" translatable="false">Age</string>
-    <string name="sp_hobby" translatable="false">Hobby</string>
-    <string name="sp_save" translatable="false">Save</string>
-    <string name="sp_change" translatable="false">Change</string>
-    <string name="sp_hobby_reading" translatable="false">Reading</string>
-    <string name="sp_hobby_else" translatable="false">No</string>
-    <string name="sp_field_required" translatable="false">Field tidak boleh kosong</string>
-    <string name="sp_field_digit_only" translatable="false">Hanya boleh terisi numerik</string>
-    <string name="sp_field_email_not_valid" translatable="false">Email tidak valid</string>
-
-    <string name="weather_description" translatable="false">Deskripsi</string>
-    <string name="weather_temperature" translatable="false">Temperatur</string>
-    <string name="weather_city" translatable="false">Nama Kota</string>
-    <string name="weather_insert_city" translatable="false">Masukkan id kota misal Jakarta = 1642911</string>
-    <string name="weather_search" translatable="false">Cari</string>
-    <string name="weather_id_jakarta_bandung_semarang" translatable="false">1642911,1650357,1627896</string>
-
-    <string name="tab_contact">Contacts</string>
-
-    <string name="profile_empty">[EMPTY]</string>
-    <string name="profile_warning">Please Login to view Your Profile</string>
 </resources>

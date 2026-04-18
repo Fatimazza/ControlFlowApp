@@ -13,6 +13,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup,android:icon,android:theme">
+        <activity
+            android:name=".bottomNav.BottomNavigationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_bottom_navigation" />
         <activity android:name=".fragmentsNavComponent.HomeNavActivity" />
         <activity android:name=".MyProfile.MyProfileActivity" />
         <activity android:name=".myProfileLogin.MyProfileLoginActivity"
