@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import id.co.iconpln.controlflowapp.databinding.ItemReviewBinding
 import id.co.iconpln.controlflowapp.restaurant.data.response.CustomerReviewsItem
 
-class RestaurantReviewAdapter(diffCallback: DiffUtil.ItemCallback<CustomerReviewsItem>) :
-    ListAdapter<CustomerReviewsItem, RestaurantReviewAdapter.ReviewViewHolder>(diffCallback) {
+class RestaurantReviewAdapter :
+    ListAdapter<CustomerReviewsItem, RestaurantReviewAdapter.ReviewViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -26,5 +26,9 @@ class RestaurantReviewAdapter(diffCallback: DiffUtil.ItemCallback<CustomerReview
 
     class ReviewViewHolder(val binding: ItemReviewBinding): RecyclerView.ViewHolder(binding.root) {
 
+    }
+
+    companion object {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<CustomerReviewsItem>() {}
     }
 }
