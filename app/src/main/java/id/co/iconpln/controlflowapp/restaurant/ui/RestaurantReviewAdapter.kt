@@ -1,12 +1,14 @@
 package id.co.iconpln.controlflowapp.restaurant.ui
 
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import id.co.iconpln.controlflowapp.databinding.ItemReviewBinding
 import id.co.iconpln.controlflowapp.restaurant.data.response.CustomerReviewsItem
 
-class RestaurantReviewAdapter: ListAdapter<CustomerReviewsItem, RestaurantReviewAdapter.ReviewViewHolder> {
+class RestaurantReviewAdapter(diffCallback: DiffUtil.ItemCallback<CustomerReviewsItem>) :
+    ListAdapter<CustomerReviewsItem, RestaurantReviewAdapter.ReviewViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
