@@ -22,6 +22,7 @@ android {
         buildConfigField("String", "CONTACT_BASE_URL", CONTACT_BASE_URL)
         buildConfigField("String", "USER_BASE_URL", USER_BASE_URL)
         buildConfigField("String", "PROFILE_BASE_URL", PROFILE_BASE_URL)
+        buildConfigField("String", "RESTAURANT_BASE_URL", RESTAURANT_BASE_URL)
     }
     buildTypes {
         release {
