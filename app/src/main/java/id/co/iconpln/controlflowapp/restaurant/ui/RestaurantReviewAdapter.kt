@@ -35,14 +35,14 @@ class RestaurantReviewAdapter :
                 oldItem: CustomerReviewsItem,
                 newItem: CustomerReviewsItem
             ): Boolean {
-                TODO("Not yet implemented")
+                return oldItem == newItem
             }
 
             override fun areContentsTheSame(
                 oldItem: CustomerReviewsItem,
                 newItem: CustomerReviewsItem
             ): Boolean {
-                TODO("Not yet implemented")
+                return oldItem == newItem
             }
         }
     }
