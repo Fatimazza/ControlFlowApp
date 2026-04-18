@@ -98,6 +98,12 @@
             android:text="Tab Layout"/>
 
         <Button
+            android:id="@+id/btnBottomNavNew"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Bottom Navigation"/>
+
+        <Button
             android:id="@+id/btnBottomNav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

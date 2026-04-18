@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import id.co.iconpln.controlflowapp.MyProfile.MyProfileActivity
+import id.co.iconpln.controlflowapp.bottomNav.BottomNavigationActivity
 import id.co.iconpln.controlflowapp.bottomSheetDialog.BottomSheetActivity
 import id.co.iconpln.controlflowapp.contact.ContactActivity
 import id.co.iconpln.controlflowapp.contactFragment.ContactTabActivity
@@ -49,6 +50,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnFragment.setOnClickListener(this)
         binding.btnNavFragment.setOnClickListener(this)
         binding.btnTab.setOnClickListener(this)
+        binding.btnBottomNavNew.setOnClickListener(this)
         binding.btnBottomNav.setOnClickListener(this)
         binding.btnNavDrawer.setOnClickListener(this)
         binding.btnBottomSheetDemo.setOnClickListener(this)
@@ -134,6 +136,11 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             binding.btnTab -> {
                 val tabIntent = Intent(this, TabActivity::class.java)
                 startActivity(tabIntent)
+            }
+
+            binding.btnBottomNavNew -> {
+                val bottomNavNewIntent = Intent(this, BottomNavigationActivity::class.java)
+                startActivity(bottomNavNewIntent)
             }
 
             binding.btnBottomNav -> {
