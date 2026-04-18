@@ -5,6 +5,7 @@ import id.co.iconpln.controlflowapp.model.myContact.BaseContactResponse
 import id.co.iconpln.controlflowapp.model.myContact.ContactResponse
 import id.co.iconpln.controlflowapp.model.myProfile.*
 import id.co.iconpln.controlflowapp.model.myUser.*
+import id.co.iconpln.controlflowapp.restaurant.data.response.RestaurantResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -108,6 +109,9 @@ class NetworkConfig {
             return getProfileRetrofit().create(ProfileAPIService::class.java)
         }
 
+        fun RestaurantApi(): RestaurantAPIService {
+            return getRestaurantRetrofit().create(RestaurantAPIService::class.java)
+        }
     }
 
 }
@@ -156,4 +160,12 @@ interface ProfileAPIService {
     @GET("api/v1/customer/profile")
     fun getProfile(@Header("Authorization") token: String)
             : Call<BaseProfileResponse<ProfileResponse>>
+}
+
+interface RestaurantAPIService {
+
+    @GET("detail/{id}")
+    fun getRestaurant(
+        @Path("id") id: String
+    ): Call<RestaurantResponse>
 }
