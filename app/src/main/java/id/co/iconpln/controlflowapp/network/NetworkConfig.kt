@@ -68,6 +68,22 @@ class NetworkConfig {
                 .build()
         }
 
+        private fun getRestaurantRetrofit(): Retrofit {
+            return retrofit ?: synchronized(this) {
+                retrofit ?: buildProfileRetrofit().also {
+                    retrofit = it
+                }
+            }
+        }
+
+        private fun buildRestaurantRetrofit(): Retrofit {
+            return Retrofit.Builder()
+                .baseUrl(BuildConfig.RESTAURANT_BASE_URL)
+                .client(getInterceptor())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+        }
+
         private fun getInterceptor(): OkHttpClient {
             val httpLoggingInterceptor = HttpLoggingInterceptor()
             httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
