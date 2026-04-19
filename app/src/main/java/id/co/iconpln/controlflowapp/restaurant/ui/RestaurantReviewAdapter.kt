@@ -1,5 +1,6 @@
 package id.co.iconpln.controlflowapp.restaurant.ui
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -14,18 +15,22 @@ class RestaurantReviewAdapter :
         parent: ViewGroup,
         viewType: Int
     ): ReviewViewHolder {
-        TODO("Not yet implemented")
+        val binding = ItemReviewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ReviewViewHolder(binding)
     }
 
     override fun onBindViewHolder(
         holder: ReviewViewHolder,
         position: Int
     ) {
-        TODO("Not yet implemented")
+        val review = getItem(position)
+        holder.bind(review)
     }
 
-    class ReviewViewHolder(val binding: ItemReviewBinding): RecyclerView.ViewHolder(binding.root) {
-
+    class ReviewViewHolder(val binding: ItemReviewBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(review: CustomerReviewsItem) {
+            binding.tvItem.text = "${review.review}\n- ${review.name}"
+        }
     }
 
     companion object {
