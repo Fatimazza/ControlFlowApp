@@ -71,7 +71,7 @@ class NetworkConfig {
 
         private fun getRestaurantRetrofit(): Retrofit {
             return retrofit ?: synchronized(this) {
-                retrofit ?: buildProfileRetrofit().also {
+                retrofit ?: buildRestaurantRetrofit().also {
                     retrofit = it
                 }
             }
