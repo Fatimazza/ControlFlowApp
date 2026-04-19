@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -14,8 +15,8 @@ import id.co.iconpln.controlflowapp.network.NetworkConfig
 import id.co.iconpln.controlflowapp.restaurant.data.response.CustomerReviewsItem
 import id.co.iconpln.controlflowapp.restaurant.data.response.PostReviewResponse
 import id.co.iconpln.controlflowapp.restaurant.data.response.Restaurant
-import id.co.iconpln.controlflowapp.restaurant.data.response.RestaurantResponse
 import id.co.iconpln.controlflowapp.restaurant.ui.RestaurantReviewAdapter
+import id.co.iconpln.controlflowapp.restaurant.ui.RestaurantViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,7 +38,12 @@ class RestaurantActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
         setupReviewRecyclerView()
-        findRestaurant()
+
+        val restaurantViewModel = ViewModelProvider(
+            this, ViewModelProvider.NewInstanceFactory()).get(RestaurantViewModel::class.java)
+        restaurantViewModel.restaurant.observe(this) { restaurant ->
+            setRestaurantData(restaurant)
+        }
 
         binding.btnSend.setOnClickListener { view ->
             postReview(binding.edReview.text.toString())
@@ -51,40 +57,6 @@ class RestaurantActivity : AppCompatActivity() {
         binding.rvReview.layoutManager = layoutManager
         val itemDecoration = DividerItemDecoration(this, layoutManager.orientation)
         binding.rvReview.addItemDecoration(itemDecoration)
-    }
-
-    private fun findRestaurant() {
-        showLoading(true)
-
-        val client = NetworkConfig.restaurantApi().getRestaurant(RESTAURANT_ID)
-        client.enqueue(object : Callback<RestaurantResponse> {
-
-            override fun onResponse(
-                call: Call<RestaurantResponse?>,
-                response: Response<RestaurantResponse?>
-            ) {
-                showLoading(false)
-                if (response.isSuccessful) {
-                    val responseBody = response.body()
-                    if (responseBody != null) {
-                        setRestaurantData(responseBody.restaurant)
-                        setReviewData(responseBody.restaurant.customerReviews)
-                    }
-                }
-                else {
-                    Log.e(TAG, "onFailure: ${response.message()}")
-                }
-            }
-
-            override fun onFailure(
-                call: Call<RestaurantResponse?>,
-                t: Throwable
-            ) {
-                showLoading(false)
-                Log.e(TAG, "onFailure: ${t.message}")
-            }
-            
-        })
     }
 
     private fun setRestaurantData(restaurant: Restaurant) {
