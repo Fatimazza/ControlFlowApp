@@ -1,6 +1,7 @@
 package id.co.iconpln.controlflowapp.restaurant
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -17,7 +18,7 @@ class RestaurantActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRestaurantBinding
 
     companion object {
-        private const val TAG = "MainActivity"
+        private const val TAG = "RestaurantActivity"
         private const val RESTAURANT_ID = "uewq1zg2zlskfw1e867"
     }
 
@@ -49,14 +50,21 @@ class RestaurantActivity : AppCompatActivity() {
                 call: Call<RestaurantResponse?>,
                 response: Response<RestaurantResponse?>
             ) {
-                TODO("Not yet implemented")
+                showLoading(false)
+                if (response.isSuccessful) {
+                    Log.e(TAG, "onSuccess: ${response.message()}")
+                }
+                else {
+                    Log.e(TAG, "onFailure: ${response.message()}")
+                }
             }
 
             override fun onFailure(
                 call: Call<RestaurantResponse?>,
                 t: Throwable
             ) {
-                TODO("Not yet implemented")
+                showLoading(false)
+                Log.e(TAG, "onFailure: ${t.message}")
             }
             
         })
