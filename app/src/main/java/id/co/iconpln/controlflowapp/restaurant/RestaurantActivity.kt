@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -112,14 +111,21 @@ class RestaurantActivity : AppCompatActivity() {
                 call: Call<PostReviewResponse?>,
                 response: Response<PostReviewResponse?>
             ) {
-                TODO("Not yet implemented")
+                showLoading(false)
+                val responseBody = response.body()
+                if (response.isSuccessful && responseBody != null) {
+                    setReviewData(responseBody.customerReviews)
+                } else {
+                    Log.e(TAG, "onFailure: ${response.message()}")
+                }
             }
 
             override fun onFailure(
                 call: Call<PostReviewResponse?>,
                 t: Throwable
             ) {
-                TODO("Not yet implemented")
+                showLoading(false)
+                Log.e(TAG, "onFailure: ${t.message}")
             }
         })
     }
