@@ -29,13 +29,17 @@ class RestaurantActivity : AppCompatActivity() {
         setupReviewRecyclerView()
 
         val restaurantViewModel = ViewModelProvider(
-            this, ViewModelProvider.NewInstanceFactory()).get(RestaurantViewModel::class.java)
+            this, ViewModelProvider.NewInstanceFactory()
+        ).get(RestaurantViewModel::class.java)
         restaurantViewModel.restaurant.observe(this) { restaurant ->
             setRestaurantData(restaurant)
         }
 
         restaurantViewModel.listReview.observe(this) { consumerReviews ->
             setReviewData(consumerReviews)
+        }
+        restaurantViewModel.isLoading.observe(this) {
+            showLoading(it)
         }
 
         binding.btnSend.setOnClickListener { view ->
