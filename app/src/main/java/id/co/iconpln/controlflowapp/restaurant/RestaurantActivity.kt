@@ -1,8 +1,11 @@
 package id.co.iconpln.controlflowapp.restaurant
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,6 +38,12 @@ class RestaurantActivity : AppCompatActivity() {
         supportActionBar?.hide()
         setupReviewRecyclerView()
         findRestaurant()
+
+        binding.btnSend.setOnClickListener { view ->
+            postReview(binding.edReview.text.toString())
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 
     private fun setupReviewRecyclerView() {
@@ -90,6 +99,10 @@ class RestaurantActivity : AppCompatActivity() {
         adapter.submitList(consumerReviews)
         binding.rvReview.adapter = adapter
         binding.edReview.setText("")
+    }
+
+    private fun postReview(review: String) {
+        Toast.makeText(this, review, Toast.LENGTH_SHORT).show()
     }
 
     private fun showLoading(isLoading: Boolean) {
