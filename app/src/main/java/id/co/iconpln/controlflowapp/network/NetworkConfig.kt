@@ -5,6 +5,7 @@ import id.co.iconpln.controlflowapp.model.myContact.BaseContactResponse
 import id.co.iconpln.controlflowapp.model.myContact.ContactResponse
 import id.co.iconpln.controlflowapp.model.myProfile.*
 import id.co.iconpln.controlflowapp.model.myUser.*
+import id.co.iconpln.controlflowapp.restaurant.data.response.PostReviewResponse
 import id.co.iconpln.controlflowapp.restaurant.data.response.RestaurantResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -168,4 +169,13 @@ interface RestaurantAPIService {
     fun getRestaurant(
         @Path("id") id: String
     ): Call<RestaurantResponse>
+
+    @FormUrlEncoded
+    @Headers("Authorization: token 12345")
+    @POST("review")
+    fun postReview(
+        @Field("id") id: String,
+        @Field("name") name: String,
+        @Field("review") review: String
+    ): Call<PostReviewResponse>
 }
