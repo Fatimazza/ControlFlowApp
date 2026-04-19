@@ -109,7 +109,7 @@ class NetworkConfig {
             return getProfileRetrofit().create(ProfileAPIService::class.java)
         }
 
-        fun RestaurantApi(): RestaurantAPIService {
+        fun restaurantApi(): RestaurantAPIService {
             return getRestaurantRetrofit().create(RestaurantAPIService::class.java)
         }
     }
