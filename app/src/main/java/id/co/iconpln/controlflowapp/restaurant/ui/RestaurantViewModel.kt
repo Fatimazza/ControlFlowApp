@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import id.co.iconpln.controlflowapp.network.NetworkConfig
 import id.co.iconpln.controlflowapp.restaurant.data.response.CustomerReviewsItem
+import id.co.iconpln.controlflowapp.restaurant.data.response.PostReviewResponse
 import id.co.iconpln.controlflowapp.restaurant.data.response.Restaurant
 import id.co.iconpln.controlflowapp.restaurant.data.response.RestaurantResponse
 import retrofit2.Call
@@ -56,6 +57,35 @@ class RestaurantViewModel : ViewModel() {
 
             override fun onFailure(
                 call: Call<RestaurantResponse?>,
+                t: Throwable
+            ) {
+                _isLoading.value = false
+                Log.e(TAG, "onFailure: ${t.message}")
+            }
+        })
+    }
+
+    fun postReview(review: String) {
+        _isLoading.value = true
+
+        val client = NetworkConfig.restaurantApi().postReview(RESTAURANT_ID, "Dico.ding", review)
+        client.enqueue(object : Callback<PostReviewResponse> {
+
+            override fun onResponse(
+                call: Call<PostReviewResponse?>,
+                response: Response<PostReviewResponse?>
+            ) {
+                _isLoading.value = false
+                val responseBody = response.body()
+                if (response.isSuccessful && responseBody != null) {
+                    _listReview.value = responseBody?.customerReviews
+                } else {
+                    Log.e(TAG, "onFailure: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(
+                call: Call<PostReviewResponse?>,
                 t: Throwable
             ) {
                 _isLoading.value = false
