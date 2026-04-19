@@ -102,7 +102,12 @@ class RestaurantActivity : AppCompatActivity() {
     }
 
     private fun postReview(review: String) {
-        Toast.makeText(this, review, Toast.LENGTH_SHORT).show()
+        showLoading(true)
+
+        val client = NetworkConfig.restaurantApi().postReview(RESTAURANT_ID, "Dico.ding", review)
+        client.enqueue(object : Callback<RestaurantResponse> {
+            
+        })
     }
 
     private fun showLoading(isLoading: Boolean) {
