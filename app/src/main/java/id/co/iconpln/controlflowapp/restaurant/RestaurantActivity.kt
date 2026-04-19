@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import id.co.iconpln.controlflowapp.databinding.ActivityRestaurantBinding
 import id.co.iconpln.controlflowapp.network.NetworkConfig
 import id.co.iconpln.controlflowapp.restaurant.data.response.CustomerReviewsItem
+import id.co.iconpln.controlflowapp.restaurant.data.response.PostReviewResponse
 import id.co.iconpln.controlflowapp.restaurant.data.response.Restaurant
 import id.co.iconpln.controlflowapp.restaurant.data.response.RestaurantResponse
 import id.co.iconpln.controlflowapp.restaurant.ui.RestaurantReviewAdapter
@@ -105,8 +106,21 @@ class RestaurantActivity : AppCompatActivity() {
         showLoading(true)
 
         val client = NetworkConfig.restaurantApi().postReview(RESTAURANT_ID, "Dico.ding", review)
-        client.enqueue(object : Callback<RestaurantResponse> {
-            
+        client.enqueue(object : Callback<PostReviewResponse> {
+
+            override fun onResponse(
+                call: Call<PostReviewResponse?>,
+                response: Response<PostReviewResponse?>
+            ) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onFailure(
+                call: Call<PostReviewResponse?>,
+                t: Throwable
+            ) {
+                TODO("Not yet implemented")
+            }
         })
     }
 
