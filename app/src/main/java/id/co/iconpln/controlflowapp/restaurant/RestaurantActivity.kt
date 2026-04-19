@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.databinding.ActivityRestaurantBinding
 import id.co.iconpln.controlflowapp.network.NetworkConfig
 import id.co.iconpln.controlflowapp.restaurant.data.response.RestaurantResponse
+import retrofit2.Call
 import retrofit2.Callback
+import retrofit2.Response
 
 class RestaurantActivity : AppCompatActivity() {
 
@@ -41,8 +43,22 @@ class RestaurantActivity : AppCompatActivity() {
         showLoading(true)
 
         val client = NetworkConfig.restaurantApi().getRestaurant(RESTAURANT_ID)
-        client.enqueue(object : Callback<RestaurantResponse>{
+        client.enqueue(object : Callback<RestaurantResponse> {
 
+            override fun onResponse(
+                call: Call<RestaurantResponse?>,
+                response: Response<RestaurantResponse?>
+            ) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onFailure(
+                call: Call<RestaurantResponse?>,
+                t: Throwable
+            ) {
+                TODO("Not yet implemented")
+            }
+            
         })
     }
 
