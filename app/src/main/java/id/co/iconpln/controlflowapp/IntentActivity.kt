@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import id.co.iconpln.controlflowapp.databinding.ActivityIntentBinding
 import id.co.iconpln.controlflowapp.model.Person
 import androidx.core.net.toUri
@@ -12,7 +13,19 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityIntentBinding
 
-    private val REQUEST_CODE = 110;
+    private val resultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == IntentMoveResultActivity.RESULT_CODE &&
+            result.data != null
+        ) {
+            val selectedValue = result.data?.getIntExtra(
+                IntentMoveResultActivity.EXTRA_SELECTED_VALUE,
+                0
+            )
+            binding.tvIntentResult.text = "Hasil : $selectedValue"
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -110,18 +123,7 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
 
             binding.btnMoveForResult -> {
                 val moveIntentForResult = Intent(this, IntentMoveResultActivity::class.java)
-                startActivityForResult(moveIntentForResult, REQUEST_CODE)
-            }
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == REQUEST_CODE) {
-            if (resultCode == IntentMoveResultActivity.RESULT_CODE) {
-                val selectedValue = data?.getIntExtra(IntentMoveResultActivity.EXTRA_SELECTED_VALUE, 0)
-                binding.tvIntentResult.text = "Hasilnya $selectedValue"
+                resultLauncher.launch(moveIntentForResult)
             }
         }
     }
