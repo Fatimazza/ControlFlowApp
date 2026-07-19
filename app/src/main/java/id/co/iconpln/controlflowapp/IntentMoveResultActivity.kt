@@ -11,7 +11,7 @@ class IntentMoveResultActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityIntentMoveResultBinding
 
     companion object {
-        const val EXTRA_VALUE = "extra_value"
+        const val EXTRA_SELECTED_VALUE = "extra_selected_value"
         const val RESULT_CODE = 110
     }
 
@@ -26,7 +26,7 @@ class IntentMoveResultActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         if (view.id == R.id.btnResultChoose) {
-            if (binding.rgNumber.checkedRadioButtonId != 0) {
+            if (binding.rgNumber.checkedRadioButtonId > 0) {
                 var value = 0
                 when (binding.rgNumber.checkedRadioButtonId) {
                     R.id.rb50 -> value = 50
@@ -36,7 +36,7 @@ class IntentMoveResultActivity : AppCompatActivity(), View.OnClickListener {
                 }
 
                 val resultIntent = Intent()
-                resultIntent.putExtra(EXTRA_VALUE, value)
+                resultIntent.putExtra(EXTRA_SELECTED_VALUE, value)
                 setResult(RESULT_CODE, resultIntent)
                 finish()
             }

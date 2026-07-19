@@ -1,7 +1,6 @@
 package id.co.iconpln.controlflowapp
 
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -121,7 +120,7 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
 
         if (requestCode == REQUEST_CODE) {
             if (resultCode == IntentMoveResultActivity.RESULT_CODE) {
-                val selectedValue = data?.getIntExtra(IntentMoveResultActivity.EXTRA_VALUE, 0)
+                val selectedValue = data?.getIntExtra(IntentMoveResultActivity.EXTRA_SELECTED_VALUE, 0)
                 binding.tvIntentResult.text = "Hasilnya $selectedValue"
             }
         }
