@@ -1,11 +1,9 @@
 package id.co.iconpln.controlflowapp.listFruit
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.databinding.ItemListFruitBinding
 import id.co.iconpln.controlflowapp.model.Fruit
 
 class ListFruitAdapter(
@@ -16,9 +14,10 @@ class ListFruitAdapter(
         parent: ViewGroup,
         viewType: Int
     ): ListFruitViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_list_fruit, parent, false)
-        return ListFruitViewHolder(view)
+        val binding = ItemListFruitBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        )
+        return ListFruitViewHolder(binding)
     }
 
     override fun onBindViewHolder(
@@ -26,12 +25,11 @@ class ListFruitAdapter(
         position: Int
     ) {
         val item = itemList[position]
-        holder.nameText.text = item.name
+        holder.binding.tvFruitName.text = item.name
     }
 
     override fun getItemCount(): Int = itemList.size
 
-    class ListFruitViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nameText: TextView = itemView.findViewById(R.id.tvFruitName)
-    }
+    class ListFruitViewHolder(var binding: ItemListFruitBinding) :
+        RecyclerView.ViewHolder(binding.root)
 }
