@@ -1,5 +1,6 @@
 package id.co.iconpln.controlflowapp.listFruit
 
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
@@ -23,7 +24,7 @@ class ListFruitAdapter: RecyclerView.Adapter<ListFruitAdapter.ListFruitViewHolde
         TODO("Not yet implemented")
     }
 
-    class ListFruitViewHolder: RecyclerView.ViewHolder {
+    class ListFruitViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
 }
