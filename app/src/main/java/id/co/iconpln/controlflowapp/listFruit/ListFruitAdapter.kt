@@ -3,7 +3,7 @@ package id.co.iconpln.controlflowapp.listFruit
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class ListFruitAdapter: RecyclerView.Adapter<ListFruitAdapter.ListFruitViewHolder> {
+class ListFruitAdapter: RecyclerView.Adapter<ListFruitAdapter.ListFruitViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -23,7 +23,7 @@ class ListFruitAdapter: RecyclerView.Adapter<ListFruitAdapter.ListFruitViewHolde
         TODO("Not yet implemented")
     }
 
-    class ListFruitViewHolder {
+    class ListFruitViewHolder: RecyclerView.ViewHolder {
 
     }
 }
