@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,6 +12,9 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup,android:icon,android:theme">
         <activity
+            android:name=".listFruit.ListFruitActivity"
+            android:exported="false" />
+        <activity
             android:name=".restaurant.RestaurantActivity"
             android:exported="false" />
         <activity
@@ -22,7 +23,8 @@
             android:label="@string/title_activity_bottom_navigation" />
         <activity android:name=".fragmentsNavComponent.HomeNavActivity" />
         <activity android:name=".MyProfile.MyProfileActivity" />
-        <activity android:name=".myProfileLogin.MyProfileLoginActivity"
+        <activity
+            android:name=".myProfileLogin.MyProfileLoginActivity"
             android:parentActivityName=".MyProfile.MyProfileActivity" />
         <activity
             android:name=".myProfileRegister.MyProfileRegisterActivity"
@@ -64,7 +66,8 @@
         <activity android:name=".OperationActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".ClassificationActivity" />
-        <activity android:name=".HomeActivity"
+        <activity
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -74,5 +77,7 @@
         </activity>
         <activity android:name=".MainActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
