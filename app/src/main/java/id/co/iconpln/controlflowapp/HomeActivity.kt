@@ -17,6 +17,7 @@ import id.co.iconpln.controlflowapp.hero.ListHeroActivity
 import id.co.iconpln.controlflowapp.fragmentTab.TabActivity
 import id.co.iconpln.controlflowapp.fragmentViewPager.ScrollActivity
 import id.co.iconpln.controlflowapp.fragmentsNavComponent.HomeNavActivity
+import id.co.iconpln.controlflowapp.listFruit.ListFruitActivity
 import id.co.iconpln.controlflowapp.myContact.MyContactActivity
 import id.co.iconpln.controlflowapp.myUser.MyUserActivity
 import id.co.iconpln.controlflowapp.restaurant.RestaurantActivity
@@ -47,6 +48,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnIntent.setOnClickListener(this)
         binding.btnConstraint.setOnClickListener(this)
         binding.btnComplexConstraint.setOnClickListener(this)
+        binding.btnSimpleRV.setOnClickListener(this)
         binding.btnRecyclerView.setOnClickListener(this)
         binding.btnFragment.setOnClickListener(this)
         binding.btnNavFragment.setOnClickListener(this)
@@ -118,6 +120,11 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             binding.btnComplexConstraint -> {
                 val complexConstraintIntent = Intent(this, ComplexConstraintActivity::class.java)
                 startActivity(complexConstraintIntent)
+            }
+
+            binding.btnSimpleRV -> {
+                val listFruitIntent = Intent(this, ListFruitActivity::class.java)
+                startActivity(listFruitIntent)
             }
 
             binding.btnRecyclerView -> {
